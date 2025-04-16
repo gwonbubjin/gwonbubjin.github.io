@@ -1,0 +1,456 @@
+/* 변수 정의 - 색상 테마 */
+:root {
+  /* 라이트 모드 변수 */
+  --bg-color: rgba(255, 255, 255, 0.9);
+  --text-color: #333;
+  --primary-color: #7e57c2;
+  --secondary-color: #b085f5;
+  --accent-color: #ff7043;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --button-bg: #7e57c2;
+  --button-text: white;
+  --button-hover: #6a46b2;
+  --button-active: #5c3994;
+  --overlay-color: rgba(0, 0, 0, 0.5);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 다크 모드 변수 */
+[data-theme="dark"] {
+  --bg-color: rgba(33, 33, 33, 0.9);
+  --text-color: #f0f0f0;
+  --primary-color: #b085f5;
+  --secondary-color: #8e67e0;
+  --accent-color: #ff9e80;
+  --card-bg: rgba(48, 48, 48, 0.85);
+  --button-bg: #9575cd;
+  --button-text: white;
+  --button-hover: #8667bc;
+  --button-active: #7859b7;
+  --overlay-color: rgba(0, 0, 0, 0.7);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 전체 리셋 스타일 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-color);
+  min-height: 100vh;
+  background: url('../assets/bg.jpg') no-repeat center center / cover;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* 배경 오버레이 */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-color);
+  backdrop-filter: blur(5px);
+  z-index: -1;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+header {
+  text-align: center;
+  padding: 1rem 0 2rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* 제목 색상 강조 */
+.title-highlight {
+  color: #ff7043; /* 더 눈에 띄는 색상으로 변경 */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+  font-weight: 800;
+}
+
+/* 타이머 섹션 */
+.timer-section {
+  background-color: var(--card-bg);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.timer-display {
+  font-size: 5rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  font-variant-numeric: tabular-nums;
+  color: var(--primary-color);
+}
+
+/* 타이머 컨트롤 버튼 */
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+/* 타이머 모드 선택 */
+.timer-modes {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* 명언 섹션 */
+.quote-section {
+  background-color: var(--card-bg);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+.quote {
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.quote-author {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+/* 오디오 컨트롤 */
+.audio-controls {
+  background-color: var(--card-bg);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+/* 오디오 헤더 조정 */
+.audio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.audio-header h3 {
+  margin-bottom: 0;
+}
+
+/* 음악 선택 드롭다운 스타일 */
+.music-selection {
+  width: auto;
+  max-width: 150px;
+}
+
+.music-dropdown {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.3rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.music-dropdown:focus {
+  border-color: var(--primary-color);
+}
+
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.volume-slider {
+  flex-grow: 1;
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: var(--secondary-color);
+  border-radius: 5px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  cursor: pointer;
+}
+
+/* 버튼 스타일 */
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+}
+
+button:active {
+  background-color: var(--button-active);
+  transform: translateY(0);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  padding: 0;
+}
+
+/* 상단 고정 컨트롤 */
+.top-controls {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 100;
+}
+
+/* 음악 컨트롤 */
+.music-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.music-toggle {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  cursor: pointer;
+}
+
+.music-dropdown-container {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background-color: var(--card-bg);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+  min-width: 150px;
+}
+
+.music-toggle:hover + .music-dropdown-container,
+.music-dropdown-container:hover {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* 테마 토글 위치 조정 */
+.theme-toggle {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  z-index: 100;
+  position: static;
+}
+
+/* 푸터 섹션 */
+footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: auto;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+  .timer-display {
+    font-size: 4rem;
+  }
+  
+  .timer-controls {
+    flex-wrap: wrap;
+  }
+  
+  .timer-modes button {
+    flex-grow: 1;
+    min-width: 110px;
+  }
+  
+  .top-controls {
+    gap: 0.5rem;
+  }
+  
+  .music-toggle, .theme-toggle {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timer-display {
+    font-size: 3rem;
+  }
+  
+  .timer-controls button,
+  .timer-modes button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .quote {
+    font-size: 1rem;
+  }
+}
+
+/* 커스텀 타이머 설정 폼 */
+.custom-timer-form {
+  background-color: var(--card-bg);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  animation: fadeIn 0.3s ease;
+}
+
+.custom-timer-form.show {
+  display: flex;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  min-width: 100px;
+}
+
+.form-group input {
+  padding: 0.5rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.3rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+#custom-minutes {
+  width: 60px;
+  text-align: center;
+}
+
+#custom-label {
+  flex-grow: 1;
+  min-width: 150px;
+}
+
+#apply-custom-time, #cancel-custom-time {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.custom-timer-btn {
+  background-color: var(--accent-color);
+}
+
+.custom-timer-btn:hover {
+  background-color: #ff8a65;
+}
+
+/* 활성화된 버튼 스타일 */
+.timer-modes button.active {
+  background-color: var(--accent-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+} 
