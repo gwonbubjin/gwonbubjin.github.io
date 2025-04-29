@@ -173,9 +173,14 @@ h2 {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2.5rem;
     margin-top: 3rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .skill-item {
+    position: relative;
     text-align: center;
     padding: 2.5rem;
     background-color: var(--secondary-color);
@@ -188,27 +193,15 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    aspect-ratio: 1 / 1;
 }
 
-.skill-item:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-color);
-}
-
-.skill-item i {
-    font-size: 3rem;
-    color: var(--primary-color);
+.skill-item img {
+    width: 4rem;
+    height: 4rem;
     margin-bottom: 1.5rem;
-}
-
-.skill-item span {
-    font-size: 1.2rem;
-    font-weight: 500;
-}
-
-.skill-item.web-dev {
-    grid-column: span 1;
-    padding: 2rem;
+    transition: var(--transition);
+    object-fit: contain;
 }
 
 .skill-icons {
@@ -218,23 +211,16 @@ h2 {
     margin-bottom: 1.5rem;
 }
 
-.skill-icons i {
-    font-size: 2.5rem;
-    margin: 0;
-    color: var(--primary-color);
-}
-
-.skill-item img {
+.skill-icons img {
     width: 3rem;
     height: 3rem;
-    margin-bottom: 1.5rem;
-    transition: var(--transition);
+    margin: 0;
+    object-fit: contain;
 }
 
-.skill-icons img {
-    width: 2.5rem;
-    height: 2.5rem;
-    margin: 0;
+.skill-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
 }
 
 .skill-item:hover img {
@@ -363,7 +349,8 @@ h2 {
 
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
+        gap: 1.5rem;
+        padding: 0 1rem;
     }
 
     .skill-item {
@@ -371,22 +358,14 @@ h2 {
         min-height: 180px;
     }
 
-    .skill-item i {
-        font-size: 2.5rem;
-    }
-
-    .skill-icons i {
-        font-size: 2rem;
-    }
-
     .skill-item img {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 3rem;
+        height: 3rem;
     }
     
     .skill-icons img {
-        width: 2rem;
-        height: 2rem;
+        width: 2.5rem;
+        height: 2.5rem;
     }
 
     .projects-grid, .games-grid {
@@ -396,8 +375,8 @@ h2 {
 
 @media (max-width: 480px) {
     .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
     }
 
     .skill-item {
