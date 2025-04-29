@@ -5,6 +5,7 @@ const translations = {
         about: '소개',
         skills: '기술',
         projects: '프로젝트',
+        libraries: '라이브러리',
         games: '게임',
         contact: '연락처',
         name: '이름',
@@ -17,6 +18,7 @@ const translations = {
         about: 'About',
         skills: 'Skills',
         projects: 'Projects',
+        libraries: 'Libraries',
         games: 'Games',
         contact: 'Contact',
         name: 'Name',
@@ -29,6 +31,7 @@ const translations = {
         about: '自己紹介',
         skills: 'スキル',
         projects: 'プロジェクト',
+        libraries: 'ライブラリ',
         games: 'ゲーム',
         contact: 'お問い合わせ',
         name: '名前',
@@ -104,5 +107,81 @@ window.addEventListener('scroll', () => {
         navbar.style.background = 'rgba(36, 36, 36, 0.9)';
     } else {
         navbar.style.background = 'var(--secondary-color)';
+    }
+});
+
+// 문서 로드 완료 시 실행
+document.addEventListener('DOMContentLoaded', function() {
+    // 홈 버튼 클릭 가능하도록 설정
+    const homeButtons = document.querySelectorAll('.home-buttons a');
+    homeButtons.forEach(button => {
+        button.style.position = 'relative';
+        button.style.zIndex = '100';
+        button.style.pointerEvents = 'auto';
+    });
+    
+    // 모든 게임 보기 기능
+    const showAllGamesBtn = document.getElementById('show-all-games-btn');
+    const gamesContainer = document.querySelector('.games-container');
+    
+    if (showAllGamesBtn && gamesContainer) {
+        // 초기 상태 설정
+        const hiddenRows = gamesContainer.querySelector('.hidden-rows');
+        
+        showAllGamesBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            gamesContainer.classList.toggle('show-all-games');
+            
+            if (gamesContainer.classList.contains('show-all-games')) {
+                showAllGamesBtn.textContent = '접기';
+            } else {
+                showAllGamesBtn.textContent = '모든 게임 보기';
+            }
+        });
+    }
+    
+    // 코드 디스플레이 하이라이팅
+    const codeBlock = document.querySelector('.code-display code');
+    if (codeBlock) {
+        // 키워드 강조 처리
+        const keywords = ['class', 'constructor', 'this', 'return', 'new', 'function', 'const', 'let', 'var', 'if', 'else', 'for', 'while', 'try', 'catch'];
+        let codeContent = codeBlock.innerHTML;
+        
+        // 키워드 강조
+        keywords.forEach(keyword => {
+            const regex = new RegExp(`\\b${keyword}\\b`, 'g');
+            codeContent = codeContent.replace(regex, `<span class="keyword">${keyword}</span>`);
+        });
+        
+        // 문자열 강조
+        codeContent = codeContent.replace(/"([^"]*)"/g, '<span class="string">"$1"</span>');
+        
+        // 숫자 강조
+        codeContent = codeContent.replace(/\b(\d+)\b/g, '<span class="number">$1</span>');
+        
+        codeBlock.innerHTML = codeContent;
+    }
+    
+    // 라이브러리 미리보기 메시지
+    const previewContainers = document.querySelectorAll('.library-preview');
+    
+    if (previewContainers.length > 0) {
+        previewContainers.forEach((container, index) => {
+            const placeholder = document.createElement('div');
+            placeholder.className = 'preview-placeholder';
+            placeholder.innerHTML = `
+                <div class="placeholder-content">
+                    <h4>라이브러리 미리보기</h4>
+                    <p>실제 데모는 준비 중입니다</p>
+                </div>
+            `;
+            
+            // iframe 대신 임시 메시지 표시
+            const frame = container.querySelector('.preview-frame');
+            if (frame) {
+                frame.style.display = 'none';
+                container.appendChild(placeholder);
+            }
+        });
     }
 }); 
