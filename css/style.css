@@ -8,6 +8,8 @@
     --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     --nav-height: 70px;
     --section-padding: 100px;
+    --border-radius: 8px;
+    --box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
 }
 
 .light-mode {
@@ -16,6 +18,7 @@
     --secondary-color: #e9ecef;
     --primary-color: #0066cc;
     --primary-hover: #004d99;
+    --box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -47,6 +50,7 @@ body {
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: var(--transition);
+    box-shadow: var(--box-shadow);
 }
 
 .nav-container {
@@ -78,7 +82,7 @@ body {
     font-size: 0.9rem;
     font-weight: 500;
     padding: 0.5rem 1rem;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     transition: var(--transition);
 }
 
@@ -95,7 +99,7 @@ body {
 
 #language-select {
     padding: 0.5rem 1rem;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     background-color: var(--secondary-color);
     color: var(--text-color);
     border: 1px solid var(--primary-color);
@@ -133,6 +137,13 @@ body {
     width: 100%;
 }
 
+h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
 /* Home 섹션 */
 #home {
     padding-top: calc(var(--nav-height) + var(--section-padding));
@@ -159,18 +170,24 @@ body {
 /* Skills 섹션 */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
     margin-top: 3rem;
 }
 
 .skill-item {
     text-align: center;
-    padding: 2rem;
+    padding: 2.5rem;
     background-color: var(--secondary-color);
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     transition: var(--transition);
     border: 1px solid transparent;
+    box-shadow: var(--box-shadow);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .skill-item:hover {
@@ -181,12 +198,30 @@ body {
 .skill-item i {
     font-size: 3rem;
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .skill-item span {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 500;
+}
+
+.skill-item.web-dev {
+    grid-column: span 1;
+    padding: 2rem;
+}
+
+.skill-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.skill-icons i {
+    font-size: 2.5rem;
+    margin: 0;
+    color: var(--primary-color);
 }
 
 /* Projects & Games 섹션 */
@@ -199,10 +234,11 @@ body {
 
 .project-card, .game-card {
     background-color: var(--secondary-color);
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     overflow: hidden;
     transition: var(--transition);
     border: 1px solid transparent;
+    box-shadow: var(--box-shadow);
 }
 
 .project-card:hover, .game-card:hover {
@@ -234,10 +270,12 @@ body {
     background-color: var(--primary-color);
     color: var(--background-color);
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     transition: var(--transition);
     margin: 1.5rem;
     font-weight: 500;
+    border: none;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -265,7 +303,7 @@ body {
 .form-group textarea {
     width: 100%;
     padding: 1rem;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     border: 1px solid var(--primary-color);
     background-color: var(--secondary-color);
     color: var(--text-color);
@@ -308,6 +346,20 @@ body {
 
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .skill-item {
+        padding: 2rem;
+        min-height: 180px;
+    }
+
+    .skill-item i {
+        font-size: 2.5rem;
+    }
+
+    .skill-icons i {
+        font-size: 2rem;
     }
 
     .projects-grid, .games-grid {
@@ -318,5 +370,11 @@ body {
 @media (max-width: 480px) {
     .skills-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .skill-item {
+        padding: 1.5rem;
+        min-height: 160px;
     }
 } 
