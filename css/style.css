@@ -10,15 +10,29 @@
     --section-padding: 100px;
     --border-radius: 8px;
     --box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+    --heading-color: #e6f1ff;
+    --card-title-color: #00d9ff;
+    --card-text-color: #e6f1ff;
+    --card-bg-color: #152233;
+    --button-text-color: #fff;
+    --button-bg-color: #6c7ee1;
+    --button-hover-color: #5262c7;
 }
 
 .light-mode {
     --background-color: #f8f9fa;
-    --text-color: #1a1a1a;
+    --text-color: #1e1e1e;
     --secondary-color: #e9ecef;
     --primary-color: #0066cc;
     --primary-hover: #004d99;
     --box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
+    --heading-color: #1e1e1e;
+    --card-title-color: #0066cc;
+    --card-text-color: #333333;
+    --card-bg-color: #ffffff;
+    --button-text-color: #fff;
+    --button-bg-color: #4d7cff;
+    --button-hover-color: #3a5bbf;
 }
 
 * {
@@ -141,30 +155,269 @@ h2 {
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
     margin-bottom: 2rem;
-    color: var(--text-color);
+    color: var(--heading-color);
+}
+
+/* 라이트모드에서 모든 섹션 제목 색상 수정 */
+.light-mode h2,
+.light-mode .section-title,
+.light-mode #home h1,
+.light-mode #about h2,
+.light-mode #skills h2,
+.light-mode #projects h2,
+.light-mode #contact h2,
+.light-mode .project-group .group-title {
+    color: #1e1e1e !important;
 }
 
 /* Home 섹션 */
-#home {
-    padding-top: calc(var(--nav-height) + var(--section-padding));
+.home-section {
+    position: relative;
+    min-height: 100vh;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color);
+    overflow: hidden;
 }
 
-.title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+.home-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 10%, rgba(100, 255, 218, 0.1), transparent 50%);
+}
+
+.home-container {
+    max-width: 1400px;
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 0 2rem;
+    height: 90vh;
+    align-items: center;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.home-text {
+    max-width: 600px;
+}
+
+.greeting {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.home-section .title {
+    font-size: 4.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
     line-height: 1.1;
 }
 
-.highlight {
-    color: var(--primary-color);
-}
-
-.subtitle {
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
+.home-section .subtitle {
+    font-size: 1.8rem;
     color: var(--text-color);
     opacity: 0.8;
+    margin-bottom: 2.5rem;
+}
+
+.home-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 50;
+}
+
+.home-buttons a {
+    position: relative;
+    z-index: 100;
+    display: inline-block;
+    pointer-events: auto;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.btn-outline:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-icons a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.code-display {
+    background-color: #1e293b;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+    overflow: hidden;
+    width: 100%;
     max-width: 600px;
+    align-self: center;
+}
+
+.code-header {
+    background-color: #0f172a;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.code-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #f87171;
+    margin-right: 8px;
+}
+
+.code-dot:nth-child(2) {
+    background-color: #fbbf24;
+}
+
+.code-dot:nth-child(3) {
+    background-color: #34d399;
+}
+
+.code-title {
+    margin-left: 12px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.code-display pre {
+    margin: 0;
+    padding: 1.5rem;
+    overflow-x: auto;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
+.code-display code {
+    display: block;
+}
+
+.code-display .language-javascript {
+    color: #e2e8f0;
+}
+
+.code-display .language-javascript .keyword {
+    color: #93c5fd;
+}
+
+.code-display .language-javascript .string {
+    color: #86efac;
+}
+
+.code-display .language-javascript .number {
+    color: #fdba74;
+}
+
+@media (max-width: 1100px) {
+    .home-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding-top: 6rem;
+        height: auto;
+    }
+    
+    .home-text {
+        max-width: 100%;
+        text-align: center;
+        margin: 0 auto;
+    }
+    
+    .home-section .title {
+        font-size: 3.5rem;
+    }
+    
+    .home-section .subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .home-buttons {
+        justify-content: center;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+    
+    .code-display {
+        margin: 0 auto 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-section .title {
+        font-size: 2.5rem;
+    }
+    
+    .home-section .subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .greeting {
+        font-size: 1.3rem;
+    }
+    
+    .home-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .code-display {
+        width: 100%;
+    }
+    
+    .code-display pre {
+        padding: 1rem;
+        font-size: 0.8rem;
+    }
 }
 
 /* Skills 섹션 */
@@ -227,44 +480,77 @@ h2 {
     transform: scale(1.1);
 }
 
-/* Projects & Games 섹션 */
-.projects-grid, .games-grid {
+/* Projects 섹션 */
+.project-group {
+    margin-bottom: 5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-group:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.project-group .group-title {
+    font-size: 1.8rem;
+    color: var(--heading-color);
+    margin-bottom: 2rem;
+    position: relative;
+    padding-left: 1rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
-.project-card, .game-card {
-    background-color: var(--secondary-color);
-    border-radius: var(--border-radius);
+.project-card {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
     overflow: hidden;
+    height: auto;
+    box-shadow: var(--box-shadow);
     transition: var(--transition);
     border: 1px solid transparent;
-    box-shadow: var(--box-shadow);
 }
 
-.project-card:hover, .game-card:hover {
+.project-card:hover {
     transform: translateY(-5px);
     border-color: var(--primary-color);
 }
 
-.project-card img, .game-card img {
+.project-card img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;   /* 이미지를 비율대로 전체 보이게 */
+    object-position: center; /* 중앙 정렬 */
+    display: block;
+    margin: 0 auto;
+    background-color: #fff; /* 배경 정리 */
 }
 
-.project-card h3, .game-card h3 {
-    padding: 1.5rem;
+.project-card h3 {
+    padding: 1.5rem 1.5rem 0.5rem;
     margin: 0;
     font-size: 1.3rem;
+    color: var(--card-title-color);
 }
 
 .project-card p {
     padding: 0 1.5rem;
     margin-bottom: 1.5rem;
     opacity: 0.8;
+    color: var(--card-text-color);
+    text-align: center;
 }
 
 .btn {
@@ -275,7 +561,7 @@ h2 {
     text-decoration: none;
     border-radius: var(--border-radius);
     transition: var(--transition);
-    margin: 1.5rem;
+    margin: 0 1.5rem 1.5rem;
     font-weight: 500;
     border: none;
     cursor: pointer;
@@ -284,6 +570,299 @@ h2 {
 .btn:hover {
     background-color: var(--primary-hover);
     transform: translateY(-2px);
+}
+
+/* 라이브러리 프로젝트 스타일 */
+.libraries-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.library-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    padding: 0;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.library-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.library-info {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.library-info h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--card-title-color);
+}
+
+.library-info p {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    color: var(--card-text-color);
+}
+
+.library-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.library-preview {
+    background-color: rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--background-color);
+}
+
+.preview-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--secondary-color), var(--background-color));
+    text-align: center;
+}
+
+.placeholder-content {
+    padding: 2rem;
+    border: 2px dashed var(--primary-color);
+    border-radius: var(--border-radius);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.placeholder-content h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.placeholder-content p {
+    opacity: 0.8;
+}
+
+/* 게임 프로젝트 스타일 */
+#games {
+    background-color: #0a1930;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.games-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding: 0 2rem 3rem;
+}
+
+.project-group h3.group-title {
+    color: #00d9ff;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 5rem;
+    font-weight: 600;
+}
+
+/* 그리드 레이아웃 - 카드 단위로 정렬 */
+.games-row, .hidden-rows {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+/* 게임 카드 */
+.games-row .project-card, .hidden-rows .project-card {
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    height: auto;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    position: relative;
+    padding: 0;
+}
+
+.games-row .project-card img, .hidden-rows .project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.games-row .project-card h3, .hidden-rows .project-card h3 {
+    font-size: 1.2rem;
+    color: var(--card-title-color);
+    font-weight: 500;
+    text-align: center;
+    margin: 1.5rem 0 1rem;
+    padding: 0 1rem;
+}
+
+/* 프로젝트 카드 버튼 스타일 */
+.project-card .buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 5;
+}
+
+/* 버튼 스타일 */
+.project-card .btn {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 80px;
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+    border: none;
+    cursor: pointer;
+}
+
+.project-card .btn:hover {
+    background-color: var(--button-hover-color);
+    transform: translateY(-2px);
+}
+
+/* 숨겨진 행 스타일 */
+.hidden-rows {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, transform 0.5s ease, max-height 0.5s ease;
+}
+
+.games-container.show-all-games .hidden-rows {
+    display: grid;
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 2000px;
+    margin-bottom: 2rem;
+}
+
+/* 더 보기 버튼 */
+.show-all {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.show-all .btn {
+    background-color: #6c7ee1;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-weight: 500;
+    border: none;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(108, 126, 225, 0.3);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.show-all .btn:hover {
+    background-color: #5262c7;
+    box-shadow: 0 6px 15px rgba(108, 126, 225, 0.5);
+    transform: translateY(-2px);
+}
+
+/* 반응형 그리드 */
+@media (max-width: 1200px) {
+    .games-row, .hidden-rows {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .games-row, .hidden-rows {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .games-row, .hidden-rows {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .project-group h3.group-title {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .project-card {
+        height: 300px;
+    }
+    
+    .project-card img {
+        height: 160px;
+    }
+}
+
+@media (max-width: 576px) {
+    .games-row, .hidden-rows {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 /* Contact 섹션 */
@@ -300,6 +879,7 @@ h2 {
     display: block;
     margin-bottom: 0.8rem;
     font-weight: 500;
+    color: var(--text-color);
 }
 
 .form-group input,
@@ -324,63 +904,672 @@ h2 {
     resize: vertical;
 }
 
-/* 반응형 디자인 */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        padding: 1rem;
-        height: auto;
-    }
+/* About 섹션 */
+#about {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
 
-    .nav-links {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-        margin: 1rem 0;
-    }
+#about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--secondary-color) 25%, transparent 25%) -50px 0,
+                linear-gradient(225deg, var(--secondary-color) 25%, transparent 25%) -50px 0,
+                linear-gradient(315deg, var(--secondary-color) 25%, transparent 25%),
+                linear-gradient(45deg, var(--secondary-color) 25%, transparent 25%);
+    background-size: 100px 100px;
+    background-color: var(--background-color);
+    opacity: 0.05;
+    z-index: -1;
+}
 
-    .nav-controls {
-        margin-top: 1rem;
-    }
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    position: relative;
+}
 
-    .section {
-        padding: calc(var(--nav-height) + 2rem) 1rem;
-    }
+.about-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-        padding: 0 1rem;
-    }
+.profile-image {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 4px solid var(--primary-color);
+    box-shadow: var(--box-shadow);
+    animation: float 6s ease-in-out infinite;
+}
 
-    .skill-item {
-        padding: 2rem;
-        min-height: 180px;
+@keyframes float {
+    0% {
+        transform: translateY(0px);
     }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
 
-    .skill-item img {
-        width: 3rem;
-        height: 3rem;
+.profile-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(100, 255, 218, 0.3), transparent 70%);
+    z-index: 1;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: var(--transition);
+}
+
+.profile-image:hover img {
+    transform: scale(1.05);
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    opacity: 0.9;
+    text-align: left;
+}
+
+.about-text strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.quotes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.quote-card {
+    background: var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.quote-card::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    font-size: 120px;
+    font-family: Georgia, serif;
+    color: var(--primary-color);
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.quote-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px -15px rgba(0, 0, 0, 0.5);
+}
+
+.quote-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.quote-author {
+    font-size: 0.9rem;
+    text-align: right;
+    color: var(--card-title-color);
+    font-weight: 500;
+}
+
+@media (max-width: 992px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
     
-    .skill-icons img {
-        width: 2.5rem;
-        height: 2.5rem;
+    .about-profile {
+        margin-bottom: 1rem;
     }
+    
+    .quotes-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
 
-    .projects-grid, .games-grid {
-        grid-template-columns: 1fr;
+@media (max-width: 768px) {
+    .profile-image {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .about-text {
+        font-size: 1rem;
+    }
+    
+    .quotes-container {
+        gap: 1.5rem;
+    }
+    
+    .quote-card {
+        padding: 1.5rem;
+    }
+    
+    .quote-text {
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .skills-grid {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 1rem;
+    .profile-image {
+        width: 180px;
+        height: 180px;
     }
+    
+    .quotes-container {
+        grid-template-columns: 1fr;
+    }
+}
 
-    .skill-item {
-        padding: 1.5rem;
-        min-height: 160px;
+/* Projects 섹션 메인 타이틀 스타일 강화 */
+section#projects h2,
+.container h2,
+.section-title {
+    color: inherit !important; /* 미디어 쿼리에서 지정한 색상 상속 */
+    font-weight: 700;
+}
+
+/* 다크모드와 라이트모드에 따른 텍스트 색상 설정 */
+@media (prefers-color-scheme: dark) {
+  /* 전체 카드 및 컨텐츠 텍스트 색상 */
+  .project-card h3,
+  .project-card p,
+  .library-info h4,
+  .library-info p,
+  .quote-text,
+  .about-text,
+  h2,
+  section#projects h2,
+  .container h2,
+  .section-title,
+  .project-group .group-title {
+    color: #f1f1f1 !important; /* 밝은 텍스트 (다크 배경 위에) */
+  }
+  
+  /* 강조 텍스트 색상 */
+  .project-card h3,
+  .library-info h4,
+  .quote-author {
+    color: #00d9ff !important; /* 청록색 강조 (다크 모드) */
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  /* 전체 카드 및 컨텐츠 텍스트 색상 */
+  .project-card h3,
+  .project-card p,
+  .library-info h4,
+  .library-info p,
+  .quote-text,
+  .about-text,
+  h2,
+  section#projects h2,
+  .container h2,
+  .section-title,
+  .project-group .group-title {
+    color: #1e1e1e !important; /* 어두운 텍스트 (밝은 배경 위에) */
+  }
+  
+  /* 강조 텍스트 색상 */
+  .project-card h3,
+  .library-info h4,
+  .quote-author {
+    color: #0066cc !important; /* 파란색 강조 (라이트 모드) */
+  }
+}
+
+/* 고정된 색상 값으로 덮어씌워지지 않도록 !important 추가 */
+.project-card h3 {
+    padding: 1.5rem 1.5rem 0.5rem;
+    margin: 0;
+    font-size: 1.3rem;
+    color: inherit !important;
+}
+
+.project-card p {
+    padding: 0 1.5rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+    color: inherit !important;
+}
+
+.project-group .group-title {
+    font-size: 1.8rem;
+    color: inherit !important;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-left: 1rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.library-info h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: inherit !important;
+}
+
+.library-info p {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    color: inherit !important;
+}
+
+.games-container .project-card h3 {
+    font-size: 1.2rem;
+    color: inherit !important;
+    font-weight: 500;
+    text-align: center;
+    margin: 1.5rem 0 1rem;
+    padding: 0 1rem;
+}
+
+/* 라이트모드에서 About 섹션의 텍스트 색상 수정 */
+.light-mode .about-text,
+.light-mode .quote-text,
+.light-mode .quote-author,
+.light-mode .about-container p,
+.light-mode .quotes-container p {
+    color: #1e1e1e !important;
+}
+
+.light-mode .quote-author {
+    color: #0066cc !important;
+}
+
+/* 게임 카드 */
+.game-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 100%;
+    display: block;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.game-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.game-card-content {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game-card-title {
+    font-size: 1rem;
+    margin: 0;
+    color: var(--text-color-reverse);
+}
+
+.game-card .buttons {
+    display: flex;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.game-card .btn {
+    background-color: #6c7ee1;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+}
+
+.game-card .btn:hover {
+    background-color: #5162c5;
+}
+
+/* 게임 버튼 컨테이너 */
+.games-button-container {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.show-all-btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.show-all-btn:hover {
+    background-color: #5162c5;
+}
+
+/* 프로젝트 기술 스택 아이콘 스타일 */
+.project-tech-stack {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.tech-icons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 8px 15px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.tech-icons img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.tech-icons img:hover {
+    transform: scale(1.2);
+}
+
+/* 다크모드/라이트모드에 맞춘 배경 조정 */
+.dark-mode .tech-icons {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.light-mode .tech-icons {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* 마무리 인사 영역 스타일 */
+.closing-section {
+    min-height: auto;
+    padding: 6rem 2rem;
+    background-color: var(--background-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.closing-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 90% 90%, rgba(100, 255, 218, 0.1), transparent 50%);
+    z-index: 0;
+}
+
+.closing-container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    z-index: 1;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.light-mode .closing-container {
+    background-color: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.closing-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    color: var(--text-color);
+}
+
+.closing-text:last-child {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .closing-section {
+        padding: 4rem 1.5rem;
     }
+    
+    .closing-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .closing-text {
+        font-size: 1rem;
+    }
+    
+    .closing-text:last-child {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .closing-section {
+        padding: 3rem 1rem;
+    }
+    
+    .closing-container {
+        padding: 1.5rem 1rem;
+    }
+    
+    .closing-text {
+        font-size: 0.9rem;
+    }
+    
+    .closing-text:last-child {
+        font-size: 1rem;
+    }
+}
+
+/* 라이트 모드 시각적 향상을 위한 섹션 스타일 */
+.light-mode #about {
+    position: relative;
+    overflow: hidden;
+}
+
+.light-mode #about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 35%, rgba(106, 130, 251, 0.08) 35%);
+    z-index: -1;
+}
+
+.light-mode #skills {
+    position: relative;
+    overflow: hidden;
+}
+
+.light-mode #skills::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(225deg, transparent 45%, rgba(148, 130, 238, 0.08) 45%);
+    z-index: -1;
+}
+
+.light-mode #projects {
+    position: relative;
+    overflow: hidden;
+}
+
+.light-mode #projects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(106, 130, 251, 0.05) 25%, transparent 25%);
+    z-index: -1;
+}
+
+.light-mode .project-group:nth-child(even) {
+    position: relative;
+    overflow: hidden;
+}
+
+.light-mode .project-group:nth-child(even)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 75%, rgba(148, 130, 238, 0.08) 75%);
+    z-index: -1;
+}
+
+.light-mode #contact {
+    position: relative;
+    overflow: hidden;
+}
+
+.light-mode #contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(315deg, transparent 55%, rgba(106, 130, 251, 0.1) 55%);
+    z-index: -1;
+}
+
+.light-mode .closing-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.light-mode .closing-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 10% 90%, rgba(106, 130, 251, 0.12), transparent 20%),
+        radial-gradient(circle at 90% 10%, rgba(148, 130, 238, 0.12), transparent 25%);
+    z-index: -1;
+}
+
+/* 모바일 화면에서의 배경 조정 */
+@media (max-width: 768px) {
+    .light-mode #about::before,
+    .light-mode #skills::before,
+    .light-mode #projects::before,
+    .light-mode .project-group:nth-child(even)::before,
+    .light-mode #contact::before {
+        background: linear-gradient(165deg, transparent 60%, rgba(106, 130, 251, 0.08) 60%);
+    }
+}
+
+/* 모바일 소형 화면에서의 배경 조정 */
+@media (max-width: 480px) {
+    .light-mode #about::before,
+    .light-mode #skills::before,
+    .light-mode #projects::before,
+    .light-mode .project-group:nth-child(even)::before,
+    .light-mode #contact::before {
+        background: linear-gradient(165deg, transparent 75%, rgba(106, 130, 251, 0.1) 75%);
+    }
+}
+
+/* 추가 비주얼 요소 */
+.light-mode .section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, rgba(106, 130, 251, 0.7), rgba(148, 130, 238, 0.7));
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.light-mode .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* 라이트 모드에서 섹션 배경 강화 */
+.light-mode .home-section::before {
+    background: radial-gradient(circle at 10% 10%, rgba(106, 130, 251, 0.2), transparent 50%);
 } 
