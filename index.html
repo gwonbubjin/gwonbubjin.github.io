@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>포트폴리오</title>
+    <title>권법진 포트폴리오</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <base href="./">
-    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
 </head>
 <body class="dark-mode">
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">Portfolio</div>
+            <div class="logo">GWONBUBJIN</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#games">Games</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-controls">
@@ -34,17 +33,95 @@
     </nav>
 
     <main>
-        <section id="home" class="section">
-            <div class="container">
-                <h1 class="title">안녕하세요, <span class="highlight">개발자</span>입니다.</h1>
-                <p class="subtitle">웹 개발과 게임 개발을 좋아하는 개발자입니다.</p>
+        <section id="home" class="section home-section">
+            <div class="home-container">
+                <div class="home-content">
+                    <div class="home-text">
+                        <p class="greeting">안녕하세요, 저는</p>
+                        <h1 class="title">권법진<span class="highlight">입니다</span></h1>
+                        <p class="subtitle">프론트엔드 개발자 & 앱 개발자 & 웹 개발자</p>
+                        <div class="home-buttons">
+                            <a href="./assets/resume.pdf" class="btn btn-primary" download="권법진_이력서.pdf" style="position: relative; z-index: 100;">이력서 다운로드</a>
+                            <a href="https://github.com/gwonbubjin" class="btn btn-outline" target="_blank" rel="noopener noreferrer" style="position: relative; z-index: 100;">GitHub 이동</a>
+                        </div>
+                        <div class="social-icons">
+                            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://codepen.io/yourusername" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-codepen"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-display">
+                    <div class="code-header">
+                        <span class="code-dot"></span>
+                        <span class="code-dot"></span>
+                        <span class="code-dot"></span>
+                        <span class="code-title">developer.js</span>
+                    </div>
+                    <pre><code class="language-javascript">class 사람 {
+  constructor() {
+    this.name = "권법진";
+    this.traits = ["Front-End", "UI/UX"];
+    this.age = new Date().getFullYear() - 2000;
+  }
+
+  getSkills() {
+    return [
+      "JavaScript", "React", "TypeScript",
+      "HTML", "CSS", "Node.js"
+    ];
+  }
+
+  sayHello() {
+    console.log("환영합니다! 제 포트폴리오를 방문해주셔서 감사합니다");
+  }
+}</code></pre>
+                </div>
             </div>
         </section>
 
         <section id="about" class="section">
             <div class="container">
                 <h2>About Me</h2>
-                <p>여기에 자기소개를 작성하세요.</p>
+                <div class="about-container">
+                    <div class="about-profile">
+                        <div class="profile-image">
+                            <img src="./assets/profile.jpg" alt="권법진 프로필 이미지">
+                        </div>
+                    </div>
+                    <div class="about-content">
+                        <p class="about-text">
+                            안녕하세요, 저는 <strong>대한민국 출신으로 고등학교 시절부터 프로그래밍에 흥미를 느껴 개발자의 길을 걷고 있는 프론트엔드 개발자</strong>입니다. 처음에는 단순한 웹페이지 제작에서 시작했지만, 점점 더 <strong>인터랙티브하고 창의적인 사용자 경험(UI/UX)</strong>을 구현하는 데 매력을 느끼게 되었습니다.
+                        </p>
+                        <p class="about-text">
+                            특히 <strong>JavaScript 기반의 기술들(React, Node.js, TypeScript 등)</strong>을 즐겨 사용하며, 다양한 프로젝트에서 실제 문제를 해결하는 데 집중하고 있습니다. AI 기술에도 큰 관심이 있어, 코딩과 인공지능의 융합을 통해 더 나은 사용자 경험과 생산성을 만들어내는 것에 도전하고 있습니다.
+                        </p>
+                        <p class="about-text">
+                            지금까지 개인 프로젝트부터 팀 프로젝트, 크롬 확장 프로그램, 웹 기반 게임 제작 등 여러 실전 프로젝트를 경험하며 프론트엔드뿐 아니라 웹 전체의 흐름과 구조를 이해하고 효율적으로 개발하는 법을 스스로 익혀왔습니다. 앞으로도 꾸준한 학습과 실습을 통해, <strong>사용자 중심의 직관적인 서비스를 만드는 개발자</strong>가 되는 것이 목표입니다.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="quotes-container">
+                    <div class="quote-card">
+                        <p class="quote-text">"사람은 배운 만큼 만든다."</p>
+                        <p class="quote-author">- 권법진</p>
+                    </div>
+                    <div class="quote-card">
+                        <p class="quote-text">"에러는 실패가 아니라 힌트다."</p>
+                        <p class="quote-author">- 권법진</p>
+                    </div>
+                    <div class="quote-card">
+                        <p class="quote-text">"기계는 계산을, 인간은 상상을 한다."</p>
+                        <p class="quote-author">- 권법진</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -95,42 +172,278 @@
         <section id="projects" class="section">
             <div class="container">
                 <h2>Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <img src="Project/project1/thumbnail.jpg" alt="프로젝트 1">
-                        <h3>프로젝트 1</h3>
-                        <p>프로젝트 설명을 작성하세요.</p>
-                        <a href="Project/project1/index.html" class="btn">자세히 보기</a>
-                    </div>
-                    <div class="project-card">
-                        <img src="Project/project2/thumbnail.jpg" alt="프로젝트 2">
-                        <h3>프로젝트 2</h3>
-                        <p>프로젝트 설명을 작성하세요.</p>
-                        <a href="Project/project2/index.html" class="btn">자세히 보기</a>
-                    </div>
-                    <div class="project-card">
-                        <img src="Project/team-project/thumbnail.jpg" alt="팀 프로젝트">
-                        <h3>팀 프로젝트</h3>
-                        <p>프로젝트 설명을 작성하세요.</p>
-                        <a href="Project/team-project/index.html" class="btn">자세히 보기</a>
+                
+                <div class="project-group">
+                    <h3 class="group-title">Team Project</h3>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <img src="Project/team-project/thumbnail.jpg" alt="팀 프로젝트">
+                            <h3>협업 배달의민족 웹 애플리케이션</h3>
+                            <div class="project-tech-stack">
+                                <div class="tech-icons">
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" title="HTML5" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3" title="CSS3" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java/JSP" title="Java/JSP" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/develop/icons/mariadb/mariadb-original.svg" alt="MariaDB" title="MariaDB" />
+                                </div>
+                            </div>
+                            <p>HTML, JS, CSS로 프론트엔드를 구성했으며 JSP와 MARIADB를 이용해 배달의민족 어플리케이션을 웹에서도 사용할수있게 제작하였습니다.</p>
+                            <p>구성원 : 권법진, 추상헌, 임선우</p>
+                            <a href="Project/team-project/index.html" class="btn">자세히 보기</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="games" class="section">
-            <div class="container">
-                <h2>Games</h2>
-                <div class="games-grid">
-                    <div class="game-card">
-                        <img src="Project/game1/thumbnail.jpg" alt="게임 1">
-                        <h3>게임 1</h3>
-                        <a href="Project/game1/index.html" class="btn">플레이하기</a>
+                
+                <div class="project-group">
+                    <h3 class="group-title">Chrome Extensions</h3>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <img src="Project/project1/thumbnail.jpg" alt="크롬 확장프로그램 1">
+                            <h3>메모장 + 비밀번호 잠금 확장프로그램</h3>
+                            <div class="project-tech-stack">
+                                <div class="tech-icons">
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" title="HTML5" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3" title="CSS3" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/chrome/chrome-original.svg" alt="Chrome Extensions API" title="Chrome Extensions API" />
+                                </div>
+                            </div>
+                            <p>이 확장 프로그램은 크롬 브라우저 상에서 간단한 메모를 남기고,
+                                개인 정보 보호를 위해 비밀번호를 설정하여 메모 내용을 잠글 수 있는 기능을 제공합니다.
+                                사용자는 비밀번호 입력 후에만 메모를 확인하거나 수정할 수 있어,
+                                중요한 정보나 개인적인 기록을 안전하게 관리할 수 있습니다.</p>
+                            <div class="buttons">
+                                <a href="Project/project1/index.html" class="btn">Demo</a>
+                                <a href="https://github.com/yourusername/productivity-extension" class="btn">GitHub</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <img src="Project/project2/thumbnail.jpg" alt="크롬 확장프로그램 2">
+                            <h3>집중력 향상 도구</h3>
+                            <div class="project-tech-stack">
+                                <div class="tech-icons">
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/chrome/chrome-original.svg" alt="Chrome Extensions API" title="Chrome Extensions API" />
+                                </div>
+                            </div>
+                            <p>이 확장 프로그램은 사용자가 작업이나 공부에 몰입할 수 있도록
+                                방해가 되는 웹사이트를 임시 차단하는 기능을 제공합니다.
+                                사용자는 차단하고 싶은 사이트를 목록에 추가한 후,
+                                집중 모드를 활성화하면 지정한 웹사이트에 접근할 수 없게 됩니다.
+                                만약 차단된 사이트에 접속하려 하면 경고 메시지가 표시되어 스스로 주의를 환기할 수 있습니다.
+                                
+                                집중이 필요한 시간 동안 불필요한 웹 탐색을 막고,
+                                더 높은 생산성과 효율성을 유지할 수 있도록 돕는 Chrome 확장 프로그램입니다.</p>
+                            <div class="buttons">
+                                <a href="Project/project2/index.html" class="btn">Demo</a>
+                                <a href="https://github.com/yourusername/webpage-analyzer" class="btn">GitHub</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="game-card">
-                        <img src="Project/game2/thumbnail.jpg" alt="게임 2">
-                        <h3>게임 2</h3>
-                        <a href="Project/game2/index.html" class="btn">플레이하기</a>
+                </div>
+                
+                <div class="project-group">
+                    <h3 class="group-title">Web Sites</h3>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <img src="Project/website1/thumbnail.jpg" alt="웹사이트 1">
+                            <h3>전 세계 라디오 스트리밍 웹사이트</h3>
+                            <div class="project-tech-stack">
+                                <div class="tech-icons">
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" title="HTML5" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3" title="CSS3" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" />
+                                </div>
+                            </div>
+                            <p>이 웹사이트는 사용자가 세계 여러 나라의 라디오 방송을 웹 브라우저에서 실시간으로 청취할 수 있도록 제작되었습니다.
+                                HTML, CSS, JavaScript를 기반으로 구현되었으며,
+                                국가별 대표 라디오 채널을 버튼 형식으로 제공하여
+                                클릭 한 번으로 각 나라의 라디오 방송을 재생할 수 있습니다.
+                                
+                                사용자는 사이트 내 리스트에서 원하는 국가를 선택하고,
+                                즉시 스트리밍을 시작하거나, 재생/일시정지 및 볼륨 조절 기능을 사용할 수 있습니다.
+                                
+                                전체 레이아웃은 반응형으로 설계되어 모바일, 태블릿, 데스크탑 환경 모두에서 최적의 청취 경험을 제공합니다..</p>
+                            <a href="Project/website1/index.html" class="btn">자세히 보기</a>
+                        </div>
+                        <div class="project-card">
+                            <img src="Project/website2/thumbnail.jpg" alt="웹사이트 2">
+                            <h3>세계 시간대 시계 웹사이트</h3>
+                            <div class="project-tech-stack">
+                                <div class="tech-icons">
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" title="HTML5" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3" title="CSS3" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="SASS" title="SASS" />
+                                </div>
+                            </div>
+                            <p>이 웹사이트는 세계 주요 도시의 현재 시간을 실시간으로 보여주는 심플한 웹 애플리케이션입니다.
+                                JavaScript의 Date 객체를 활용하여 실시간으로 시간을 갱신하고,
+                                서울, 도쿄, 뉴욕, 런던, 파리 등 여러 도시의 시간을 자동 계산하여 표시합니다.
+                                
+                                사용자는 사이트에 접속하면 각 도시별 현재 시간을 한눈에 확인할 수 있으며,
+                                전체 레이아웃은 반응형으로 설계되어 PC와 모바일 환경 모두에서 자연스럽게 사용할 수 있습니다.</p>
+                            <a href="Project/website2/index.html" class="btn">자세히 보기</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-group">
+                    <h3 class="group-title">Mini Web Apps</h3>
+                    <div class="libraries-container">
+                        <div class="library-item">
+                            <div class="library-info">
+                                <h4>MindTimer</h4>
+                                <div class="project-tech-stack">
+                                    <div class="tech-icons">
+                                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" />
+                                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" title="HTML5" />
+                                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" title="Node.js" />
+                                    </div>
+                                </div>
+                                <p>이 미니앱은 사용자가 짧은 명상 시간 동안 집중과 휴식을 돕기 위해 설계된 웹 애플리케이션입니다.
+                                    사용자는 원하는 명상 시간을 직접 설정할 수 있으며,
+                                    타이머가 시작되면 부드러운 명상용 음악이 자동으로 재생되고,
+                                    그와 함께 마음을 편안하게 해주는 랜덤 명언이 화면에 함께 표시됩니다.
+                                    
+                                    명상 타이머가 종료되면 음악도 자동으로 멈추고,
+                                    새로운 명언과 함께 새로운 세션을 이어갈 수 있습니다.</p>
+                                <div class="library-buttons">
+                                    <a href="./Project/Library1/index.html" class="btn">Demo</a>
+                                    <a href="https://github.com/yourusername/verly-js" class="btn btn-outline">GitHub</a>
+                                </div>
+                            </div>
+                            <div class="library-preview">
+                                <iframe src="about:blank" title="Verly.js Preview" class="preview-frame"></iframe>
+                            </div>
+                        </div>
+
+                        <div class="library-item">
+                            <div class="library-info">
+                                <h4>🌈 Random Gradient Generator</h4>
+                                <div class="project-tech-stack">
+                                    <div class="tech-icons">
+                                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" />
+                                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" title="HTML5" />
+                                    </div>
+                                </div>
+                                <p>단순 색깔이 아니라,
+                                    버튼 누를 때마다 랜덤한 2색~3색 그라데이션 배경을 자동으로 만들어주는 도구입니다.</p>
+                                <div class="library-buttons">
+                                    <a href="./Project/Library2/index.html" class="btn">Demo</a>
+                                    <a href="https://github.com/yourusername/typing-effect-js" class="btn btn-outline">GitHub</a>
+                                </div>
+                            </div>
+                            <div class="library-preview">
+                                <iframe src="about:blank" title="TypingEffect.js Preview" class="preview-frame"></iframe>
+                            </div>
+                        </div>
+
+                        <div class="library-item">
+                            <div class="library-info">
+                                <h4>📅 Countdown to Event</h4>
+                                <div class="project-tech-stack">
+                                    <div class="tech-icons">
+                                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" />
+                                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" title="HTML5" />
+                                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/threejs/threejs-original.svg" alt="Three.js" title="Three.js" />
+                                    </div>
+                                </div>
+                                <p>이 미니앱은 사용자가 입력한 특정 날짜까지 남은 일수(Day)를 실시간으로 계산하여 보여주는 웹 애플리케이션입니다.
+                                    JavaScript의 Date 객체를 활용해 오늘 날짜와 목표 날짜 간의 차이를 계산하고,
+                                    남은 일수를 큰 숫자로 시각적으로 강조하여 직관적으로 보여줍니다.
+                                    
+                                    사용자는 생일, 시험일, 여행 출발일, 기념일 등 원하는 날짜를 선택할 수 있으며,
+                                    목표일이 가까워질수록 디자인 변화나 강조 효과를 통해 긴박감을 느낄 수 있도록 제작되었습니다.
+                                    
+                                    단순한 시간 표시를 넘어, 목표를 향한 동기부여를 제공하는 인터랙티브한 경험을 목표로 했습니다.</p>
+                                <div class="library-buttons">
+                                    <a href="./Project/Library3/index.html" class="btn">Demo</a>
+                                    <a href="https://github.com/yourusername/canvas3d-js" class="btn btn-outline">GitHub</a>
+                                </div>
+                            </div>
+                            <div class="library-preview">
+                                <iframe src="about:blank" title="Canvas3D.js Preview" class="preview-frame"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-group">
+                    <h3 class="group-title">Games</h3>
+                    <div class="games-container">
+                        <div class="games-row first-row">
+                            <div class="project-card">
+                                <img src="Project/games/color-lines/thumbnail.jpg" alt="컬러스선라이즈">
+                                <h3>반응속도 테스트</h3>
+                                <div class="buttons">
+                                    <a href="./Project/games/color-lines" class="btn">Demo</a>
+                                    <a href="https://github.com/yourusername/color-lines" class="btn">GitHub</a>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <img src="Project/games/the-way/thumbnail.jpg" alt="슬라임">
+                                <h3>테트리스</h3>
+                                <div class="buttons">
+                                    <a href="./Project/games/the-way" class="btn">Demo</a>
+                                    <a href="https://github.com/yourusername/the-way" class="btn">GitHub</a>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <img src="Project/games/life-game/thumbnail.jpg" alt="패러사이트">
+                                <h3>기억력 게임</h3>
+                                <div class="buttons">
+                                    <a href="./Project/games/life-game" class="btn">Demo</a>
+                                    <a href="https://github.com/yourusername/life-game" class="btn">GitHub</a>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <img src="Project/games/maze/thumbnail.jpg" alt="10PrintLine">
+                                <h3>숫자 맞추기 게임</h3>
+                                <div class="buttons">
+                                    <a href="./Project/games/maze" class="btn">Demo</a>
+                                    <a href="https://github.com/yourusername/maze" class="btn">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden-rows">
+                            <div class="project-card">
+                                <img src="Project/games/chaos/thumbnail.jpg" alt="카오스게임">
+                                <h3>10초 정지 게임</h3>
+                                <div class="buttons">
+                                    <a href="./Project/games/chaos" class="btn">Demo</a>
+                                    <a href="https://github.com/yourusername/chaos" class="btn">GitHub</a>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <img src="Project/games/pattern/thumbnail.jpg" alt="원형 패턴">
+                                <h3>클릭 속도 게임</h3>
+                                <div class="buttons">
+                                    <a href="./Project/games/pattern" class="btn">Demo</a>
+                                    <a href="https://github.com/yourusername/pattern" class="btn">GitHub</a>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <img src="Project/games/fireworks/thumbnail.jpg" alt="불꽃">
+                                <h3>색상 구분 테스트</h3>
+                                <div class="buttons">
+                                    <a href="./Project/games/fireworks" class="btn">Demo</a>
+                                    <a href="https://github.com/yourusername/fireworks" class="btn">GitHub</a>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <img src="Project/games/evolution/thumbnail.jpg" alt="에볼루션 아쿠아리움">
+                                <h3>키보드 타자 연습기</h3>
+                                <div class="buttons">
+                                    <a href="./Project/games/evolution" class="btn">Demo</a>
+                                    <a href="https://github.com/yourusername/evolution" class="btn">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="show-all">
+                            <a href="javascript:void(0);" id="show-all-games-btn" class="btn">모든 게임 보기</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -154,6 +467,16 @@
                     </div>
                     <button type="submit" class="btn">보내기</button>
                 </form>
+            </div>
+        </section>
+
+        <section id="closing-message" class="section closing-section">
+            <div class="container">
+                <div class="closing-container">
+                    <p class="closing-text">지금까지 제 포트폴리오를 봐주셔서 감사합니다.</p>
+                    <p class="closing-text">궁금한 점이나 협업 제안이 있으시다면 언제든 연락 주세요.</p>
+                    <p class="closing-text">더 나은 개발자, 더 나은 동료가 되기 위해 매일 성장 중입니다 :)</p>
+                </div>
             </div>
         </section>
     </main>
