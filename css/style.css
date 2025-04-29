@@ -90,6 +90,10 @@ body {
     gap: 2rem;
 }
 
+.nav-links li {
+    position: relative;
+}
+
 .nav-links a {
     color: var(--text-color);
     text-decoration: none;
@@ -98,11 +102,57 @@ body {
     padding: 0.5rem 1rem;
     border-radius: var(--border-radius);
     transition: var(--transition);
+    display: block;
 }
 
 .nav-links a:hover {
     color: var(--primary-color);
     background-color: rgba(100, 255, 218, 0.1);
+}
+
+/* 드롭다운 메뉴 스타일 */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+}
+
+.nav-links li:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    width: 100%;
+    list-style: none;
+}
+
+.dropdown-menu a {
+    padding: 0.7rem 1.2rem;
+    border-radius: 0;
+    display: block;
+    width: 100%;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.dropdown-menu a:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+    color: var(--primary-color);
+    padding-left: 1.5rem;
 }
 
 .nav-controls {
@@ -143,6 +193,7 @@ body {
     padding: var(--section-padding) 2rem;
     display: flex;
     align-items: center;
+    scroll-margin-top: 80px;
 }
 
 .container {
@@ -485,6 +536,16 @@ h2 {
     margin-bottom: 5rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    scroll-margin-top: 80px;
+}
+
+/* 각 섹션에 scroll-margin-top 속성 추가 */
+#team-project, 
+#chrome-extensions, 
+#web-sites, 
+#mini-web-apps, 
+#games {
+    scroll-margin-top: 80px;
 }
 
 .project-group:last-child {
@@ -684,9 +745,40 @@ h2 {
 
 /* 게임 프로젝트 스타일 */
 #games {
-    background-color: #0a1930;
     padding-top: 80px;
     padding-bottom: 80px;
+    position: relative;
+}
+
+/* 라이트모드와 다크모드에 따른 게임 섹션 배경색 조정 */
+body.light-mode #games,
+.light-mode #games {
+    background-color: var(--background-color);
+    padding: var(--section-padding) 2rem;
+}
+
+body.dark-mode #games,
+.dark-mode #games {
+    background-color: #0a1930;
+}
+
+/* 프로젝트 그룹 타이틀 기본 스타일 */
+#games .project-group h3.group-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 5rem;
+    font-weight: 600;
+}
+
+/* 라이트모드와 다크모드에 맞는 게임 섹션 제목 색상 조정 */
+body.light-mode #games .project-group h3.group-title,
+.light-mode #games .project-group h3.group-title {
+    color: #0066cc;
+}
+
+body.dark-mode #games .project-group h3.group-title,
+.dark-mode #games .project-group h3.group-title {
+    color: #00d9ff;
 }
 
 .games-container {
@@ -696,6 +788,20 @@ h2 {
     margin-right: auto;
     position: relative;
     padding: 0 2rem 3rem;
+    background-color: #0a1930; /* 기본 배경색(다크모드) */
+}
+
+/* 라이트모드와 다크모드에 맞는 games-container 배경색 명시적 설정 */
+body.light-mode .games-container,
+.light-mode .games-container {
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius);
+}
+
+body.dark-mode .games-container,
+.dark-mode .games-container {
+    background-color: #0a1930;
 }
 
 .project-group h3.group-title {
@@ -730,6 +836,16 @@ h2 {
     padding: 0;
 }
 
+/* 라이트모드일 때 게임 카드 스타일 조정 */
+body.light-mode .games-row .project-card, 
+body.light-mode .hidden-rows .project-card,
+.light-mode .games-row .project-card, 
+.light-mode .hidden-rows .project-card {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+}
+
 .games-row .project-card img, .hidden-rows .project-card img {
     width: 100%;
     height: 180px;
@@ -756,6 +872,7 @@ h2 {
     flex-wrap: wrap;
     position: relative;
     z-index: 5;
+    margin-bottom: 15px;
 }
 
 /* 버튼 스타일 */
@@ -822,6 +939,19 @@ h2 {
     background-color: #5262c7;
     box-shadow: 0 6px 15px rgba(108, 126, 225, 0.5);
     transform: translateY(-2px);
+}
+
+/* 라이트모드에서 "모든 게임 보기" 버튼 스타일 조정 */
+body.light-mode .show-all .btn,
+.light-mode .show-all .btn {
+    background-color: #4d7cff;
+    box-shadow: 0 4px 10px rgba(77, 124, 255, 0.3);
+}
+
+body.light-mode .show-all .btn:hover,
+.light-mode .show-all .btn:hover {
+    background-color: #3a5bbf;
+    box-shadow: 0 6px 15px rgba(77, 124, 255, 0.5);
 }
 
 /* 반응형 그리드 */
@@ -1572,4 +1702,116 @@ section#projects h2,
 /* 라이트 모드에서 섹션 배경 강화 */
 .light-mode .home-section::before {
     background: radial-gradient(circle at 10% 10%, rgba(106, 130, 251, 0.2), transparent 50%);
+}
+
+/* 모바일 버전의 네비게이션 스타일 */
+@media (max-width: 768px) {
+    .navbar {
+        height: auto;
+        min-height: var(--nav-height);
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        margin: 1rem 0;
+    }
+    
+    .nav-links li {
+        width: 100%;
+    }
+    
+    .nav-links a {
+        width: 100%;
+        padding: 0.8rem 1rem;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        margin-top: 0;
+        box-shadow: none;
+        background-color: rgba(17, 34, 64, 0.3);
+        transform: none;
+    }
+    
+    .nav-links li:hover .dropdown-menu {
+        max-height: 500px;
+    }
+    
+    .dropdown-menu a {
+        padding-left: 2rem;
+    }
+    
+    .dropdown-menu a:hover {
+        padding-left: 2.5rem;
+    }
+    
+    .nav-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+/* 라이트모드일 때 게임 카드 버튼 스타일 조정 */
+body.light-mode .project-card .buttons .btn,
+.light-mode .project-card .buttons .btn {
+    background-color: #4d7cff;
+}
+
+body.light-mode .project-card .buttons .btn:hover,
+.light-mode .project-card .buttons .btn:hover {
+    background-color: #3a5bbf;
+}
+
+/* 숨겨진 행 스타일 조정 */
+body.light-mode .hidden-rows,
+.light-mode .hidden-rows {
+    background-color: transparent;
+}
+
+/* 모바일 소형 화면에서의 배경 조정 */
+@media (max-width: 480px) {
+    .light-mode #about::before,
+    .light-mode #skills::before,
+    .light-mode #projects::before,
+    .light-mode .project-group:nth-child(even)::before,
+    .light-mode #contact::before {
+        background: linear-gradient(165deg, transparent 75%, rgba(106, 130, 251, 0.1) 75%);
+    }
+}
+
+/* 추가 비주얼 요소 */
+.light-mode .section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, rgba(106, 130, 251, 0.7), rgba(148, 130, 238, 0.7));
+    opacity: 0.3;
+    z-index: 1;
+}
+
+/* 라이트모드에서 게임 섹션 배경색 강제 적용 */
+body.light-mode #games,
+body.light-mode .games-container {
+    background-color: #ffffff !important;
+    color: #1e1e1e !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.light-mode .container {
+    position: relative;
+    z-index: 2;
 } 
