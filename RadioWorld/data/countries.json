@@ -1,0 +1,340 @@
+{
+  "continents": [
+    {
+      "name": "Asia",
+      "emoji": "🌏",
+      "countries": [
+        {
+          "name": "South Korea",
+          "code": "kr",
+          "lat": 37.5665,
+          "lng": 126.9780,
+          "stations": [
+            {
+              "name": "KBS 1라디오",
+              "url": "http://serpent0.duckdns.org:8088/kbs1fm.pls",
+              "genre": "Public Radio"
+            },
+            {
+              "name": "SBS 러브FM",
+              "url": "http://mgugaklive.nowcdn.co.kr/gugakvision/gugakvision.stream/playlist.m3u8",
+              "genre": "Pop"
+            },
+            {
+              "name": "MBC FM4U",
+              "url": "http://serpent0.duckdns.org:8088/mbc_fm.pls",
+              "genre": "Pop"
+            }
+          ]
+        },
+        {
+          "name": "Japan",
+          "code": "jp",
+          "lat": 35.6762,
+          "lng": 139.6503,
+          "stations": [
+            {
+              "name": "NHK 第一放送",
+              "url": "https://radio-stream.nhk.jp/hls/live/2023229/nhkradiruakr1/master.m3u8",
+              "genre": "Public Radio"
+            },
+            {
+              "name": "Tokyo FM",
+              "url": "https://rcri1.stream.ne.jp/fm/fmmain/playlist.m3u8",
+              "genre": "Pop"
+            },
+            {
+              "name": "J-Wave",
+              "url": "https://jwave1.stream.ne.jp/jwave/main/playlist.m3u8",
+              "genre": "Pop/Rock"
+            }
+          ]
+        },
+        {
+          "name": "China",
+          "code": "cn",
+          "lat": 39.9042,
+          "lng": 116.4074,
+          "stations": [
+            {
+              "name": "CRI Hit FM",
+              "url": "http://sk.cri.cn/887.m3u8",
+              "genre": "Pop"
+            },
+            {
+              "name": "CNR 中国之声",
+              "url": "http://ngcdn001.cnr.cn/live/zgzs/index.m3u8",
+              "genre": "News"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Europe",
+      "emoji": "🌍",
+      "countries": [
+        {
+          "name": "United Kingdom",
+          "code": "gb",
+          "lat": 51.5074,
+          "lng": -0.1278,
+          "stations": [
+            {
+              "name": "BBC Radio 1",
+              "url": "http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one",
+              "genre": "Pop"
+            },
+            {
+              "name": "BBC Radio 4",
+              "url": "http://stream.live.vc.bbcmedia.co.uk/bbc_radio_fourfm",
+              "genre": "Talk"
+            },
+            {
+              "name": "Classic FM",
+              "url": "http://media-ice.musicradio.com/ClassicFMMP3",
+              "genre": "Classical"
+            }
+          ]
+        },
+        {
+          "name": "France",
+          "code": "fr",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "stations": [
+            {
+              "name": "France Inter",
+              "url": "http://direct.franceinter.fr/live/franceinter-midfi.mp3",
+              "genre": "Public Radio"
+            },
+            {
+              "name": "NRJ",
+              "url": "http://cdn.nrjaudio.fm/audio1/fr/30001/mp3_128.mp3",
+              "genre": "Pop"
+            },
+            {
+              "name": "Radio France Culture",
+              "url": "http://direct.franceculture.fr/live/franceculture-midfi.mp3",
+              "genre": "Cultural"
+            }
+          ]
+        },
+        {
+          "name": "Germany",
+          "code": "de",
+          "lat": 52.5200,
+          "lng": 13.4050,
+          "stations": [
+            {
+              "name": "Deutschlandfunk",
+              "url": "http://st01.dlf.de/dlf/01/128/mp3/stream.mp3",
+              "genre": "Public Radio"
+            },
+            {
+              "name": "Antenne Bayern",
+              "url": "http://mp3channels.webradio.antenne.de/antenne",
+              "genre": "Pop"
+            },
+            {
+              "name": "WDR 3",
+              "url": "http://wdr-wdr3-live.icecast.wdr.de/wdr/wdr3/live/mp3/128/stream.mp3",
+              "genre": "Classical/Cultural"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "North America",
+      "emoji": "🌎",
+      "countries": [
+        {
+          "name": "United States",
+          "code": "us",
+          "lat": 37.0902,
+          "lng": -95.7129,
+          "stations": [
+            {
+              "name": "NPR",
+              "url": "http://npr-ice.streamguys1.com/live.mp3",
+              "genre": "Public Radio"
+            },
+            {
+              "name": "KCRW",
+              "url": "http://kcrw.streamguys1.com/kcrw_192k_mp3_on_air",
+              "genre": "Eclectic"
+            },
+            {
+              "name": "WNYC",
+              "url": "http://sgrewind.streamguys1.com/wnycfm/wnycfm.aac/playlist.m3u8",
+              "genre": "Public Radio"
+            }
+          ]
+        },
+        {
+          "name": "Canada",
+          "code": "ca",
+          "lat": 56.1304,
+          "lng": -106.3468,
+          "stations": [
+            {
+              "name": "CBC Radio One",
+              "url": "http://cbcliveradio-lh.akamaihd.net/i/CBCR1_TOR@118420/master.m3u8",
+              "genre": "Public Radio"
+            },
+            {
+              "name": "CBC Music",
+              "url": "http://cbcliveradio-lh.akamaihd.net/i/CBCR2_TOR@382790/master.m3u8",
+              "genre": "Music"
+            }
+          ]
+        },
+        {
+          "name": "Mexico",
+          "code": "mx",
+          "lat": 23.6345,
+          "lng": -102.5528,
+          "stations": [
+            {
+              "name": "Radio UNAM",
+              "url": "http://servidor3.streamradio.com.mx:5057/",
+              "genre": "University Radio"
+            },
+            {
+              "name": "W Radio",
+              "url": "http://playerservices.streamtheworld.com/api/livestream-redirect/W_RADIO_SC",
+              "genre": "News/Talk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "South America",
+      "emoji": "🌎",
+      "countries": [
+        {
+          "name": "Brazil",
+          "code": "br",
+          "lat": -14.2350,
+          "lng": -51.9253,
+          "stations": [
+            {
+              "name": "Radio Nacional",
+              "url": "http://radionacionalbrasilia-stream.ebc.com.br/ebc/radionacionalbrasilia/chunks.m3u8",
+              "genre": "Public Radio"
+            },
+            {
+              "name": "Jovem Pan",
+              "url": "http://6d9a.webradio.upx.net.br:9940/stream",
+              "genre": "News/Pop"
+            }
+          ]
+        },
+        {
+          "name": "Argentina",
+          "code": "ar",
+          "lat": -34.6037,
+          "lng": -58.3816,
+          "stations": [
+            {
+              "name": "Radio Nacional",
+              "url": "http://sa.mp3.icecast.magma.edge-access.net:7200/sc_rad1",
+              "genre": "Public Radio"
+            },
+            {
+              "name": "La 100",
+              "url": "http://playerservices.streamtheworld.com/api/livestream-redirect/FM999_SC",
+              "genre": "Pop"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Africa",
+      "emoji": "🌍",
+      "countries": [
+        {
+          "name": "South Africa",
+          "code": "za",
+          "lat": -30.5595,
+          "lng": 22.9375,
+          "stations": [
+            {
+              "name": "SABC Radio 2000",
+              "url": "http://playerservices.streamtheworld.com/api/livestream-redirect/RADIO2000.mp3",
+              "genre": "Public Radio"
+            },
+            {
+              "name": "5FM",
+              "url": "http://playerservices.streamtheworld.com/api/livestream-redirect/5FM.mp3",
+              "genre": "Pop"
+            }
+          ]
+        },
+        {
+          "name": "Kenya",
+          "code": "ke",
+          "lat": -1.2921,
+          "lng": 36.8219,
+          "stations": [
+            {
+              "name": "Capital FM",
+              "url": "http://icecast.thisisdax.com/CapitalFMAKL",
+              "genre": "Pop"
+            },
+            {
+              "name": "KBC English Service",
+              "url": "http://stream.zeno.fm/drbft1k84qruv",
+              "genre": "Public Radio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Oceania",
+      "emoji": "🌏",
+      "countries": [
+        {
+          "name": "Australia",
+          "code": "au",
+          "lat": -25.2744,
+          "lng": 133.7751,
+          "stations": [
+            {
+              "name": "ABC Radio National",
+              "url": "http://live-radio01.mediahubaustralia.com/2RNW/mp3/",
+              "genre": "Public Radio"
+            },
+            {
+              "name": "Triple J",
+              "url": "http://live-radio01.mediahubaustralia.com/2TJW/mp3/",
+              "genre": "Alternative"
+            }
+          ]
+        },
+        {
+          "name": "New Zealand",
+          "code": "nz",
+          "lat": -40.9006,
+          "lng": 174.8860,
+          "stations": [
+            {
+              "name": "Radio New Zealand National",
+              "url": "http://radionz-ice.streamguys.com/national.mp3",
+              "genre": "Public Radio"
+            },
+            {
+              "name": "The Edge",
+              "url": "http://istream.mediaworks.nz/edge_[128]_mp3",
+              "genre": "Pop"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+} 
