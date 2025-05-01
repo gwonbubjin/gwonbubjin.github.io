@@ -67,10 +67,18 @@ function createMarkers(stations) {
 
 // 개별 마커 생성 함수
 function createMarker(station) {
-    // 사용자 정의 마커 아이콘 생성 (빨간색 원형 마커)
+    // 현재 재생 중인 방송국인지 확인
+    const isPlaying = currentPlayingStation && 
+                      currentPlayingStation.name === station.name && 
+                      currentPlayingStation.stream === station.stream;
+    
+    // 마커 색상 (재생 중이면 파란색, 아니면 빨간색)
+    const markerColor = isPlaying ? '#3498db' : '#e74c3c';
+    
+    // 사용자 정의 마커 아이콘 생성 (원형 마커)
     const markerIcon = L.divIcon({
         className: 'map-marker',
-        html: `<div style="background-color: #e74c3c; width: 10px; height: 10px; border-radius: 50%; border: 2px solid white;"></div>`,
+        html: `<div style="background-color: ${markerColor}; width: 10px; height: 10px; border-radius: 50%; border: 2px solid white;"></div>`,
         iconSize: [14, 14],
         iconAnchor: [7, 7]
     });
@@ -81,6 +89,10 @@ function createMarker(station) {
     
     // 마커 클릭 이벤트
     marker.on('click', () => {
+        // 재생 상태에 따른 아이콘과 텍스트
+        const playIcon = isPlaying ? 'fa-pause' : 'fa-play';
+        const playText = isPlaying ? '일시정지' : '재생';
+        
         // 팝업 내용 생성
         const popupContent = `
             <div class="station-popup-content">
@@ -88,7 +100,7 @@ function createMarker(station) {
                 <p>${station.country} · ${station.genre}</p>
                 <div class="station-popup-controls">
                     <button class="play-btn" onclick="playStationFromPopup('${station.stream}', '${station.name}', '${station.country}', '${station.genre}')">
-                        <i class="fas fa-play"></i> 재생
+                        <i class="fas ${playIcon}"></i> ${playText}
                     </button>
                 </div>
             </div>
@@ -102,10 +114,18 @@ function createMarker(station) {
         
         // 활성 마커 스타일 변경
         if (activeMarker) {
+            // 이전 활성 마커의 재생 상태 확인
+            const prevIsPlaying = currentPlayingStation && 
+                                 activeMarker.getLatLng().lat === currentPlayingStation.lat && 
+                                 activeMarker.getLatLng().lng === currentPlayingStation.lng;
+            
+            // 이전 마커 색상 (재생 중이면 파란색, 아니면 빨간색)
+            const prevColor = prevIsPlaying ? '#3498db' : '#e74c3c';
+            
             // 이전 활성 마커 스타일 초기화
             const prevIcon = L.divIcon({
                 className: 'map-marker',
-                html: `<div style="background-color: #e74c3c; width: 10px; height: 10px; border-radius: 50%; border: 2px solid white;"></div>`,
+                html: `<div style="background-color: ${prevColor}; width: 10px; height: 10px; border-radius: 50%; border: 2px solid white;"></div>`,
                 iconSize: [14, 14],
                 iconAnchor: [7, 7]
             });
@@ -118,7 +138,7 @@ function createMarker(station) {
         // 활성 마커 스타일 변경 (크기만 키우고 애니메이션 없음)
         const activeIcon = L.divIcon({
             className: 'map-marker active',
-            html: `<div style="background-color: #3498db; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white;"></div>`,
+            html: `<div style="background-color: ${markerColor}; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white;"></div>`,
             iconSize: [20, 20],
             iconAnchor: [10, 10]
         });
@@ -332,10 +352,18 @@ function playStationFromList(station) {
         
         // 활성 마커 스타일 변경
         if (activeMarker) {
+            // 이전 활성 마커의 재생 상태 확인
+            const prevIsPlaying = currentPlayingStation && 
+                                 activeMarker.getLatLng().lat === currentPlayingStation.lat && 
+                                 activeMarker.getLatLng().lng === currentPlayingStation.lng;
+            
+            // 이전 마커 색상 (재생 중이면 파란색, 아니면 빨간색)
+            const prevColor = prevIsPlaying ? '#3498db' : '#e74c3c';
+            
             // 이전 활성 마커 스타일 초기화
             const prevIcon = L.divIcon({
                 className: 'map-marker',
-                html: `<div style="background-color: #e74c3c; width: 10px; height: 10px; border-radius: 50%; border: 2px solid white;"></div>`,
+                html: `<div style="background-color: ${prevColor}; width: 10px; height: 10px; border-radius: 50%; border: 2px solid white;"></div>`,
                 iconSize: [14, 14],
                 iconAnchor: [7, 7]
             });
@@ -345,7 +373,7 @@ function playStationFromList(station) {
         // 현재 마커를 활성 마커로 설정
         activeMarker = marker;
         
-        // 활성 마커 스타일 변경
+        // 활성 마커 스타일 변경 (현재 재생 중인 방송국이므로 항상 파란색)
         const activeIcon = L.divIcon({
             className: 'map-marker active',
             html: `<div style="background-color: #3498db; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white;"></div>`,
