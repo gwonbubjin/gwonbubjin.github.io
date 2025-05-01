@@ -1,0 +1,110 @@
+[
+    {
+        "name": "요미우리 자이언츠",
+        "location": "도쿄",
+        "league": "센트럴 리그",
+        "stadium": "도쿄 돔",
+        "founded": "1934년",
+        "championships": "22회",
+        "logo": "images/yomiuri.jpg"
+    },
+    {
+        "name": "한신 타이거스",
+        "location": "오사카/효고",
+        "league": "센트럴 리그",
+        "stadium": "한신 고시엔 구장",
+        "founded": "1935년",
+        "championships": "1회",
+        "logo": "images/hanshin.jpg"
+    },
+    {
+        "name": "히로시마 도요 카프",
+        "location": "히로시마",
+        "league": "센트럴 리그",
+        "stadium": "마쓰다 줌-줌 스타디움 히로시마",
+        "founded": "1950년",
+        "championships": "3회",
+        "logo": "images/carp.jpg"
+    },
+    {
+        "name": "요코하마 DeNA 베이스타즈",
+        "location": "요코하마",
+        "league": "센트럴 리그",
+        "stadium": "요코하마 스타디움",
+        "founded": "1950년 (요코하마 타이헤이요 기업)",
+        "championships": "2회",
+        "logo": "images/baystars.jpg"
+    },
+    {
+        "name": "츄니치 드래곤즈",
+        "location": "나고야",
+        "league": "센트럴 리그",
+        "stadium": "반테린 돔 나고야",
+        "founded": "1936년",
+        "championships": "2회",
+        "logo": "images/dragons.jpg"
+    },
+    {
+        "name": "도쿄 야쿠르트 스왈로즈",
+        "location": "도쿄",
+        "league": "센트럴 리그",
+        "stadium": "메이지 진구 구장",
+        "founded": "1950년",
+        "championships": "6회",
+        "logo": "images/swallows.jpg"
+    },
+    {
+        "name": "소프트뱅크 호크스",
+        "location": "후쿠오카",
+        "league": "퍼시픽 리그",
+        "stadium": "후쿠오카 페이페이 돔",
+        "founded": "1938년 (나나츠보시 구단)",
+        "championships": "11회",
+        "logo": "images/softbank.jpg"
+    },
+    {
+        "name": "세이부 라이온즈",
+        "location": "도코로자와",
+        "league": "퍼시픽 리그",
+        "stadium": "벨루나 돔",
+        "founded": "1950년",
+        "championships": "13회",
+        "logo": "images/seibu.jpg"
+    },
+    {
+        "name": "지바 롯데 마린즈",
+        "location": "지바",
+        "league": "퍼시픽 리그",
+        "stadium": "ZOZO 마린 스타디움",
+        "founded": "1950년",
+        "championships": "4회",
+        "logo": "images/marines.jpg"
+    },
+    {
+        "name": "오릭스 버팔로즈",
+        "location": "오사카/고베",
+        "league": "퍼시픽 리그",
+        "stadium": "교세라 돔 오사카",
+        "founded": "1936년 (한큐)",
+        "championships": "5회",
+        "logo": "images/buffaloes.jpg"
+    },
+    {
+        "name": "홋카이도 닛폰햄 파이터즈",
+        "location": "삿포로",
+        "league": "퍼시픽 리그",
+        "stadium": "ES CON 필드 홋카이도",
+        "founded": "1946년",
+        "championships": "3회",
+        "logo": "images/fighters.jpg"
+    },
+    {
+        "name": "도호쿠 라쿠텐 골든이글스",
+        "location": "센다이",
+        "league": "퍼시픽 리그",
+        "stadium": "라쿠텐 세이미 파크 미야기",
+        "founded": "2005년",
+        "championships": "1회",
+        "logo": "images/eagles.jpg"
+    }
+] 
