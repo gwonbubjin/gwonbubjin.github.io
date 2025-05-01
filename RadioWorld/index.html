@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RadioWorld - 전 세계 라디오 스트리밍</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <header>
+        <h1><i class="fas fa-broadcast-tower"></i> RadioWorld</h1>
+        <p>전 세계 라디오 스트리밍을 한 곳에서</p>
+    </header>
+
+    <nav class="continent-filter">
+        <button class="active" data-continent="all">🌍 전체보기</button>
+        <button data-continent="Asia">🌏 아시아</button>
+        <button data-continent="Europe">🌍 유럽</button>
+        <button data-continent="North America">🌎 북미</button>
+        <button data-continent="South America">🌎 남미</button>
+        <button data-continent="Africa">🌍 아프리카</button>
+        <button data-continent="Oceania">🌏 오세아니아</button>
+    </nav>
+
+    <main>
+        <div id="map-container">
+            <div id="map"></div>
+        </div>
+
+        <div class="radio-player">
+            <div class="now-playing">
+                <div class="station-info">
+                    <h2>재생 중인 방송국</h2>
+                    <p class="current-station">선택된 방송국이 없습니다</p>
+                    <p class="current-country"></p>
+                </div>
+                <div class="player-controls">
+                    <button class="play-pause-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <div class="volume-control">
+                        <i class="fas fa-volume-up"></i>
+                        <input type="range" min="0" max="1" step="0.1" value="0.7" class="volume-slider">
+                    </div>
+                </div>
+            </div>
+            <audio id="radio-player" preload="none"></audio>
+        </div>
+
+        <div class="station-list">
+            <h2>라디오 방송국 목록</h2>
+            <div class="station-grid" id="station-list-container">
+                <!-- 자바스크립트로 동적 추가됨 -->
+            </div>
+        </div>
+    </main>
+
+    <div class="popup-container">
+        <div class="station-popup">
+            <div class="popup-header">
+                <h3 class="popup-title"></h3>
+                <button class="popup-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="popup-content">
+                <div class="popup-stations">
+                    <!-- 방송국 목록이 여기에 추가됨 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 RadioWorld. 전 세계 라디오를 한 번에 즐기세요.</p>
+        <p class="api-credit">데이터 제공: radio-browser.info API</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/radio.js"></script>
+</body>
+</html> 
