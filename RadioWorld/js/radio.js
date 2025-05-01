@@ -7,6 +7,9 @@ let currentCountryDisplay;
 let isPlaying = false;
 let currentStation = null;
 
+// 방송국 데이터 변수
+let radioStations = [];
+
 // DOM 로드 후 실행
 document.addEventListener('DOMContentLoaded', () => {
     // 오디오 플레이어 요소 참조
@@ -18,7 +21,30 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 이벤트 리스너 설정
     setupPlayerControls();
+    
+    // 방송국 데이터 로드
+    loadRadioStations();
 });
+
+// 방송국 데이터 로드 함수
+function loadRadioStations() {
+    fetch('data/stations.json')
+        .then(response => response.json())
+        .then(data => {
+            radioStations = data.stations;
+            console.log(`${radioStations.length}개의 방송국 데이터를 불러왔습니다.`);
+            
+            // map.js에 데이터 전달 (전역 변수 사용)
+            if (typeof window.initializeMap === 'function') {
+                window.initializeMap(radioStations);
+            } else {
+                console.error('map.js의 initializeMap 함수를 찾을 수 없습니다.');
+            }
+        })
+        .catch(error => {
+            console.error('방송국 데이터를 불러오는데 실패했습니다:', error);
+        });
+}
 
 // 플레이어 컨트롤 설정
 function setupPlayerControls() {
@@ -94,8 +120,13 @@ function playRadioStation(station) {
                 currentStationDisplay.textContent = station.name;
                 currentCountryDisplay.textContent = `${station.country} · ${station.genre}`;
                 
-                // 방송국 목록 업데이트
+                // 방송국 목록 업데이트 (map.js의 함수 호출)
                 updateStationsList();
+                
+                // 재생 중인 방송국 정보를 map.js에 전달
+                if (typeof window.updateCurrentPlayingStation === 'function') {
+                    window.updateCurrentPlayingStation(station);
+                }
             }).catch(error => {
                 // 재생 실패
                 console.error('재생 오류:', error);
@@ -167,10 +198,11 @@ function updatePlayPauseIcon(isPlaying) {
 // 방송국 목록 업데이트 함수
 function updateStationsList() {
     // map.js의 renderStationList 함수 호출
-    if (typeof renderStationList === 'function' && typeof radioData !== 'undefined') {
-        renderStationList(radioData);
+    if (typeof window.renderStationList === 'function') {
+        window.renderStationList(radioStations);
     }
 }
 
 // 전역 함수로 노출
-window.playRadioStation = playRadioStation; 
+window.playRadioStation = playRadioStation;
+window.getRadioStations = () => radioStations; 
