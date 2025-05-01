@@ -6,6 +6,7 @@ let currentStationDisplay;
 let currentCountryDisplay;
 let isPlaying = false;
 let currentStation = null;
+let hlsPlayer = null;
 
 // 방송국 데이터 변수
 let radioStations = [];
@@ -102,44 +103,91 @@ function playRadioStation(station) {
     // 새 방송국 설정
     currentStation = station;
     
-    // 오디오 소스 설정
-    audioPlayer.src = station.stream;
+    // 이전에 실행 중인 HLS 인스턴스가 있다면 파괴
+    if (hlsPlayer) {
+        hlsPlayer.destroy();
+        hlsPlayer = null;
+    }
     
-    // 재생 시작
     try {
-        audioPlayer.load();
-        const playPromise = audioPlayer.play();
-        
-        if (playPromise !== undefined) {
-            playPromise.then(() => {
-                // 재생 성공
-                isPlaying = true;
-                updatePlayPauseIcon(true);
-                
-                // 현재 재생 중인 방송국 정보 업데이트
-                currentStationDisplay.textContent = station.name;
-                currentCountryDisplay.textContent = `${station.country} · ${station.genre}`;
-                
-                // 방송국 목록 업데이트 (map.js의 함수 호출)
-                updateStationsList();
-                
-                // 재생 중인 방송국 정보를 map.js에 전달
-                if (typeof window.updateCurrentPlayingStation === 'function') {
-                    window.updateCurrentPlayingStation(station);
-                }
-            }).catch(error => {
-                // 재생 실패
-                console.error('재생 오류:', error);
-                isPlaying = false;
-                updatePlayPauseIcon(false);
-                alert('방송국 연결에 실패했습니다. 다른 방송국을 선택해주세요.');
-                updateStationsList();
+        // 스트림 URL이 HLS 프로토콜(.m3u8)인지 확인
+        if (station.stream.includes('.m3u8') && Hls.isSupported()) {
+            console.log('HLS 스트림 감지, HLS.js 사용');
+            
+            hlsPlayer = new Hls();
+            hlsPlayer.loadSource(station.stream);
+            hlsPlayer.attachMedia(audioPlayer);
+            
+            hlsPlayer.on(Hls.Events.MANIFEST_PARSED, () => {
+                // HLS 매니페스트 파싱 완료, 재생 시작
+                const playPromise = audioPlayer.play();
+                handlePlayPromise(playPromise, station);
             });
+            
+            hlsPlayer.on(Hls.Events.ERROR, (event, data) => {
+                console.error('HLS 오류:', data);
+                if (data.fatal) {
+                    switch(data.type) {
+                        case Hls.ErrorTypes.NETWORK_ERROR:
+                            console.error('네트워크 오류');
+                            alert('방송국 연결에 실패했습니다. 네트워크 상태를 확인하세요.');
+                            break;
+                        case Hls.ErrorTypes.MEDIA_ERROR:
+                            console.error('미디어 오류');
+                            alert('미디어 재생에 문제가 발생했습니다.');
+                            break;
+                        default:
+                            console.error('HLS 치명적 오류');
+                            alert('방송국 재생 중 오류가 발생했습니다.');
+                            break;
+                    }
+                    isPlaying = false;
+                    updatePlayPauseIcon(false);
+                    updateStationsList();
+                }
+            });
+        } else {
+            // 일반 오디오 스트림
+            console.log('일반 스트림 재생');
+            audioPlayer.src = station.stream;
+            audioPlayer.load();
+            const playPromise = audioPlayer.play();
+            handlePlayPromise(playPromise, station);
         }
     } catch (e) {
         console.error('재생 오류:', e);
         alert('방송국 연결에 실패했습니다. 다른 방송국을 선택해주세요.');
         updateStationsList();
+    }
+}
+
+// 재생 약속 처리 함수
+function handlePlayPromise(playPromise, station) {
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            // 재생 성공
+            isPlaying = true;
+            updatePlayPauseIcon(true);
+            
+            // 현재 재생 중인 방송국 정보 업데이트
+            currentStationDisplay.textContent = station.name;
+            currentCountryDisplay.textContent = `${station.country} · ${station.genre}`;
+            
+            // 방송국 목록 업데이트 (map.js의 함수 호출)
+            updateStationsList();
+            
+            // 재생 중인 방송국 정보를 map.js에 전달
+            if (typeof window.updateCurrentPlayingStation === 'function') {
+                window.updateCurrentPlayingStation(station);
+            }
+        }).catch(error => {
+            // 재생 실패
+            console.error('재생 오류:', error);
+            isPlaying = false;
+            updatePlayPauseIcon(false);
+            alert('방송국 연결에 실패했습니다. 다른 방송국을 선택해주세요.');
+            updateStationsList();
+        });
     }
 }
 
