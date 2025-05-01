@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPB 리그 - 야구 입문자 웹사이트</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>⚾ 야구 입문자 가이드</h1>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="rules.html">야구 규칙</a></li>
+                <li><a href="kbo.html">KBO</a></li>
+                <li><a href="npb.html" class="active">NPB</a></li>
+                <li><a href="mlb.html">MLB</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>일본 프로야구 NPB</h1>
+            <p>Nippon Professional Baseball - 일본의 최고 프로 야구 리그</p>
+            <div class="update-notice">
+                이 페이지는 2025년 기준 최신 정보를 바탕으로 구성되었습니다.
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="npb-intro card">
+            <div class="container">
+                <div class="section-content">
+                    <h2>NPB 리그 개요</h2>
+                    <p>
+                        NPB(Nippon Professional Baseball, 일본어: 日本野球機構)는 일본의 최상위 프로야구 리그로, 1950년에 현재의 체제로 출범했습니다. 
+                        두 개의 리그(센트럴 리그와 퍼시픽 리그)로 분리되어 있으며, 각 리그에는 6개 팀씩 총 12개 팀이 참가하고 있습니다.
+                        KBO나 MLB와 달리 양 리그 간 정규시즌 교류전이 있는 것이 특징이며, 시즌 종료 후 각 리그 상위 3개 팀이 
+                        클라이맥스 시리즈(플레이오프)에 진출하여 리그 우승팀을 결정합니다. 그 후 양 리그 우승팀이 일본시리즈에서 맞붙어 
+                        최종 챔피언을 가립니다.
+                    </p>
+                    <div class="npb-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">구단</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">143</span>
+                            <span class="stat-label">경기 수</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">75</span>
+                            <span class="stat-label">시즌 역사</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">약 2570만</span>
+                            <span class="stat-label">연간 관중</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="npb-season-structure card">
+            <div class="container">
+                <h2>시즌 구조 및 포스트시즌 방식</h2>
+                <div class="detail-section">
+                    <h3>정규시즌</h3>
+                    <ul>
+                        <li><strong>기간:</strong> 3월 말 ~ 10월 초</li>
+                        <li><strong>경기 수:</strong> 팀당 143경기 (2025년 기준)</li>
+                        <li><strong>교류전:</strong> 6월 중 각 리그 간 팀당 18경기의 교류전 진행</li>
+                        <li><strong>순위 결정방식:</strong> 승률 기준 (동률 시 승자승 → 득실차 순)</li>
+                    </ul>
+
+                    <h3>클라이맥스 시리즈</h3>
+                    <ul>
+                        <li><strong>1스테이지:</strong> 각 리그 2위와 3위 팀이 최대 3전 2선승제로 경기</li>
+                        <li><strong>파이널스테이지:</strong> 1스테이지 승자와 정규시즌 1위 팀이 최대 6전 4선승제로 경기 (1위 팀에게 1승 어드밴티지 부여)</li>
+                        <li><strong>2023년부터 변경:</strong> 1위팀 어드밴티지가 1승에서 1.5승으로 강화 (첫 경기 무승부 시 1위팀 우승)</li>
+                    </ul>
+
+                    <h3>일본시리즈</h3>
+                    <ul>
+                        <li><strong>방식:</strong> 센트럴 리그와 퍼시픽 리그의 클라이맥스 시리즈 우승팀이 7전 4선승제로 경기</li>
+                        <li><strong>홈 이점:</strong> 홈경기 이점은 홀수 해에는 퍼시픽 리그, 짝수 해에는 센트럴 리그에 부여</li>
+                        <li><strong>시즌 MVP:</strong> 우승팀에서 일본시리즈 MVP(최우수선수)를 선정</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="npb-leagues card">
+            <div class="container">
+                <h2>NPB 리그 구성</h2>
+                <div class="leagues-container">
+                    <div class="league-card">
+                        <h3>센트럴 리그 (Central League)</h3>
+                        <p>DH 제도를 사용하지 않는 전통적인 야구 스타일을 고수하는 리그</p>
+                        <ul class="league-teams">
+                            <li><strong>요미우리 자이언츠</strong> - 일본 최고 인기 구단, 도쿄 기반 "도쿄의 거인들"</li>
+                            <li><strong>한신 타이거즈</strong> - 오사카 기반의 열정적인 팬 베이스로 유명한 팀</li>
+                            <li><strong>히로시마 도요 카프</strong> - 붉은 유니폼의 히로시마 연고 팀</li>
+                            <li><strong>요코하마 DeNA 베이스타즈</strong> - 요코하마 연고, 블루 컬러의 개성있는 팀</li>
+                            <li><strong>츄니치 드래곤즈</strong> - 나고야 연고의 드래곤즈</li>
+                            <li><strong>도쿄 야쿠르트 스왈로즈</strong> - 도쿄 연고의 "제비" 팀</li>
+                        </ul>
+                    </div>
+                    <div class="league-card">
+                        <h3>퍼시픽 리그 (Pacific League)</h3>
+                        <p>1975년부터 DH 제도를 도입한 혁신적인 리그</p>
+                        <ul class="league-teams">
+                            <li><strong>후쿠오카 소프트뱅크 호크스</strong> - 2010년대 최강 팀, 2023~2024 일본시리즈 우승</li>
+                            <li><strong>사이타마 세이부 라이온즈</strong> - 사이타마 연고, 전통의 강호</li>
+                            <li><strong>지바 롯데 마린즈</strong> - 지바 연고, 해양 테마의 팀 컨셉</li>
+                            <li><strong>오릭스 버팔로즈</strong> - 오사카 연고, 2021, 2022 일본시리즈 우승팀</li>
+                            <li><strong>홋카이도 닛폰햄 파이터즈</strong> - 삿포로 연고, 오타니 쇼헤이 배출 팀</li>
+                            <li><strong>도호쿠 라쿠텐 골든이글스</strong> - 센다이 연고, 이글스</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="npb-features card">
+            <div class="container">
+                <h2>NPB 리그의 특징</h2>
+                <div class="detail-section">
+                    <h3>기술 중심의 야구</h3>
+                    <p>
+                        NPB는 파워 위주의 MLB와 달리 기본기와 세밀한 기술력을 중시하는 야구를 보여줍니다. 정교한 타격, 번트, 
+                        내야 안타, 작전 등 "작은 야구"의 요소가 많이 활용됩니다. 투수들은 다양한 변화구와 제구력에 중점을 둡니다.
+                    </p>
+
+                    <h3>투구 스타일</h3>
+                    <p>
+                        일본 투수들은 다양한 투구 폼과 독특한 변화구로 유명합니다. 특히 포크볼, 슬라이더 등의 변화구가 발달했으며,
+                        과감한 투구 폼과 타이밍 교란 기술이 흔하게 사용됩니다. 2025년 기준 평균 구속은 약 145km/h 정도로 
+                        MLB보다는 다소 낮지만 제구력과 경험이 뛰어납니다.
+                    </p>
+
+                    <h3>선수 충성도와 계약 시스템</h3>
+                    <p>
+                        NPB는 KBO와 마찬가지로 한 팀에서 오래 활약하는 선수들이 많습니다. FA(자유계약) 자격을 얻기 위해선 
+                        9시즌이 필요하며, 이로 인해 팀에 대한 충성도와 선수-팬 간의 유대감이 강합니다. 또한 "포스팅 시스템"을 통해
+                        MLB로 이적할 수 있는 제도가 있어 오타니 쇼헤이, 다르비슈 유 등 많은 스타 선수를 배출했습니다.
+                    </p>
+
+                    <h3>스타디움 문화</h3>
+                    <p>
+                        NPB 구장은 대부분 중소규모(25,000~45,000석)로 아늑한 분위기를 제공합니다. 도쿄돔(요미우리 자이언츠)과
+                        같은 돔구장부터 마즈다 스타디움(히로시마 카프)같은 개방형 구장까지 다양합니다. 일부 구장은 도심 한가운데 위치해
+                        접근성이 뛰어납니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="npb-culture card">
+            <div class="container">
+                <h2>NPB 응원 문화와 특징</h2>
+                <div class="detail-section">
+                    <h3>조직적인 응원 문화</h3>
+                    <p>
+                        NPB 경기장의 가장 큰 특징은 매우 조직적이고 열정적인 응원 문화입니다. 각 팀마다 공식 응원단이 존재하며,
+                        트럼펫, 북, 메가폰 등을 이용한 합주와 함께 모든 선수에게 개인 응원가가 있습니다. 공격과 수비 시간에 따라
+                        응원 스타일이 완전히 달라지는 것이 특징입니다.
+                    </p>
+
+                    <h3>응원가와 퍼포먼스</h3>
+                    <p>
+                        각 팀은 수십 개의 응원가와 구호를 가지고 있으며, 타자마다 고유의 응원가가 있습니다. 7회 말에는 "럭키 세븐" 
+                        시간으로 특별한 풍선 퍼포먼스를 선보이며, 한신 타이거즈의 '육전 비빔밥' 응원가, 요미우리의 '도쿄음頭' 등
+                        특색있는 팀 응원 문화가 발달했습니다.
+                    </p>
+
+                    <h3>음식과 먹거리</h3>
+                    <p>
+                        NPB 구장에는 지역 특산물과 일본 전통 음식을 판매하는 다양한 먹거리 부스가 있습니다. 광도쿠리(맥주), 타코야키,
+                        야키소바 등 일본 특유의 야구장 음식 문화가 발달했으며, 각 구장마다 특색있는 대표 메뉴가 있습니다.
+                    </p>
+
+                    <h3>유니폼과 팀 컬러</h3>
+                    <p>
+                        NPB 팀들은 독특한 유니폼 디자인과 마스코트로 개성을 표현합니다. 히로시마 카프의 붉은색 유니폼, 
+                        한신 타이거즈의 노란색과 검은색 줄무늬, 요미우리 자이언츠의 오렌지와 검은색 등 팀마다 고유의 
+                        색상과 디자인을 가지고 있습니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="npb-popular-teams card">
+            <div class="container">
+                <h2>NPB 인기 구단 TOP 5</h2>
+                <div class="detail-section">
+                    <div class="popular-team">
+                        <h3>1. 요미우리 자이언츠 (Yomiuri Giants)</h3>
+                        <p>
+                            <strong>연고지:</strong> 도쿄 | <strong>홈구장:</strong> 도쿄 돔 | <strong>창단:</strong> 1934년
+                        </p>
+                        <p>
+                            "일본의 뉴욕 양키스"라 불리는 NPB 최고 인기 구단입니다. 총 22회 일본시리즈 우승을 차지한 
+                            전통의 명문으로, 일본 전역에 팬을 보유하고 있습니다. 뛰어난 자금력으로 스타 선수를 영입하며,
+                            "자이언츠 제국"이라는 별명이 있습니다.
+                        </p>
+                    </div>
+
+                    <div class="popular-team">
+                        <h3>2. 한신 타이거즈 (Hanshin Tigers)</h3>
+                        <p>
+                            <strong>연고지:</strong> 오사카/니시노미야 | <strong>홈구장:</strong> 한신 고시엔 구장 | <strong>창단:</strong> 1935년
+                        </p>
+                        <p>
+                            가장 열정적인 팬덤으로 유명한 구단입니다. 1985년 우승 후 "한신 타이거즈의 저주"로 알려진 긴 우승 가뭄을
+                            겪었지만, 팬들의 충성도는 NPB 최고 수준입니다. "도토리 군단"이라는 별명이 있으며, 7회 럭키세븐의 풍선 
+                            퍼포먼스로 유명합니다.
+                        </p>
+                    </div>
+
+                    <div class="popular-team">
+                        <h3>3. 소프트뱅크 호크스 (SoftBank Hawks)</h3>
+                        <p>
+                            <strong>연고지:</strong> 후쿠오카 | <strong>홈구장:</strong> 후쿠오카 페이페이 돔 | <strong>창단:</strong> 1938년
+                        </p>
+                        <p>
+                            2010년대 이후 NPB 최강 팀으로 자리잡았으며, 2011년부터 2023년까지 7번의 일본시리즈 우승을 
+                            기록했습니다. 강력한 자금력과 선수 육성 시스템을 갖추고 있으며, 호화로운 시설과 첨단 데이터 분석으로
+                            현대 야구의 선두주자로 알려져 있습니다.
+                        </p>
+                    </div>
+
+                    <div class="popular-team">
+                        <h3>4. 히로시마 카프 (Hiroshima Carp)</h3>
+                        <p>
+                            <strong>연고지:</strong> 히로시마 | <strong>홈구장:</strong> 마즈다 줌-줌 스타디움 | <strong>창단:</strong> 1950년
+                        </p>
+                        <p>
+                            NPB에서 유일하게 기업이 아닌 지역 기반으로 운영되는 구단입니다. 적은 예산에도 불구하고 탁월한 
+                            선수 육성 시스템을 갖추고 있으며, 붉은색 유니폼이 트레이드마크입니다. "카프 걸스"라고 불리는 
+                            여성 팬이 많은 것으로 유명합니다.
+                        </p>
+                    </div>
+                    
+                    <div class="popular-team">
+                        <h3>5. 오릭스 버팔로즈 (Orix Buffaloes)</h3>
+                        <p>
+                            <strong>연고지:</strong> 오사카/고베 | <strong>홈구장:</strong> 교세라 돔 오사카 | <strong>창단:</strong> 1936년
+                        </p>
+                        <p>
+                            2021년과 2022년 연속 일본시리즈 우승을 차지한 팀으로, 이치로 스즈키를 배출한 오릭스 블루웨이브와
+                            긴테츠 버팔로즈가 합병된 팀입니다. 뛰어난 데이터 분석과 전략적인 선수 운영으로 최근 강팀으로 
+                            부상했습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="npb-players">
+            <div class="container">
+                <h2>NPB 주요 스타 선수</h2>
+                <p class="section-intro">일본 프로야구를 빛내는 유명 선수들을 소개합니다.</p>
+                
+                <div class="npb-players-grid">
+                    <div class="npb-player-card">
+                        <div class="npb-player-photo">
+                            <img src="images/npb-yamamoto.jpg" alt="야마모토 요시노부" onerror="this.src='images/player-default.jpg'">
+                        </div>
+                        <div class="npb-player-info">
+                            <h3>야마모토 요시노부</h3>
+                            <span class="npb-player-team">오릭스 버팔로즈</span>
+                            <span class="npb-player-position">투수</span>
+                            <p>일본을 대표하는 에이스 투수로, 2021-2022년 연속 사와무라상(최고 투수상)을 수상했습니다. 뛰어난 제구력과 다양한 구종을 보유하고 있으며, 2023년 WBC에서 일본 대표팀의 우승에 기여했습니다.</p>
+                            <div class="npb-player-stats">
+                                <div class="npb-player-stat">
+                                    <div class="value">1.21</div>
+                                    <div class="label">2023 평균자책</div>
+                                </div>
+                                <div class="npb-player-stat">
+                                    <div class="value">169</div>
+                                    <div class="label">2023 탈삼진</div>
+                                </div>
+                                <div class="npb-player-stat">
+                                    <div class="value">17</div>
+                                    <div class="label">2023 승리</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="npb-player-card">
+                        <div class="npb-player-photo">
+                            <img src="images/npb-murakami.jpg" alt="무라카미 무네타카" onerror="this.src='images/player-default.jpg'">
+                        </div>
+                        <div class="npb-player-info">
+                            <h3>무라카미 무네타카</h3>
+                            <span class="npb-player-team">야쿠르트 스왈로즈</span>
+                            <span class="npb-player-position">내야수</span>
+                            <p>NPB 최고의 홈런 타자 중 한 명으로, 2022년에는 56홈런을 기록하며 트리플 크라운(홈런, 타점, 타율 1위)을 달성했습니다. 강력한 파워와 함께 안정적인 수비 능력을 갖춘 완성형 선수입니다.</p>
+                            <div class="npb-player-stats">
+                                <div class="npb-player-stat">
+                                    <div class="value">.318</div>
+                                    <div class="label">2023 타율</div>
+                                </div>
+                                <div class="npb-player-stat">
+                                    <div class="value">43</div>
+                                    <div class="label">2023 홈런</div>
+                                </div>
+                                <div class="npb-player-stat">
+                                    <div class="value">110</div>
+                                    <div class="label">2023 타점</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="npb-player-card">
+                        <div class="npb-player-photo">
+                            <img src="images/npb-sasaki.jpg" alt="사사키 로키" onerror="this.src='images/player-default.jpg'">
+                        </div>
+                        <div class="npb-player-info">
+                            <h3>사사키 로키</h3>
+                            <span class="npb-player-team">지바 롯데 마린즈</span>
+                            <span class="npb-player-position">투수</span>
+                            <p>2022년 완전경기와 퍼펙트 게임을 모두 달성한 천재 투수입니다. 최고 구속 165km/h의 강속구와 예리한 슬라이더를 구사하며, 10대에 프로 데뷔 후 NPB 역사를 새롭게 쓰고 있는 젊은 투수입니다.</p>
+                            <div class="npb-player-stats">
+                                <div class="npb-player-stat">
+                                    <div class="value">1.78</div>
+                                    <div class="label">2023 평균자책</div>
+                                </div>
+                                <div class="npb-player-stat">
+                                    <div class="value">160</div>
+                                    <div class="label">2023 탈삼진</div>
+                                </div>
+                                <div class="npb-player-stat">
+                                    <div class="value">9</div>
+                                    <div class="label">2023 승리</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="npb-player-card">
+                        <div class="npb-player-photo">
+                            <img src="images/npb-yoshida.jpg" alt="요시다 마사타카" onerror="this.src='images/player-default.jpg'">
+                        </div>
+                        <div class="npb-player-info">
+                            <h3>요시다 마사타카</h3>
+                            <span class="npb-player-team">오릭스 버팔로즈</span>
+                            <span class="npb-player-position">외야수</span>
+                            <p>정교한 타격으로 유명한 타자로, 2023년 MLB 보스턴 레드삭스로 이적하기 전 7년 연속 3할 타율을 기록했습니다. WBC 일본 대표팀에서도 중심 타자로 활약하며, "닌자" 라는 별명으로 불립니다.</p>
+                            <div class="npb-player-stats">
+                                <div class="npb-player-stat">
+                                    <div class="value">.335</div>
+                                    <div class="label">NPB 통산 타율</div>
+                                </div>
+                                <div class="npb-player-stat">
+                                    <div class="value">133</div>
+                                    <div class="label">NPB 통산 홈런</div>
+                                </div>
+                                <div class="npb-player-stat">
+                                    <div class="value">567</div>
+                                    <div class="label">NPB 통산 타점</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="npb-player-card">
+                        <div class="npb-player-photo">
+                            <img src="images/npb-senga.jpg" alt="센가 고다이" onerror="this.src='images/player-default.jpg'">
+                        </div>
+                        <div class="npb-player-info">
+                            <h3>센가 고다이</h3>
+                            <span class="npb-player-team">소프트뱅크 호크스</span>
+                            <span class="npb-player-position">투수</span>
+                            <p>"고스트 포크볼"로 유명한 투수로, 2023년 MLB 뉴욕 메츠로 이적했습니다. 소프트뱅크 호크스에서 활약하며 6번의 일본시리즈 우승에 기여했고, 탁월한 구위와 경기 운영 능력이 특징입니다.</p>
+                            <div class="npb-player-stats">
+                                <div class="npb-player-stat">
+                                    <div class="value">2.59</div>
+                                    <div class="label">NPB 통산 평균자책</div>
+                                </div>
+                                <div class="npb-player-stat">
+                                    <div class="value">1,153</div>
+                                    <div class="label">NPB 통산 탈삼진</div>
+                                </div>
+                                <div class="npb-player-stat">
+                                    <div class="value">87</div>
+                                    <div class="label">NPB 통산 승리</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="npb-player-card">
+                        <div class="npb-player-photo">
+                            <img src="images/npb-akiyama.jpg" alt="아키야마 쇼고" onerror="this.src='images/player-default.jpg'">
+                        </div>
+                        <div class="npb-player-info">
+                            <h3>아키야마 쇼고</h3>
+                            <span class="npb-player-team">히로시마 카프</span>
+                            <span class="npb-player-position">외야수</span>
+                            <p>세이부 라이온즈에서 활약하다 MLB 신시내티 레즈로 진출했던 외야수로, 2023년 히로시마 카프로 복귀했습니다. 5툴 플레이어로 평가받으며, 특히 뛰어난 수비 능력과 빠른 주루가 강점입니다.</p>
+                            <div class="npb-player-stats">
+                                <div class="npb-player-stat">
+                                    <div class="value">.301</div>
+                                    <div class="label">NPB 통산 타율</div>
+                                </div>
+                                <div class="npb-player-stat">
+                                    <div class="value">116</div>
+                                    <div class="label">NPB 통산 홈런</div>
+                                </div>
+                                <div class="npb-player-stat">
+                                    <div class="value">173</div>
+                                    <div class="label">NPB 통산 도루</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="npb-player-card">
+                        <div class="npb-player-photo">
+                            <img src="images/npb-ohtani.jpg" alt="오타니 쇼헤이" onerror="this.src='images/player-default.jpg'">
+                        </div>
+                        <div class="npb-player-info">
+                            <h3>오타니 쇼헤이</h3>
+                            <span class="npb-player-team">홋카이도 닛폰햄 파이터즈 (전)</span>
+                            <span class="npb-player-position">투수/타자</span>
+                            <p>MLB를 대표하는 양현시대 선수로, NPB 닛폰햄 파이터즈에서 활약하다 2018년 MLB로 진출했습니다. 투수와 타자 두 역할을 모두 뛰어난 수준으로 수행하는 역사상 보기 드문 선수로, 2023년 월드시리즈 우승과 MVP를 차지했습니다.</p>
+                            <div class="npb-player-stats">
+                                <div class="npb-player-stat">
+                                    <div class="value">2.52</div>
+                                    <div class="label">NPB 통산 평균자책</div>
+                                </div>
+                                <div class="npb-player-stat">
+                                    <div class="value">.286</div>
+                                    <div class="label">NPB 통산 타율</div>
+                                </div>
+                                <div class="npb-player-stat">
+                                    <div class="value">48</div>
+                                    <div class="label">NPB 통산 홈런</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="npb-player-card">
+                        <div class="npb-player-photo">
+                            <img src="images/npb-tanaka.jpg" alt="다나카 마사히로" onerror="this.src='images/player-default.jpg'">
+                        </div>
+                        <div class="npb-player-info">
+                            <h3>다나카 마사히로</h3>
+                            <span class="npb-player-team">도호쿠 라쿠텐 골든이글스</span>
+                            <span class="npb-player-position">투수</span>
+                            <p>일본을 대표하는 베테랑 투수로, 라쿠텐 이글스에서 활약하다 2014년부터 2020년까지 뉴욕 양키스에서 뛰었습니다. 이후 라쿠텐으로 복귀해 안정적인 피칭을 선보이고 있으며, 스플리터와 슬라이더가 특기입니다.</p>
+                            <div class="npb-player-stats">
+                                <div class="npb-player-stat">
+                                    <div class="value">3.13</div>
+                                    <div class="label">NPB 통산 평균자책</div>
+                                </div>
+                                <div class="npb-player-stat">
+                                    <div class="value">183</div>
+                                    <div class="label">NPB 통산 승리</div>
+                                </div>
+                                <div class="npb-player-stat">
+                                    <div class="value">2,038</div>
+                                    <div class="label">NPB 통산 탈삼진</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="npb-differences card">
+            <div class="container">
+                <h2>KBO, MLB와의 차이점</h2>
+                <div class="detail-section">
+                    <ul>
+                        <li><strong>공과 필드 크기:</strong> NPB는 MLB보다 약간 작은 공(직경 약 1cm 작음)과 더 작은 필드 크기를 사용합니다.</li>
+                        <li><strong>타이브레이커 룰:</strong> 12회까지 동점일 경우 무승부로 경기가 종료됩니다 (KBO/MLB는 연장전 계속).</li>
+                        <li><strong>외국인 선수 제한:</strong> 팀당 4명의 외국인 선수를 등록할 수 있으나, 실제 경기에는 최대 3명만 출전 가능합니다.</li>
+                        <li><strong>지명타자 제도:</strong> 퍼시픽 리그는 지명타자(DH)를 사용하지만, 센트럴 리그는 투수가 직접 타석에 섭니다.</li>
+                        <li><strong>포스팅 시스템:</strong> 구단이 동의할 경우 일정 금액의 이적료를 받고 MLB 구단과 계약할 수 있는 시스템이 있습니다.</li>
+                        <li><strong>2025년 신규 룰:</strong> 타석당 투수 견제구 제한(2회), 시프트 제한, 타이브레이커 룰 변경 등 MLB와 유사한 신규 룰 도입.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>⚾ 야구 입문자 가이드</h3>
+                    <p>야구를 처음 접하는 분들을 위한 완벽 가이드</p>
+                </div>
+                <div class="footer-links">
+                    <h4>바로가기</h4>
+                    <ul>
+                        <li><a href="index.html">홈</a></li>
+                        <li><a href="rules.html">야구 규칙</a></li>
+                        <li><a href="kbo.html">KBO</a></li>
+                        <li><a href="npb.html">NPB</a></li>
+                        <li><a href="mlb.html">MLB</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 야구 입문자 가이드. All Rights Reserved. <span class="update-badge">2025년 기준 최신 정보</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 
