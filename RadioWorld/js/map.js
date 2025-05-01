@@ -9,8 +9,10 @@ let currentPlayingStation = null;
 // DOM 로드 후 실행
 document.addEventListener('DOMContentLoaded', () => {
     initMap();
-    loadRadioData();
     setupEventListeners();
+    
+    // radio.js에서 데이터를 로드하므로 loadRadioData 직접 호출하지 않음
+    // 대신 initializeMap 함수가 radio.js에서 호출됨
 });
 
 // 지도 초기화 함수
@@ -37,18 +39,104 @@ function initMap() {
     }
 }
 
-// 라디오 데이터 로드 함수
-function loadRadioData() {
-    fetch('data/stations.json')
-        .then(response => response.json())
-        .then(data => {
-            radioData = data.stations;
-            createMarkers(radioData);
-            renderStationList(radioData);
-        })
-        .catch(error => {
-            console.error('라디오 데이터를 불러오는데 실패했습니다:', error);
+// 방송국 데이터 초기화 함수 (radio.js에서 호출됨)
+function initializeMap(stations) {
+    radioData = stations;
+    createMarkers(radioData);
+    renderStationList(radioData);
+    console.log(`지도에 ${stations.length}개의 방송국 마커를 표시했습니다.`);
+}
+
+// 현재 재생 중인 방송국 업데이트 함수 (radio.js에서 호출됨)
+function updateCurrentPlayingStation(station) {
+    currentPlayingStation = station;
+    
+    // 마커 스타일 업데이트
+    updateMarkersStyle();
+    
+    // 마커 찾기 및 해당 위치로 이동
+    const marker = findMarkerByStation(station);
+    if (marker) {
+        map.setView([station.lat, station.lng], 5);
+        
+        // 이전 활성 마커가 있으면 초기화
+        if (activeMarker && activeMarker !== marker) {
+            resetMarkerStyle(activeMarker);
+        }
+        
+        // 새 활성 마커 설정
+        activeMarker = marker;
+        highlightMarker(marker);
+    }
+}
+
+// 방송국에 해당하는 마커 찾기
+function findMarkerByStation(station) {
+    return markers.find(m => {
+        const pos = m.getLatLng();
+        return pos.lat === station.lat && pos.lng === station.lng;
+    });
+}
+
+// 모든 마커 스타일 업데이트
+function updateMarkersStyle() {
+    markers.forEach(marker => {
+        const pos = marker.getLatLng();
+        const isCurrentPlaying = currentPlayingStation && 
+                                pos.lat === currentPlayingStation.lat && 
+                                pos.lng === currentPlayingStation.lng;
+        
+        const markerColor = isCurrentPlaying ? '#3498db' : '#e74c3c';
+        const markerSize = marker === activeMarker ? [16, 16] : [14, 14];
+        const iconAnchor = marker === activeMarker ? [8, 8] : [7, 7];
+        
+        const newIcon = L.divIcon({
+            className: marker === activeMarker ? 'map-marker active' : 'map-marker',
+            html: `<div style="background-color: ${markerColor}; width: ${markerSize[0] - 4}px; height: ${markerSize[1] - 4}px; border-radius: 50%; border: 2px solid white;"></div>`,
+            iconSize: markerSize,
+            iconAnchor: iconAnchor
         });
+        
+        marker.setIcon(newIcon);
+    });
+}
+
+// 마커 스타일 초기화
+function resetMarkerStyle(marker) {
+    const pos = marker.getLatLng();
+    const isCurrentPlaying = currentPlayingStation && 
+                            pos.lat === currentPlayingStation.lat && 
+                            pos.lng === currentPlayingStation.lng;
+    
+    const markerColor = isCurrentPlaying ? '#3498db' : '#e74c3c';
+    
+    const normalIcon = L.divIcon({
+        className: 'map-marker',
+        html: `<div style="background-color: ${markerColor}; width: 10px; height: 10px; border-radius: 50%; border: 2px solid white;"></div>`,
+        iconSize: [14, 14],
+        iconAnchor: [7, 7]
+    });
+    
+    marker.setIcon(normalIcon);
+}
+
+// 마커 강조 표시
+function highlightMarker(marker) {
+    const pos = marker.getLatLng();
+    const isCurrentPlaying = currentPlayingStation && 
+                            pos.lat === currentPlayingStation.lat && 
+                            pos.lng === currentPlayingStation.lng;
+    
+    const markerColor = isCurrentPlaying ? '#3498db' : '#e74c3c';
+    
+    const activeIcon = L.divIcon({
+        className: 'map-marker active',
+        html: `<div style="background-color: ${markerColor}; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white;"></div>`,
+        iconSize: [20, 20],
+        iconAnchor: [10, 10]
+    });
+    
+    marker.setIcon(activeIcon);
 }
 
 // 마커 생성 함수
@@ -114,35 +202,14 @@ function createMarker(station) {
         
         // 활성 마커 스타일 변경
         if (activeMarker) {
-            // 이전 활성 마커의 재생 상태 확인
-            const prevIsPlaying = currentPlayingStation && 
-                                 activeMarker.getLatLng().lat === currentPlayingStation.lat && 
-                                 activeMarker.getLatLng().lng === currentPlayingStation.lng;
-            
-            // 이전 마커 색상 (재생 중이면 파란색, 아니면 빨간색)
-            const prevColor = prevIsPlaying ? '#3498db' : '#e74c3c';
-            
-            // 이전 활성 마커 스타일 초기화
-            const prevIcon = L.divIcon({
-                className: 'map-marker',
-                html: `<div style="background-color: ${prevColor}; width: 10px; height: 10px; border-radius: 50%; border: 2px solid white;"></div>`,
-                iconSize: [14, 14],
-                iconAnchor: [7, 7]
-            });
-            activeMarker.setIcon(prevIcon);
+            resetMarkerStyle(activeMarker);
         }
         
         // 현재 마커를 활성 마커로 설정
         activeMarker = marker;
         
-        // 활성 마커 스타일 변경 (크기만 키우고 애니메이션 없음)
-        const activeIcon = L.divIcon({
-            className: 'map-marker active',
-            html: `<div style="background-color: ${markerColor}; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white;"></div>`,
-            iconSize: [20, 20],
-            iconAnchor: [10, 10]
-        });
-        marker.setIcon(activeIcon);
+        // 활성 마커 스타일 변경
+        highlightMarker(marker);
     });
     
     // 마커에 툴팁 추가 (hover 시 방송국 이름 표시)
@@ -321,8 +388,8 @@ function playStationFromPopup(streamUrl, name, country, genre) {
     // 현재 재생 중인 방송국 업데이트
     currentPlayingStation = station;
     
-    // 라디오 재생 함수 호출
-    playRadioStation(station);
+    // 라디오 재생 함수 호출 (radio.js의 함수)
+    window.playRadioStation(station);
     
     // 리스트 업데이트
     renderStationList(radioData);
@@ -333,17 +400,14 @@ function playStationFromList(station) {
     // 현재 재생 중인 방송국 업데이트
     currentPlayingStation = station;
     
-    // 라디오 재생 함수 호출
-    playRadioStation(station);
+    // 라디오 재생 함수 호출 (radio.js의 함수)
+    window.playRadioStation(station);
     
     // 리스트 업데이트
     renderStationList(radioData);
     
     // 해당 방송국의 마커 찾기
-    const marker = markers.find(m => {
-        const pos = m.getLatLng();
-        return pos.lat === station.lat && pos.lng === station.lng;
-    });
+    const marker = findMarkerByStation(station);
     
     // 마커가 있으면 활성화
     if (marker) {
@@ -352,37 +416,19 @@ function playStationFromList(station) {
         
         // 활성 마커 스타일 변경
         if (activeMarker) {
-            // 이전 활성 마커의 재생 상태 확인
-            const prevIsPlaying = currentPlayingStation && 
-                                 activeMarker.getLatLng().lat === currentPlayingStation.lat && 
-                                 activeMarker.getLatLng().lng === currentPlayingStation.lng;
-            
-            // 이전 마커 색상 (재생 중이면 파란색, 아니면 빨간색)
-            const prevColor = prevIsPlaying ? '#3498db' : '#e74c3c';
-            
-            // 이전 활성 마커 스타일 초기화
-            const prevIcon = L.divIcon({
-                className: 'map-marker',
-                html: `<div style="background-color: ${prevColor}; width: 10px; height: 10px; border-radius: 50%; border: 2px solid white;"></div>`,
-                iconSize: [14, 14],
-                iconAnchor: [7, 7]
-            });
-            activeMarker.setIcon(prevIcon);
+            resetMarkerStyle(activeMarker);
         }
         
         // 현재 마커를 활성 마커로 설정
         activeMarker = marker;
         
-        // 활성 마커 스타일 변경 (현재 재생 중인 방송국이므로 항상 파란색)
-        const activeIcon = L.divIcon({
-            className: 'map-marker active',
-            html: `<div style="background-color: #3498db; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white;"></div>`,
-            iconSize: [20, 20],
-            iconAnchor: [10, 10]
-        });
-        marker.setIcon(activeIcon);
+        // 활성 마커 스타일 변경
+        highlightMarker(marker);
     }
 }
 
-// 전역 함수로 노출
+// 전역 함수로 노출 (radio.js에서 호출할 수 있도록)
+window.initializeMap = initializeMap;
+window.renderStationList = renderStationList;
+window.updateCurrentPlayingStation = updateCurrentPlayingStation;
 window.playStationFromPopup = playStationFromPopup; 
