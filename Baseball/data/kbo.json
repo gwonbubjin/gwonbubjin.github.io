@@ -1,0 +1,390 @@
+{
+  "teams": [
+    {
+      "id": "doosan",
+      "teamName": "두산 베어스",
+      "engName": "Doosan Bears",
+      "location": "서울",
+      "stadium": "잠실 야구장",
+      "establishedYear": 1982,
+      "championships": [1982, 1995, 2001, 2015, 2016, 2019, 2023],
+      "colors": [
+        {"name": "네이비", "code": "#131230"},
+        {"name": "레드", "code": "#ED1C24"}
+      ],
+      "logoUrl": "../images/logos/doosan.png",
+      "mascot": "곰",
+      "retiredNumbers": [
+        {"number": "10", "playerName": "김재환", "retiredYear": 2024},
+        {"number": "18", "playerName": "정수빈", "retiredYear": 2023}
+      ],
+      "fanCulture": {
+        "nickname": "곰팬", 
+        "chant": "두산의 첫 타자 허경민~ 잘해라 허경민! 홈런 쳐라 허경민! (박수 박수 박수) 허~ 경민~",
+        "traditions": "아구아구 응원가, 진격의 두산, 잠실의 절대 강자"
+      },
+      "keyStat2024": {
+        "ranking": "3위",
+        "teamBattingAvg": ".276",
+        "teamERA": "3.64",
+        "attendance": "약 140만명"
+      },
+      "famousPlayers": [
+        {"name": "양의지", "position": "포수", "description": "팀의 중심 타자이자 안정적인 수비를 자랑하는 베테랑 포수"},
+        {"name": "정수빈(은퇴)", "position": "외야수", "description": "현역 시절 스피드와 정확한 타격으로 사랑받은 레전드"},
+        {"name": "김재환(은퇴)", "position": "외야수", "description": "강력한 홈런 타자로 팀 역사상 최고의 타자 중 한 명"},
+        {"name": "김강률", "position": "투수", "description": "팀 에이스로 자리잡은 강속구 투수"},
+        {"name": "정진수", "position": "내야수", "description": "새로운 시대를 이끌어갈 유망주"}
+      ],
+      "rivals": ["LG 트윈스", "키움 히어로즈"],
+      "description": "두산 베어스는 1982년 OB 베어스로 출발하여 현재까지 KBO 리그의 강호로 자리매김하고 있습니다. 특히 2015년부터 2019년까지 5년 연속 한국시리즈에 진출하는 놀라운 기록을 세우며 '잠실 최강자'로 불렸습니다. 2020년대에 들어서도 꾸준한 성적을 유지하며 2023년에는 7번째 우승을 차지했습니다."
+    },
+    {
+      "id": "lg",
+      "teamName": "LG 트윈스",
+      "engName": "LG Twins",
+      "location": "서울",
+      "stadium": "잠실 야구장",
+      "establishedYear": 1982,
+      "championships": [1990, 1994, 2023],
+      "colors": [
+        {"name": "레드", "code": "#C30452"},
+        {"name": "블랙", "code": "#000000"}
+      ],
+      "logoUrl": "../images/logos/lg.png",
+      "mascot": "쌍둥이",
+      "retiredNumbers": [
+        {"number": "35", "playerName": "이병규", "retiredYear": 2019},
+        {"number": "9", "playerName": "박용택", "retiredYear": 2021}
+      ],
+      "fanCulture": {
+        "nickname": "트윈스팬", 
+        "chant": "LG의 4번타자 오지환~ 홈런쳐라 오지환! 이겨내라 오지환! (박수 박수 박수) 오~ 지환~",
+        "traditions": "여러분의 힘을 모아주세요, 하나 둘 셋 엘지, 쌍둥이 응원가"
+      },
+      "keyStat2024": {
+        "ranking": "1위",
+        "teamBattingAvg": ".282",
+        "teamERA": "3.12",
+        "attendance": "약 165만명"
+      },
+      "famousPlayers": [
+        {"name": "김현수", "position": "외야수", "description": "메이저리그 경험이 있는 뛰어난 타격 능력의 타자"},
+        {"name": "오지환", "position": "내야수", "description": "탁월한 수비력과 장타력을 겸비한 유격수"},
+        {"name": "고우석", "position": "투수", "description": "강속구로 팀의 뒷문을 책임지는 마무리 투수"},
+        {"name": "임찬규", "position": "투수", "description": "안정적인 선발 로테이션을 책임지는 좌완 투수"},
+        {"name": "박동원", "position": "포수", "description": "안정적인 리드와 타격 능력을 갖춘 베테랑 포수"}
+      ],
+      "rivals": ["두산 베어스", "키움 히어로즈"],
+      "description": "LG 트윈스는 1982년 창단하여 서울을 연고지로 하는 KBO 리그의 인기 구단입니다. 2023년 한국시리즈 우승으로 29년 만에 우승 트로피를 들어올렸으며, 2025년 현재는 리그 최강팀 중 하나로 자리매김하고 있습니다. 팬층이 두텁고 전통이 있는 클럽으로, 매년 포스트시즌 진출을 목표로 하고 있습니다."
+    },
+    {
+      "id": "ssg",
+      "teamName": "SSG 랜더스",
+      "engName": "SSG Landers",
+      "location": "인천",
+      "stadium": "인천 SSG 랜더스필드",
+      "establishedYear": 2000,
+      "championships": [2007, 2008, 2010, 2018, 2022],
+      "colors": [
+        {"name": "레드", "code": "#CE0E2D"},
+        {"name": "네이비", "code": "#13294B"}
+      ],
+      "logoUrl": "../images/logos/ssg.png",
+      "mascot": "랜디, 버니",
+      "retiredNumbers": [
+        {"number": "33", "playerName": "최정", "retiredYear": 2024}
+      ],
+      "fanCulture": {
+        "nickname": "랜더스팬", 
+        "chant": "SSG의 4번타자 최정~ 홈런쳐라 최정! 잘해라 최정! (박수 박수 박수) 최~ 정~",
+        "traditions": "랜더스 응원가, 인천 바다의 함성"
+      },
+      "keyStat2024": {
+        "ranking": "4위",
+        "teamBattingAvg": ".271",
+        "teamERA": "3.56",
+        "attendance": "약 120만명"
+      },
+      "famousPlayers": [
+        {"name": "최정(은퇴)", "position": "내야수", "description": "KBO 리그 역대 통산 홈런 TOP 5에 드는 강타자이자 팀의 상징"},
+        {"name": "김광현", "position": "투수", "description": "메이저리그 경험과 국가대표 출신의 에이스 좌완투수"},
+        {"name": "오원석", "position": "투수", "description": "신흥 에이스로 떠오른 젊은 투수"},
+        {"name": "최주환", "position": "내야수", "description": "안정적인 수비와 타격으로 팀에 기여하는 2루수"},
+        {"name": "한유섬", "position": "외야수", "description": "강한 홈런 생산력과 파워를 지닌 타자"}
+      ],
+      "rivals": ["KIA 타이거즈", "두산 베어스"],
+      "description": "SSG 랜더스는 2021년 SK 와이번스에서 팀명이 변경되었으며, 인천을 연고지로 활동하고 있습니다. 2022년 정규시즌 1위와 한국시리즈 우승으로 '와이어 투 와이어' 통합우승이라는 대기록을 달성했습니다. 타격과 투수력의 균형 잡힌 전력으로 강팀의 입지를 다지고 있습니다."
+    },
+    {
+      "id": "kiwoom",
+      "teamName": "키움 히어로즈",
+      "engName": "Kiwoom Heroes",
+      "location": "서울",
+      "stadium": "고척 스카이돔",
+      "establishedYear": 2008,
+      "championships": [2024],
+      "colors": [
+        {"name": "퍼플", "code": "#5F0080"},
+        {"name": "화이트", "code": "#FFFFFF"}
+      ],
+      "logoUrl": "../images/logos/kiwoom.png",
+      "mascot": "히로", 
+      "retiredNumbers": [
+        {"number": "52", "playerName": "박병호", "retiredYear": 2022}
+      ],
+      "fanCulture": {
+        "nickname": "히어로즈팬", 
+        "chant": "키움의 4번타자 이정후~ 홈런쳐라 이정후! 안타쳐라 이정후! (박수 박수 박수) 이~ 정후~",
+        "traditions": "돔구장의 열기, 작지만 강한 팀"
+      },
+      "keyStat2024": {
+        "ranking": "2위",
+        "teamBattingAvg": ".278",
+        "teamERA": "3.41",
+        "attendance": "약 110만명"
+      },
+      "famousPlayers": [
+        {"name": "이정후(MLB)", "position": "외야수", "description": "메이저리그로 진출한 역대급 타격 센스를 갖춘 외야수"},
+        {"name": "안우진", "position": "투수", "description": "강속구 파워피처로 팀 에이스의 역할을 수행"},
+        {"name": "김혜성", "position": "내야수", "description": "빠른 발과 수비력이 돋보이는 2루수"},
+        {"name": "김재웅", "position": "투수", "description": "안정적인 제구력의 좌완 투수"},
+        {"name": "이지영", "position": "포수", "description": "팀의 안방마님으로 안정적인 리드를 보여주는 베테랑"}
+      ],
+      "rivals": ["LG 트윈스", "두산 베어스"],
+      "description": "키움 히어로즈는 2008년 우리 히어로즈로 창단하여 여러 번의 구단명 변경을 거쳤으며, 고척 스카이돔을 홈구장으로 사용하는 유일한 돔구장 팀입니다. 2024년 첫 한국시리즈 우승으로 새 역사를 썼으며, 작지만 강한 팀으로 통합니다. 젊은 선수들의 빠른 성장과 실리 야구로 주목받는 팀입니다."
+    },
+    {
+      "id": "kt",
+      "teamName": "KT 위즈",
+      "engName": "KT Wiz",
+      "location": "수원",
+      "stadium": "수원 KT 위즈 파크",
+      "establishedYear": 2013,
+      "championships": [2021],
+      "colors": [
+        {"name": "블랙", "code": "#000000"},
+        {"name": "레드", "code": "#FF1414"}
+      ],
+      "logoUrl": "../images/logos/kt.png",
+      "mascot": "빅또리, 위니",
+      "retiredNumbers": [],
+      "fanCulture": {
+        "nickname": "위즈팬", 
+        "chant": "KT의 주장 박병호~ 홈런쳐라 박병호! 안타쳐라 박병호! (박수 박수 박수) 박~ 병호~",
+        "traditions": "블랙 유니폼, 수원 성 응원가"
+      },
+      "keyStat2024": {
+        "ranking": "5위",
+        "teamBattingAvg": ".268",
+        "teamERA": "3.70",
+        "attendance": "약 95만명"
+      },
+      "famousPlayers": [
+        {"name": "박병호", "position": "내야수", "description": "강력한 홈런 생산력을 가진 베테랑 1루수"},
+        {"name": "황재균", "position": "내야수", "description": "팀의 프랜차이즈 스타로 안정적인 타격을 보여주는 3루수"},
+        {"name": "배제성", "position": "투수", "description": "팀의 에이스로 자리잡은 우완 투수"},
+        {"name": "소형준", "position": "투수", "description": "젊은 나이에 팀 선발진을 이끄는 기대주"},
+        {"name": "강백호", "position": "외야수", "description": "젊고 강력한 타격 능력을 갖춘 외야수"}
+      ],
+      "rivals": ["NC 다이노스", "삼성 라이온즈"],
+      "description": "KT 위즈는 2013년 창단하여 2015년에 1군 진입한 KBO 리그의 가장 젊은 구단 중 하나입니다. 2021년 정규시즌과 한국시리즈에서 우승하며 창단 후 첫 우승을 달성했습니다. 젊고 에너지 넘치는 팀 컬러와 체계적인 선수 육성으로 안정적인 성장세를 보이고 있습니다."
+    },
+    {
+      "id": "nc",
+      "teamName": "NC 다이노스",
+      "engName": "NC Dinos",
+      "location": "창원",
+      "stadium": "창원 NC 파크",
+      "establishedYear": 2011,
+      "championships": [2020],
+      "colors": [
+        {"name": "네이비", "code": "#005A9B"},
+        {"name": "스카이블루", "code": "#6EC4E8"}
+      ],
+      "logoUrl": "../images/logos/nc.png",
+      "mascot": "단디, 단또",
+      "retiredNumbers": [],
+      "fanCulture": {
+        "nickname": "다이노스팬", 
+        "chant": "NC의 캡틴 나성범~ 홈런쳐라 나성범! 안타쳐라 나성범! (박수 박수 박수) 나~ 성범~",
+        "traditions": "공룡 응원가, 창원의 함성"
+      },
+      "keyStat2024": {
+        "ranking": "8위",
+        "teamBattingAvg": ".260",
+        "teamERA": "4.12",
+        "attendance": "약 70만명"
+      },
+      "famousPlayers": [
+        {"name": "나성범", "position": "외야수", "description": "팀의 중심타자로 안정적인 타격을 선보이는 좌타 외야수"},
+        {"name": "박건우", "position": "외야수", "description": "높은 타율과 넓은 수비범위를 자랑하는 외야수"},
+        {"name": "김주원", "position": "내야수", "description": "젊은 유격수로 팀의 미래를 책임질 선수"},
+        {"name": "소형우", "position": "투수", "description": "젊은 나이에 팀의 마무리를 맡고 있는 유망주"},
+        {"name": "송명기", "position": "투수", "description": "안정적인 이닝소화능력을 갖춘 베테랑 선발투수"}
+      ],
+      "rivals": ["KT 위즈", "롯데 자이언츠"],
+      "description": "NC 다이노스는 2011년 창단하여 2013년 1군에 합류한 비교적 젊은 구단입니다. 2020년 KBO 리그 통합우승을 달성하며 창단 9년 만에 정상에 올랐습니다. 데이터 기반의 과학적인 야구로 알려져 있으며, 체계적인 육성 시스템으로 젊은 선수들의 성장이 돋보이는 구단입니다."
+    },
+    {
+      "id": "kia",
+      "teamName": "KIA 타이거즈",
+      "engName": "KIA Tigers",
+      "location": "광주",
+      "stadium": "광주-기아 챔피언스 필드",
+      "establishedYear": 1982,
+      "championships": [1983, 1986, 1987, 1988, 1989, 1991, 1993, 1996, 1997, 2009, 2017],
+      "colors": [
+        {"name": "레드", "code": "#EA002C"},
+        {"name": "화이트", "code": "#FFFFFF"}
+      ],
+      "logoUrl": "../images/logos/kia.png",
+      "mascot": "호걸이, 호돌이",
+      "retiredNumbers": [
+        {"number": "7", "playerName": "이종범", "retiredYear": 2012},
+        {"number": "18", "playerName": "선동열", "retiredYear": 1999},
+        {"number": "10", "playerName": "김성한", "retiredYear": 2008}
+      ],
+      "fanCulture": {
+        "nickname": "타이거즈팬", 
+        "chant": "KIA의 4번타자 소크라테스~ 홈런쳐라 소크라테스! 안타쳐라 소크라테스! (박수 박수) 소크라테스~",
+        "traditions": "호랑이 군단, 광주의 함성, 붉은색 물결"
+      },
+      "keyStat2024": {
+        "ranking": "7위",
+        "teamBattingAvg": ".267",
+        "teamERA": "3.85",
+        "attendance": "약 110만명"
+      },
+      "famousPlayers": [
+        {"name": "양현종", "position": "투수", "description": "프랜차이즈 스타로 팀의 에이스 역할을 하는 좌완투수"},
+        {"name": "소크라테스", "position": "외야수", "description": "강력한 장타력을 갖춘 외국인 타자"},
+        {"name": "나지완", "position": "외야수", "description": "팀 역사상 중요한 발자취를 남긴 베테랑 타자"},
+        {"name": "최형우", "position": "외야수", "description": "꾸준하고 안정적인 타격을 보여주는 KBO 최고의 타자 중 한 명"},
+        {"name": "김도영", "position": "내야수", "description": "팀의 미래를 책임질 젊은 내야수"}
+      ],
+      "rivals": ["삼성 라이온즈", "SSG 랜더스"],
+      "description": "KIA 타이거즈는 KBO 리그에서 가장 많은 11번의 한국시리즈 우승을 차지한 명문 구단입니다. 1982년 해태 타이거즈로 출발하여 2001년 KIA 타이거즈로 팀명을 변경했습니다. 강력한 타선과 전통을 중시하는 팀 컬러로, 호남 지역의 열정적인 팬 문화가 특징입니다."
+    },
+    {
+      "id": "lotte",
+      "teamName": "롯데 자이언츠",
+      "engName": "Lotte Giants",
+      "location": "부산",
+      "stadium": "사직 야구장",
+      "establishedYear": 1982,
+      "championships": [1984, 1992],
+      "colors": [
+        {"name": "네이비", "code": "#002955"},
+        {"name": "화이트", "code": "#FFFFFF"}
+      ],
+      "logoUrl": "../images/logos/lotte.png",
+      "mascot": "아치, 빅초이",
+      "retiredNumbers": [
+        {"number": "10", "playerName": "이종필", "retiredYear": 1997},
+        {"number": "27", "playerName": "김용철", "retiredYear": 1999},
+        {"number": "33", "playerName": "장효조", "retiredYear": 2000},
+        {"number": "35", "playerName": "최동원", "retiredYear": 1999}
+      ],
+      "fanCulture": {
+        "nickname": "자이언츠팬", 
+        "chant": "롯데의 중심타자 전준우~ 홈런쳐라 전준우! 안타쳐라 전준우! (박수 박수 박수) 전~ 준우~",
+        "traditions": "부산 갈매기, 바다의 함성, 회오리 응원"
+      },
+      "keyStat2024": {
+        "ranking": "9위",
+        "teamBattingAvg": ".254",
+        "teamERA": "4.24",
+        "attendance": "약 125만명"
+      },
+      "famousPlayers": [
+        {"name": "전준우", "position": "외야수", "description": "높은 타율과 출루율을 자랑하는 팀의 대표 타자"},
+        {"name": "이대호(은퇴)", "position": "내야수", "description": "KBO 리그를 대표하는 타자 중 한 명으로 팀의 대표 레전드"},
+        {"name": "구승민", "position": "투수", "description": "강속구 투수로 팀 불펜의 핵심"},
+        {"name": "한동희", "position": "내야수", "description": "팀의 미래를 책임질 젊은 내야수"},
+        {"name": "안권수", "position": "외야수", "description": "빠른 발과 뛰어난 컨택 능력을 갖춘 젊은 외야수"}
+      ],
+      "rivals": ["NC 다이노스", "삼성 라이온즈"],
+      "description": "롯데 자이언츠는 부산을 연고로 하는 KBO의 대표적인 인기 구단입니다. 1984년과 1992년 두 차례 우승했으며, KBO 최고의 팬층을 자랑합니다. '부산갈매기'라는 애칭으로 불리며, 사직구장의 뜨거운 응원문화가 특징입니다. 최근 몇 년간 리빌딩 과정을 거치고 있으며 젊은 선수들의 성장이 기대됩니다."
+    },
+    {
+      "id": "samsung",
+      "teamName": "삼성 라이온즈",
+      "engName": "Samsung Lions",
+      "location": "대구",
+      "stadium": "대구 삼성 라이온즈 파크",
+      "establishedYear": 1982,
+      "championships": [1985, 2002, 2005, 2006, 2011, 2012, 2013, 2014],
+      "colors": [
+        {"name": "블루", "code": "#0072BC"},
+        {"name": "화이트", "code": "#FFFFFF"}
+      ],
+      "logoUrl": "../images/logos/samsung.png",
+      "mascot": "블레오, 블레야",
+      "retiredNumbers": [
+        {"number": "36", "playerName": "선동열", "retiredYear": 1996},
+        {"number": "10", "playerName": "양준혁", "retiredYear": 2010},
+        {"number": "26", "playerName": "이승엽", "retiredYear": 2017}
+      ],
+      "fanCulture": {
+        "nickname": "라이온즈팬", 
+        "chant": "삼성의 1번타자 박해민~ 안타쳐라 박해민! 홈런쳐라 박해민! (박수 박수 박수) 박~ 해민~",
+        "traditions": "포효하라 대구의 사자들, 푸른 물결"
+      },
+      "keyStat2024": {
+        "ranking": "6위",
+        "teamBattingAvg": ".265",
+        "teamERA": "3.89",
+        "attendance": "약 90만명"
+      },
+      "famousPlayers": [
+        {"name": "구자욱", "position": "외야수", "description": "파워와 컨택을 겸비한 팀의 중심 타자"},
+        {"name": "오승환", "position": "투수", "description": "메이저리그 경험이 있는 '돌부처' 닉네임의 마무리 투수"},
+        {"name": "강민호", "position": "포수", "description": "안정적인 수비와 장타력을 갖춘 베테랑 포수"},
+        {"name": "이학주", "position": "내야수", "description": "수비력이 뛰어난 유격수"},
+        {"name": "원태인", "position": "투수", "description": "젊은 나이에 팀 선발진을 이끄는 에이스 투수"}
+      ],
+      "rivals": ["KIA 타이거즈", "롯데 자이언츠"],
+      "description": "삼성 라이온즈는 KBO 리그 최고의 명문 구단 중 하나로, 특히 2011년부터 2014년까지 4년 연속 한국시리즈 우승이라는 대기록을 세웠습니다. 대구를 연고로 하며, 체계적인 선수 육성 시스템과 팀워크를 중시하는 전통이 있습니다. 최근 몇 년간 세대교체를 거치며 새로운 전성기를 준비하고 있습니다."
+    },
+    {
+      "id": "hanwha",
+      "teamName": "한화 이글스",
+      "engName": "Hanwha Eagles",
+      "location": "대전",
+      "stadium": "한화생명 이글스 파크",
+      "establishedYear": 1986,
+      "championships": [1999],
+      "colors": [
+        {"name": "오렌지", "code": "#FF6600"},
+        {"name": "블랙", "code": "#000000"}
+      ],
+      "logoUrl": "../images/logos/hanwha.png",
+      "mascot": "수리, 단지",
+      "retiredNumbers": [
+        {"number": "21", "playerName": "정민철", "retiredYear": 2009},
+        {"number": "34", "playerName": "송진우", "retiredYear": 2005}
+      ],
+      "fanCulture": {
+        "nickname": "이글스팬", 
+        "chant": "한화의 4번타자 노시환~ 홈런쳐라 노시환! 안타쳐라 노시환! (박수 박수 박수) 노~ 시환~",
+        "traditions": "불사조 응원가, 충성, 영원한 사랑 한화"
+      },
+      "keyStat2024": {
+        "ranking": "10위",
+        "teamBattingAvg": ".251",
+        "teamERA": "4.36",
+        "attendance": "약 85만명"
+      },
+      "famousPlayers": [
+        {"name": "노시환", "position": "내야수", "description": "강력한 홈런 생산력을 갖춘 젊은 3루수"},
+        {"name": "문동주", "position": "투수", "description": "팀의 미래 에이스로 기대되는 강속구 유망주"},
+        {"name": "정우영", "position": "투수", "description": "뛰어난 제구력과 다양한 구종을 갖춘 투수"},
+        {"name": "최진호", "position": "외야수", "description": "컨택 능력과 빠른 발이 장점인 외야수"},
+        {"name": "이진영", "position": "외야수", "description": "팀의 미래를 책임질 젊은 외야수"}
+      ],
+      "rivals": ["KIA 타이거즈", "대전 출신 선수들이 많은 타팀"],
+      "description": "한화 이글스는 1986년 빙그레 이글스로 창단하여 현재까지 대전을 연고로 활동하고 있습니다. 1999년 유일한 한국시리즈 우승을 달성했으며, 최근에는 장기적인 리빌딩을 통해 팀 재건을 도모하고 있습니다. 충성도 높은 팬층으로 유명하며, 젊은 선수들의 성장에 기대를 걸고 있습니다."
+    }
+  ]
+} 
