@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBO 리그 - 야구 입문자 웹사이트</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>⚾ 야구 입문자 가이드</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="rules.html">야구 규칙</a></li>
+                <li><a href="kbo.html" class="active">KBO</a></li>
+                <li><a href="npb.html">NPB</a></li>
+                <li><a href="mlb.html">MLB</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>KBO 리그</h1>
+            <p>한국 프로야구 KBO 리그와 10개 구단을 소개합니다.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="kbo-intro">
+            <div class="container">
+                <div class="section-content">
+                    <h2>KBO 리그란?</h2>
+                    <p>
+                        KBO 리그는 한국의 프로야구 리그로, 1982년에 출범했습니다. 현재는 10개 구단이 참가하며,
+                        3월 말부터 10월 초까지 정규시즌을 치르고, 이후 포스트시즌을 통해 한국시리즈 우승팀을 가립니다.
+                    </p>
+                    <div class="kbo-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10</span>
+                            <span class="stat-label">구단</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">144</span>
+                            <span class="stat-label">경기</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1982</span>
+                            <span class="stat-label">창설년도</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="kbo-teams">
+            <div class="container">
+                <h2>KBO 10개 구단</h2>
+                <div class="team-grid" id="team-grid">
+                    <!-- 여기에 JavaScript로 팀 카드들이 로드됩니다 -->
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>팀 정보를 불러오는 중...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="kbo-history">
+            <div class="container">
+                <h2>KBO 리그 역사</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">1982</div>
+                        <div class="timeline-content">
+                            <h3>KBO 리그 출범</h3>
+                            <p>해태, 삼성, OB, MBC, 롯데, 삼미 6개 구단으로 한국프로야구가 시작되었습니다.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">1986</div>
+                        <div class="timeline-content">
+                            <h3>빙그레 이글스 창단</h3>
+                            <p>7번째 구단인 빙그레 이글스가 창단되었습니다. (현 한화 이글스)</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">1990</div>
+                        <div class="timeline-content">
+                            <h3>태평양 돌핀스 창단</h3>
+                            <p>8번째 구단인 태평양 돌핀스가 창단되었습니다. (현 KT 위즈)</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2000</div>
+                        <div class="timeline-content">
+                            <h3>현대 유니콘스 우승</h3>
+                            <p>창단 이후 첫 우승을 차지한 현대 유니콘스 (후에 해체)</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2013</div>
+                        <div class="timeline-content">
+                            <h3>NC 다이노스 창단</h3>
+                            <p>9번째 구단인 NC 다이노스가 정식 출범했습니다.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2015</div>
+                        <div class="timeline-content">
+                            <h3>KT 위즈 창단</h3>
+                            <p>10번째 구단인 KT 위즈가 정식 출범했습니다.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-content">
+                            <h3>KIA 타이거즈 우승</h3>
+                            <p>2017년 이후 7년 만에 KIA 타이거즈가 한국시리즈에서 우승을 차지했습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>⚾ 야구 입문자 가이드</h3>
+                    <p>야구를 처음 접하는 분들을 위한 완벽 가이드</p>
+                </div>
+                <div class="footer-links">
+                    <h4>바로가기</h4>
+                    <ul>
+                        <li><a href="index.html">홈</a></li>
+                        <li><a href="rules.html">야구 규칙</a></li>
+                        <li><a href="kbo.html">KBO</a></li>
+                        <li><a href="npb.html">NPB</a></li>
+                        <li><a href="mlb.html">MLB</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 야구 입문자 가이드. All Rights Reserved. <span class="update-badge">2025년 기준 최신 정보</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 
