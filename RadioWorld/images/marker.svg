@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-radio">
+  <circle cx="12" cy="12" r="10" />
+  <circle cx="12" cy="12" r="2" />
+  <line x1="16.24" y1="7.76" x2="19.07" y2="4.93" />
+  <line x1="7.76" y1="16.24" x2="4.93" y2="19.07" />
+  <line x1="7.76" y1="7.76" x2="4.93" y2="4.93" />
+  <line x1="16.24" y1="16.24" x2="19.07" y2="19.07" />
+</svg> 
