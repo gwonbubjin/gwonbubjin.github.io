@@ -1,0 +1,527 @@
+:root {
+    /* 라이트 모드 */
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --header-bg: #3498db;
+    --header-text: #fff;
+    --nav-bg: #2980b9;
+    --nav-text: #fff;
+    --card-bg: #fff;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --accent-color: #2980b9;
+    --border-color: #ddd;
+    --player-bg: #e9f2fa;
+    --popup-bg: #fff;
+    --hover-color: #e0e0e0;
+}
+
+/* 다크 모드 */
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #f5f5f5;
+    --header-bg: #1a1a2e;
+    --header-text: #f5f5f5;
+    --nav-bg: #16213e;
+    --nav-text: #f5f5f5;
+    --card-bg: #1e1e30;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --accent-color: #4a96df;
+    --border-color: #333;
+    --player-bg: #1a1a2e;
+    --popup-bg: #1e1e30;
+    --hover-color: #2c2c44;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* 네비게이션 바 (대륙 필터) */
+.continent-filter {
+    display: flex;
+    justify-content: center;
+    background-color: var(--nav-bg);
+    padding: 0.5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.continent-filter button {
+    background: none;
+    border: none;
+    color: var(--nav-text);
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.continent-filter button:hover,
+.continent-filter button.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* 지도 컨테이너 */
+#map-container {
+    height: 400px;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+/* 마커 스타일 - 애니메이션 제거 */
+.map-marker {
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.map-marker.active {
+    z-index: 1000;
+}
+
+/* 애니메이션 키프레임 제거 */
+/* @keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+} */
+
+/* 마커 팝업 스타일 */
+.station-marker-popup .leaflet-popup-content-wrapper {
+    background-color: var(--popup-bg);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.station-marker-popup .leaflet-popup-content {
+    margin: 0;
+    padding: 0;
+}
+
+.station-popup-content {
+    padding: 12px;
+}
+
+.station-popup-content h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.station-popup-content p {
+    margin: 0 0 12px 0;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+}
+
+.station-popup-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.play-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.play-btn:hover {
+    background-color: #1f6aa5;
+    transform: scale(1.05);
+}
+
+.play-btn i {
+    margin-right: 4px;
+}
+
+/* 다크 모드에서 팝업 스타일 조정 */
+body.dark-mode .leaflet-popup-content-wrapper,
+body.dark-mode .leaflet-popup-tip {
+    background-color: var(--popup-bg);
+}
+
+body.dark-mode .leaflet-popup-content h3 {
+    color: var(--text-color);
+}
+
+/* 라디오 플레이어 */
+.radio-player {
+    background-color: var(--player-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.now-playing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.station-info h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.current-station {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.current-country {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+}
+
+.play-pause-btn {
+    background-color: var(--accent-color);
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    margin-right: 1rem;
+    transition: all 0.3s;
+}
+
+.play-pause-btn:hover {
+    transform: scale(1.1);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+}
+
+.volume-control i {
+    margin-right: 0.5rem;
+}
+
+.volume-slider {
+    width: 100px;
+}
+
+/* 방송국 리스트 스타일 개선 */
+.station-list {
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.station-list h2 {
+    margin-bottom: 15px;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.stations-by-continent {
+    margin-bottom: 30px;
+}
+
+.continent-title {
+    font-size: 1.2rem;
+    margin: 15px 0 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+}
+
+.continent-title .continent-emoji {
+    margin-right: 10px;
+}
+
+.station-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    margin: 5px 0;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.station-item:hover {
+    background-color: var(--hover-color);
+}
+
+.station-item.playing {
+    background-color: var(--accent-color-light);
+    border-left: 4px solid var(--accent-color);
+}
+
+.station-info {
+    flex: 1;
+}
+
+.station-name {
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.station-country-genre {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.station-play-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.station-play-btn:hover {
+    background-color: var(--accent-color-dark);
+    transform: scale(1.05);
+}
+
+.playing-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    margin-left: 10px;
+}
+
+/* 팝업 스타일 */
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-container.active {
+    display: flex;
+}
+
+.station-popup {
+    background-color: var(--popup-bg);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80%;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.popup-title {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.popup-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.popup-content {
+    padding: 1rem;
+}
+
+.popup-station-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.popup-station-item:hover {
+    background-color: var(--hover-color);
+}
+
+/* 푸터 */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+    background-color: var(--header-bg);
+    color: var(--header-text);
+}
+
+.api-credit {
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+/* 반응형 레이아웃 */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .continent-filter {
+        padding: 0.25rem;
+    }
+    
+    .continent-filter button {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    #map-container {
+        height: 300px;
+    }
+    
+    .now-playing {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .player-controls {
+        margin-top: 1rem;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .stations-by-continent {
+        margin-bottom: 20px;
+    }
+    
+    .station-item {
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    header p {
+        font-size: 1rem;
+    }
+    
+    .continent-filter button {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
+    }
+    
+    #map-container {
+        height: 250px;
+    }
+    
+    .station-grid {
+        grid-template-columns: 1fr;
+    }
+} 
