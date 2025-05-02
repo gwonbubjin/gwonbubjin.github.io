@@ -162,26 +162,19 @@ document.addEventListener('DOMContentLoaded', function() {
         codeBlock.innerHTML = codeContent;
     }
     
-    // 라이브러리 미리보기 메시지
-    const previewContainers = document.querySelectorAll('.library-preview');
-    
-    if (previewContainers.length > 0) {
-        previewContainers.forEach((container, index) => {
-            const placeholder = document.createElement('div');
-            placeholder.className = 'preview-placeholder';
-            placeholder.innerHTML = `
-                <div class="placeholder-content">
-                    <h4>라이브러리 미리보기</h4>
-                    <p>실제 데모는 준비 중입니다</p>
-                </div>
-            `;
-            
-            // iframe 대신 임시 메시지 표시
-            const frame = container.querySelector('.preview-frame');
-            if (frame) {
-                frame.style.display = 'none';
-                container.appendChild(placeholder);
-            }
+    // 라이브러리 미리보기 효과 (이미지에 대한 추가 효과가 필요하면 여기에 코드 추가)
+    const previewImages = document.querySelectorAll('.preview-image');
+    if (previewImages.length > 0) {
+        previewImages.forEach(img => {
+            // 이미지 로드 오류 시 대체 텍스트 표시
+            img.addEventListener('error', function() {
+                const parent = this.parentElement;
+                parent.innerHTML = `
+                    <div style="padding: 2rem; text-align: center;">
+                        <p>이미지를 불러올 수 없습니다</p>
+                    </div>
+                `;
+            });
         });
     }
 }); 
