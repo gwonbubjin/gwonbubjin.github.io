@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테트리스 게임</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>테트리스</h1>
+        
+        <div class="game-area">
+            <div class="game-info">
+                <div class="score-box">
+                    <h2>점수</h2>
+                    <p id="score">0</p>
+                </div>
+                <div class="next-box">
+                    <h2>다음 블록</h2>
+                    <div id="next-block"></div>
+                </div>
+                <div class="controls-info">
+                    <h2>조작법</h2>
+                    <ul>
+                        <li>← → : 이동</li>
+                        <li>↓ : 빠르게 내리기</li>
+                        <li>↑ : 회전</li>
+                    </ul>
+                </div>
+                <div class="buttons">
+                    <button id="start-button">게임 시작</button>
+                    <button id="pause-button">일시정지</button>
+                    <button id="reset-button">다시하기</button>
+                </div>
+            </div>
+            <div id="game-board"></div>
+        </div>
+        
+        <div id="game-over-message" class="hidden">
+            <div class="message-content">
+                <h2>Game Over</h2>
+                <p>최종 점수: <span id="final-score">0</span></p>
+                <button id="restart-button">다시 시작</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
