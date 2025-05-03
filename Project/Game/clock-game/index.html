@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클록 속도 게임</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>⏱ 클록 속도 게임</h1>
+        <p class="description">1초 간격으로 버튼을 클릭하세요! ±200ms 이내면 성공입니다.</p>
+        
+        <div class="game-area">
+            <div id="message">게임을 시작하려면 시작 버튼을 클릭하세요.</div>
+            
+            <div class="result-area">
+                <div id="last-interval" class="hidden">이전 간격: <span id="interval-value">0</span>ms</div>
+                <div id="error-display" class="hidden">오차: <span id="error-value">0</span>ms</div>
+                <div id="result-message" class="hidden">결과 메시지가 여기 표시됩니다.</div>
+            </div>
+            
+            <div class="progress-container">
+                <div id="progress-text">시도: 0 / 10</div>
+                <div id="success-rate">성공률: 0%</div>
+                <div id="average-error">평균 오차: 0ms</div>
+            </div>
+            
+            <div class="button-container">
+                <button id="start-button" class="btn">시작</button>
+                <button id="click-button" class="btn" disabled>클릭</button>
+                <button id="reset-button" class="btn hidden">다시 시작</button>
+            </div>
+        </div>
+
+        <div id="history-container">
+            <h3>클릭 기록</h3>
+            <ul id="history-list"></ul>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
