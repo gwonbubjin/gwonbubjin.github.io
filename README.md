@@ -1,88 +1,99 @@
-# 🧑‍💻 Gwon Bubjin's Developer Portfolio
+🧑‍💻 Gwon Bubjin's Developer Portfolio
+“기술로 세상을 더 낫게, 디자인으로 더 매력 있게.”
 
-이 프로젝트는 웹 기반 개발자 포트폴리오 웹사이트입니다. HTML, CSS, JavaScript만을 사용해 제작되었으며, 라이트/다크 모드 전환, 반응형 UI, 프로젝트/기술소개, 연락 폼 등을 갖춘 구조입니다.
+이 프로젝트는 순수 HTML, CSS, JavaScript만을 활용하여 제작한 프론트엔드 기반 포트폴리오 웹사이트입니다. 다크/라이트 모드 전환, 반응형 UI, 섹션별 부드러운 스크롤, 이메일 전송 기능(Formspree), 다양한 프로젝트 소개 등 실제 구직 및 전시용으로 적합한 포맷을 갖추고 있습니다.
 
-<br>
+📌 핵심 특징
+기능	설명
+🎨 다크/라이트 모드	상단 토글 버튼으로 테마 전환 (CSS 변수 기반 전환)
+📱 반응형 디자인	모든 해상도에서 최적화된 레이아웃 (모바일, 태블릿, PC)
+✉️ Formspree 연동	Contact 섹션에서 이메일을 통한 문의 가능 (HTML form + POST 방식)
+🔀 부드러운 스크롤	섹션별 내비게이션 클릭 시 자연스럽게 이동하는 스크롤 애니메이션 적용
+🧾 README 스타일	각 프로젝트별 설명 포함된 하위 README와 함께 구조적으로 정돈됨
 
-## 🗂 주요 구성
+🧱 폴더 구조
+bash
+복사
+편집
+gwonbubjin.github.io/
+│
+├── index.html             # 메인 페이지
+├── css/
+│   └── style.css          # 전체 스타일 정의 (다크/라이트 대응)
+├── js/
+│   └── script.js          # 인터랙션 및 동작 제어 (스크롤, 테마 등)
+├── assets/                # 폰트 및 이미지 리소스
+├── Project/               # 프로젝트 소개 (웹 앱, 게임 등)
+│   └── Game/              # 게임 모음 섹션 (각각 README 포함)
+│       ├── clock-game/
+│       ├── tetris/
+│       └── ...
+└── README.md              # 본 문서
+🖥️ 주요 섹션 설명
+1️⃣ Home (홈)
+"Hi, I’m 권법진" 텍스트 등장
 
-### 1. Home (홈 섹션)
-- 자기소개 및 슬로건 (`"Hi, I'm 권법진!"`)
-- 역할 설명: 프론트엔드, 백엔드, 풀스택을 넘나드는 능력 강조
-- 버튼:
-  - `이력서 다운로드 (resume.pdf)`
-  - `GitHub 포트폴리오 바로가기`
-- 디자인: 라이트/다크모드 모두 지원하며, 상단 배경에 애니메이션 효과 존재
+간단한 역할 설명 (프론트엔드 + 풀스택 지향)
 
----
+이력서 다운로드 / GitHub 방문 버튼
 
-### 2. About (소개 섹션)
-- 성장 배경 및 목표 설명
-- 주요 학습 경로: HTML/CSS → JavaScript → React → Node → AI 응용
-- 강조 문구: “기술을 통해 세상을 더 낫게 만들고 싶다” 등 개발자로서의 포부 표현
-- 프로필 이미지 포함 (둥근 테두리 + 애니메이션 효과)
-- 라이트모드에서는 배경에 은은한 패턴이 들어감
+2️⃣ About
+개발자가 되기까지의 여정과 목표 간단 서술
 
----
+주요 학습 루트: HTML/CSS → JS → React → Node → AI 응용
 
-### 3. Skills (보유 기술)
-- 기술 스택 아이콘 나열 (이미지 포함)
-- 항목 구성:
-  - Frontend: React, Next.js, HTML5, CSS3, JavaScript, TypeScript
-  - Backend: Node.js, Express
-  - DB & 기타: Firebase, MongoDB, Git 등
-- 호버 시 카드 애니메이션과 테두리 강조 효과
+"기술로 세상을 바꾸고 싶다"는 개발 철학 표현
 
----
+3️⃣ Skills
+아이콘 기반 기술 스택 나열
+HTML5, CSS3, JavaScript, TypeScript, React, Node.js, Git 등
 
-### 4. Projects (프로젝트 섹션)
-- 팀 프로젝트와 개인 프로젝트를 구분
-- 각 프로젝트에는:
-  - 썸네일 이미지
-  - 제목, 설명
-  - 버튼: [🔗Demo], [📂GitHub], [📝설명]
-- 기술 스택 별 아이콘도 하단에 함께 배치됨
-- 반응형 그리드 구조이며, 각 프로젝트는 카드형으로 표시
+4️⃣ Projects
+하위 프로젝트 폴더 링크
 
----
+각 폴더에 별도 README 포함
 
-### 5. Games (게임 섹션)
-- 사용자가 만든 브라우저 기반 게임들을 모아둔 공간
-- 총 12개 이상의 게임이 구현됨 (예: 테트리스, 기억력 테스트, 타자 연습기, 10초 정지 게임 등)
-- 라이트모드일 때 배경/카드 UI가 자동으로 부드럽게 변경됨
-- 카드형으로 정리되어 있으며 ‘더보기’ 버튼으로 확장 가능
+5️⃣ Contact
+이름, 이메일, 메시지 입력 후 Formspree를 통해 메일 수신
 
----
+입력 유효성 검사 및 제출 완료 시 상태 메시지 표시
 
-### 6. Contact (연락 폼)
-- 이름, 이메일, 메시지를 작성해 개발자에게 직접 이메일 전송 가능
-- **FormSubmit 서비스 연동**을 통해 별도 백엔드 없이 메일 수신 가능
-- 이메일 주소가 `index.html` 내 form action에 하드코딩되어 있음
-- **폼 이용 시 주의사항**:
-  - 입력된 이메일이 존재하지 않거나 유효하지 않을 경우 전송되지 않음
-  - 실사용을 위해선 본인의 이메일로 설정 변경 필요
+🌐 배포 주소
+👉 https://gwonbubjin.github.io
 
----
+⚙️ 기술 스택
+영역	사용 기술
+마크업	HTML5
+스타일링	CSS3 (Dark/Light 테마, 미디어쿼리)
+동작 구현	JavaScript (Vanilla)
+외부 서비스	Formspree (Contact Form 처리)
+버전관리	Git + GitHub Pages
 
-## 🌙 다크/라이트 모드 지원
-- 상단 우측의 버튼을 통해 테마 전환 가능
-- CSS 변수(`:root`, `.light-mode`) 기반으로 전체 테마가 전환됨
-- 다크모드와 라이트모드에 따라 색상, 배경, 그림자, 테두리 등이 자동 조정됨
+💬 사용법
+index.html을 브라우저로 열기
 
----
+Contact 폼 작성 → 이메일 수신 (Formspree 연동 필요)
 
-## 🧩 기술 스택
-| Frontend | Backend | 기타 |
-|----------|---------|------|
-| HTML, CSS, JS, React, Next.js | Node.js, Express | Firebase, MongoDB, Git |
+각 프로젝트는 Project/ 폴더 안에서 실행 가능
 
----
+📌 To Do (업데이트 예정)
+ 🎯 프로젝트별 GitHub Actions 테스트 자동화 추가
 
-## 🛠 설치 및 실행
-```bash
-# 클론
-git clone https://github.com/gwonbubjin/portfolio.git
-cd portfolio
+ 🌐 i18n 다국어 지원 (한국어 / 영어)
 
-# 브라우저에서 열기
-open index.html
+ 📊 방문자 분석(Google Analytics 등) 추가
+
+🧑‍🎓 개발자 소개
+권법진 (Gwon Bubjin)
+
+웹/모바일 풀스택 개발자 지망
+
+관심분야: React, AI + Web, UI/UX 최적화
+
+오픈소스 활동 및 협업 경험 다수
+
+📫 연락처
+이메일: gwonbubjin@example.com
+
+GitHub: @gwonbubjin
+
