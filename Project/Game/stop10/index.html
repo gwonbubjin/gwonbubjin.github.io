@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10초 정지게임</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>10초 정지게임 ⏱️</h1>
+        <p class="description">시작 버튼을 누르고 정확히 10초가 지났다고 느낄 때 정지 버튼을 누르세요!</p>
+        
+        <div class="game-area">
+            <div id="message">준비되셨나요?</div>
+            
+            <div class="result-area">
+                <div id="elapsed-time" class="hidden">경과 시간: <span id="time-value">0</span>초</div>
+                <div id="time-difference" class="hidden">오차: <span id="difference-value">0</span>초</div>
+                <div id="accuracy-message" class="hidden">정확도 메시지가 여기 표시됩니다.</div>
+            </div>
+            
+            <div class="button-container">
+                <button id="start-button" class="btn">시작</button>
+                <button id="stop-button" class="btn" disabled>정지</button>
+                <button id="reset-button" class="btn hidden">다시 시작</button>
+            </div>
+        </div>
+
+        <div id="history-container">
+            <h3>이전 기록</h3>
+            <ul id="history-list"></ul>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
