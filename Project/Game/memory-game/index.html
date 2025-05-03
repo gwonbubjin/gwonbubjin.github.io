@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기억력 카드 매칭 게임</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>기억력 카드 매칭 게임</h1>
+        
+        <div class="game-info">
+            <div class="round-info">
+                <h2>Round <span id="current-round">1</span></h2>
+            </div>
+            <div class="time-info">
+                <h2>남은 시간: <span id="time-left">30</span>초</h2>
+            </div>
+            <div class="attempts-info">
+                <h2>시도 횟수: <span id="attempts">0</span></h2>
+            </div>
+            <div class="pairs-info">
+                <h2>맞춘 쌍: <span id="pairs-found">0</span> / <span id="total-pairs">4</span></h2>
+            </div>
+        </div>
+        
+        <div id="game-board" class="game-board"></div>
+        
+        <div id="message-container" class="message-container hidden">
+            <div class="message-content">
+                <h2 id="message-title">라운드 클리어!</h2>
+                <p id="message-text">훌륭해요! 다음 라운드로 이동하세요.</p>
+                <button id="next-round-btn" class="btn">다음 라운드로!</button>
+                <button id="restart-btn" class="btn">처음부터 다시 시작</button>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="start-btn" class="btn">게임 시작</button>
+            <button id="reset-btn" class="btn">다시 시작</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
