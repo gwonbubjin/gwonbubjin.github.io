@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타자 지옥게임</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-title">
+            <h1>💥 타자 지옥게임</h1>
+            <p class="subtitle">제한시간 내에 단어를 빠르게 입력하세요!</p>
+        </div>
+
+        <div class="game-info">
+            <div class="info-item">
+                <span class="info-label">레벨:</span>
+                <span id="level">1</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">점수:</span>
+                <span id="score">0</span>
+            </div>
+            <div class="info-item timer">
+                <span class="info-label">남은 시간:</span>
+                <span id="timer">5</span>초
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div id="word-display" class="word-display">시작 버튼을 누르세요</div>
+            <input type="text" id="word-input" class="word-input" placeholder="단어를 입력하세요" disabled>
+            <div class="button-area">
+                <button id="start-button" class="game-button">시작하기</button>
+                <button id="restart-button" class="game-button hidden">다시 시작</button>
+            </div>
+        </div>
+
+        <div id="game-over" class="game-over hidden">
+            <div class="game-over-content">
+                <h2>⚠️ 게임 오버!</h2>
+                <p>당신의 최종 점수: <span id="final-score">0</span>점</p>
+                <p>최고 레벨: <span id="final-level">1</span></p>
+                <button id="try-again-button" class="game-button">다시 도전하기</button>
+            </div>
+        </div>
+
+        <div class="game-instructions">
+            <h3>게임 방법</h3>
+            <ul>
+                <li>표시되는 단어를 정확히 입력하고 엔터를 누르세요</li>
+                <li>정확히 입력하면 +1점, 틀리면 시간 감소</li>
+                <li>점수가 쌓일수록 레벨업! 단어가 길어지고 시간이 줄어듭니다</li>
+                <li>시간이 0이 되면 게임 오버!</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
