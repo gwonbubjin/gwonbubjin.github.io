@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>색상 구분 테스트</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 색상 구분 테스트</h1>
+        <p class="description">다른 색상의 블록을 찾아 클릭하세요!</p>
+        
+        <div class="game-info">
+            <div id="level-display">레벨: 1 / 100</div>
+            <div id="timer-display">남은 시간: 10초</div>
+        </div>
+        
+        <div id="game-container">
+            <!-- 색상 블록이 여기에 동적으로 생성됩니다 -->
+        </div>
+        
+        <div id="message-area" class="hidden">
+            <!-- 메시지가 여기에 표시됩니다 -->
+        </div>
+        
+        <div id="game-over-container" class="hidden">
+            <div class="game-over-message">
+                <h2 id="game-over-title">게임 오버!</h2>
+                <p id="game-over-reason"></p>
+                <p id="final-level">당신은 <span id="reached-level">0</span>단계까지 도달했습니다.</p>
+                <p class="retry-question">다시 하시겠습니까?</p>
+                <div class="retry-buttons">
+                    <button id="retry-yes">예</button>
+                    <button id="retry-no">아니요</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="button-container">
+            <button id="start-button">시작하기</button>
+            <button id="reset-button" class="hidden">처음부터</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
