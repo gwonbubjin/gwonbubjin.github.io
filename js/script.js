@@ -33,12 +33,51 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// 폼 제출 처리
+// 폼 제출 처리 (Formspree 통합)
 const contactForm = document.getElementById('contact-form');
-contactForm.addEventListener('submit', (e) => {
+const formStatus = document.getElementById('form-status');
+
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    alert('메시지가 전송되었습니다!');
-    contactForm.reset();
+    
+    // 전송 버튼 비활성화
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = '전송 중...';
+    
+    try {
+        const response = await fetch(contactForm.action, {
+            method: contactForm.method,
+            body: new FormData(contactForm),
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        if (response.ok) {
+            // 성공 메시지 표시
+            formStatus.textContent = '메시지가 성공적으로 전송되었습니다. 감사합니다!';
+            formStatus.className = 'form-status success';
+            contactForm.reset();
+            
+            // 3초 후 메시지 숨기기
+            setTimeout(() => {
+                formStatus.style.display = 'none';
+            }, 3000);
+        } else {
+            const data = await response.json();
+            throw new Error(data.error || '메시지 전송에 실패했습니다.');
+        }
+    } catch (error) {
+        // 오류 메시지 표시
+        formStatus.textContent = error.message || '메시지 전송에 실패했습니다. 다시 시도해 주세요.';
+        formStatus.className = 'form-status error';
+    } finally {
+        // 전송 버튼 복원
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+    }
 });
 
 // 스크롤 시 네비게이션 바 스타일 변경
