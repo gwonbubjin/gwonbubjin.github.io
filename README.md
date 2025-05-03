@@ -13,9 +13,6 @@
 ├── script.js 👉 동작 제어 (스크롤, 테마, 폼 전송 등)
 ├── style.css 👉 테마별 스타일 지정 (다크/라이트, 반응형)
 
-yaml
-복사
-편집
 
 ---
 
@@ -82,7 +79,7 @@ yaml
 
 - 이름: 권법진 (Gwon Bubjin)  
 - GitHub: [gwonbubjin](https://github.com/gwonbubjin)  
-- 이메일: `your_email@example.com` *(Formspree 설정 시 사용)*
+- 이메일: `gwonbubjin@gmail.com` *(Formspree 설정 시 사용)*
 
 ---
 
