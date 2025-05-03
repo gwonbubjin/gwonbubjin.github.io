@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌈 Random Gradient Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🌈 Random Gradient Generator</h1>
+        <div class="gradient-box" id="gradientBox"></div>
+        
+        <!-- 방향 선택 UI 추가 -->
+        <div class="option-section">
+            <h3>그라데이션 방향</h3>
+            <div class="direction-controls">
+                <select id="directionSelect">
+                    <option value="to bottom">↓ 위에서 아래로</option>
+                    <option value="to right">→ 왼쪽에서 오른쪽으로</option>
+                    <option value="to top right">↗ 왼쪽 아래에서 오른쪽 위로</option>
+                    <option value="to bottom right">↘ 왼쪽 위에서 오른쪽 아래로</option>
+                    <option value="to left">← 오른쪽에서 왼쪽으로</option>
+                    <option value="to top">↑ 아래에서 위로</option>
+                    <option value="to top left">↖ 오른쪽 아래에서 왼쪽 위로</option>
+                    <option value="to bottom left">↙ 오른쪽 위에서 왼쪽 아래로</option>
+                </select>
+                <label class="angle-label">
+                    <input type="checkbox" id="useAngleCheckbox"> 각도 사용
+                    <input type="range" id="angleSlider" min="0" max="360" value="180" disabled>
+                    <span id="angleValue">180°</span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="twoColorBtn">2색 그라데이션</button>
+            <button id="threeColorBtn">3색 그라데이션</button>
+        </div>
+        
+        <!-- 색상 선택 UI 추가 -->
+        <div class="option-section">
+            <h3>직접 색상 선택</h3>
+            <div class="color-pickers">
+                <div class="color-picker">
+                    <label for="color1">색상 1</label>
+                    <input type="color" id="color1" value="#ff5733">
+                </div>
+                <div class="color-picker">
+                    <label for="color2">색상 2</label>
+                    <input type="color" id="color2" value="#33c4ff">
+                </div>
+                <div class="color-picker">
+                    <label for="color3">색상 3</label>
+                    <input type="color" id="color3" value="#70ff33">
+                </div>
+                <button id="applyCustomColorsBtn">직접 설정 적용</button>
+            </div>
+        </div>
+        
+        <div class="color-info" id="colorInfo">
+            <p>CSS 코드: <span id="cssCode"></span></p>
+            <button id="copyBtn">복사하기</button>
+            <div id="copyNotification" class="notification hidden">복사 완료!</div>
+        </div>
+        
+        <!-- 히스토리 UI 추가 -->
+        <div class="history-section">
+            <h3>최근 생성 기록 (최대 5개)</h3>
+            <div class="history-list" id="historyList"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
