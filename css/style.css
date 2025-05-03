@@ -1093,6 +1093,30 @@ body.light-mode .show-all .btn:hover,
     resize: vertical;
 }
 
+/* 폼 상태 메시지 스타일 */
+.form-status {
+    margin-top: 20px;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    text-align: center;
+    display: none;
+}
+
+.form-status.success {
+    display: block;
+    background-color: rgba(39, 174, 96, 0.1);
+    color: #27ae60;
+    border: 1px solid #27ae60;
+}
+
+.form-status.error {
+    display: block;
+    background-color: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+
 /* About 섹션 */
 #about {
     position: relative;
@@ -1861,87 +1885,44 @@ body.light-mode .hidden-rows,
     z-index: 1;
 }
 
-/* 라이트모드에서 게임 섹션 배경색 강제 적용 */
-body.light-mode #games,
-body.light-mode .games-container {
-    background-color: #ffffff !important;
-    color: #1e1e1e !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-}
-
-.light-mode .container {
+/* 라이트모드에서 게임 섹션 스타일 향상 */
+.light-mode #games {
+    background-color: var(--background-color);
     position: relative;
-    z-index: 2;
 }
 
-/* 라이트모드에서만 프로젝트 카드와 섹션 스타일 개선 */
-.light-mode .project-card {
-    border: 2px solid #d0d7de;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+.light-mode #games::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(225deg, rgba(67, 97, 238, 0.03), transparent 70%);
+    z-index: 0;
 }
 
-.light-mode .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    border-color: #6ea8fe;
-}
-
-.light-mode .library-item {
-    border: 2px solid #d0d7de;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.light-mode .library-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    border-color: #6ea8fe;
+.light-mode .games-container {
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 20px -10px rgba(66, 99, 235, 0.2);
+    border-radius: 16px;
+    border: 1px solid rgba(66, 99, 235, 0.1);
+    padding: 30px;
 }
 
 .light-mode .games-row .project-card, 
 .light-mode .hidden-rows .project-card {
-    border: 2px solid #d0d7de;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    background: linear-gradient(135deg, #fff, #f9fafb);
+    border: 1px solid rgba(66, 99, 235, 0.1);
+    box-shadow: 0 8px 15px -10px rgba(66, 99, 235, 0.15);
+    transition: all 0.3s ease;
 }
 
 .light-mode .games-row .project-card:hover, 
 .light-mode .hidden-rows .project-card:hover {
     transform: translateY(-5px);
-    border-color: #6ea8fe;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.light-mode .project-group {
-    border-radius: 12px;
-    padding: 30px;
-    margin-bottom: 50px;
-    background-color: rgba(208, 215, 222, 0.1);
-    border-left: 4px solid #d0d7de;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
-}
-
-.light-mode .project-group:hover {
-    border-left-color: #6ea8fe;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-}
-
-/* 라이트모드 향상 스타일 (2023 업데이트) */
-:root .light-mode {
-    --background-color: #f0f4f8;
-    --text-color: #2d3748;
-    --secondary-color: #e8f0fe;
-    --primary-color: #4361ee;
-    --primary-hover: #3a56d4;
-    --box-shadow: 0 8px 25px -5px rgba(66, 99, 235, 0.15);
-    --heading-color: #2c3e50;
-    --card-title-color: #4361ee;
-    --card-text-color: #4a5568;
-    --card-bg-color: #f9fafb;
-    --button-text-color: #fff;
-    --button-bg-color: #4361ee;
-    --button-hover-color: #3a56d4;
+    border-color: rgba(66, 99, 235, 0.2);
+    box-shadow: 0 12px 20px -10px rgba(66, 99, 235, 0.25);
 }
 
 /* 라이트모드에서 카드와 컨테이너 향상 스타일 */
@@ -2042,44 +2023,4 @@ body.light-mode .games-container {
 .light-mode .dropdown-menu a:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: #ffffff !important;
-}
-
-/* 라이트모드에서 게임 섹션 스타일 향상 */
-.light-mode #games {
-    background-color: var(--background-color);
-    position: relative;
-}
-
-.light-mode #games::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(225deg, rgba(67, 97, 238, 0.03), transparent 70%);
-    z-index: 0;
-}
-
-.light-mode .games-container {
-    background-color: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 8px 20px -10px rgba(66, 99, 235, 0.2);
-    border-radius: 16px;
-    border: 1px solid rgba(66, 99, 235, 0.1);
-    padding: 30px;
-}
-
-.light-mode .games-row .project-card, 
-.light-mode .hidden-rows .project-card {
-    background: linear-gradient(135deg, #fff, #f9fafb);
-    border: 1px solid rgba(66, 99, 235, 0.1);
-    box-shadow: 0 8px 15px -10px rgba(66, 99, 235, 0.15);
-    transition: all 0.3s ease;
-}
-
-.light-mode .games-row .project-card:hover, 
-.light-mode .hidden-rows .project-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(66, 99, 235, 0.2);
-    box-shadow: 0 12px 20px -10px rgba(66, 99, 235, 0.25);
 } 
