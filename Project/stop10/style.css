@@ -1,0 +1,227 @@
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 30px 0;
+}
+
+.container {
+    max-width: 600px;
+    width: 90%;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: center;
+}
+
+h1 {
+    color: #3498db;
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+}
+
+.description {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.game-area {
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#message {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+    min-height: 40px;
+    color: #2c3e50;
+}
+
+.result-area {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#elapsed-time, #time-difference {
+    font-weight: 500;
+}
+
+#time-value, #difference-value {
+    font-weight: bold;
+    color: #3498db;
+}
+
+#accuracy-message {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.excellent {
+    color: #2ecc71;
+}
+
+.good {
+    color: #3498db;
+}
+
+.average {
+    color: #f39c12;
+}
+
+.poor {
+    color: #e74c3c;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#start-button {
+    background-color: #2ecc71;
+    color: white;
+}
+
+#start-button:hover {
+    background-color: #27ae60;
+}
+
+#stop-button {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#stop-button:hover {
+    background-color: #c0392b;
+}
+
+#reset-button {
+    background-color: #3498db;
+    color: white;
+}
+
+#reset-button:hover {
+    background-color: #2980b9;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 이전 기록 컨테이너 */
+#history-container {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+#history-container h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+#history-list {
+    list-style-type: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#history-list li {
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+#history-list li:last-child {
+    border-bottom: none;
+}
+
+.history-attempt {
+    font-weight: bold;
+}
+
+.history-time {
+    color: #3498db;
+}
+
+.history-difference {
+    font-weight: bold;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .description {
+        font-size: 1rem;
+    }
+    
+    .game-area {
+        padding: 20px;
+    }
+    
+    .button-container {
+        flex-wrap: wrap;
+    }
+    
+    .btn {
+        flex: 1 1 40%;
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+} 
