@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 맞히기 게임 (업다운 게임)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>숫자 맞히기 게임</h1>
+        <p class="description">1부터 100까지의 숫자 중 하나를 맞혀보세요!</p>
+        
+        <div class="game-box">
+            <div class="input-section">
+                <input type="number" id="user-input" min="1" max="100" placeholder="1~100 사이 숫자 입력">
+                <button id="check-btn">확인</button>
+            </div>
+            
+            <div class="result-section">
+                <p id="result-message">게임을 시작하려면 숫자를 입력하세요.</p>
+                <p class="hint-text">남은 기회: <span id="attempts-left">10</span>번</p>
+                <div id="history-container">
+                    <h3>입력 기록</h3>
+                    <ul id="guess-history"></ul>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div id="progress-fill"></div>
+                </div>
+                <p>기회: <span id="attempts-count">0</span>/10</p>
+            </div>
+            
+            <button id="restart-btn">다시 시작</button>
+        </div>
+        
+        <div id="game-over-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="modal-title">게임 오버!</h2>
+                <p id="modal-message">모든 기회를 사용했습니다.</p>
+                <p id="answer-reveal">정답은 <span id="correct-answer"></span>입니다.</p>
+                <button id="modal-restart-btn">새 게임 시작</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
