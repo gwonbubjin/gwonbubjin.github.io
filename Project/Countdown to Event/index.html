@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🗓️ Countdown to Event</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗓️ Countdown to Event</h1>
+            <p class="description">
+                이 미니앱은 사용자가 입력한 특정 날짜까지 남은 일수(Day)를 실시간으로 계산하여 보여주는 웹 애플리케이션입니다.<br>
+                JavaScript의 Date 객체를 활용해 오늘 날짜와 목표 날짜 간의 차이를 계산하고,<br>
+                남은 일수를 직관적으로 보여줍니다.<br><br>
+                
+                사용자는 생일, 시험일, 여행 출발일, 기념일 등 원하는 날짜를 선택할 수 있으며,<br>
+                목표일이 가까워질수록 디자인 변화를 통해 긴박감을 느낄 수 있도록 제작되었습니다.
+            </p>
+        </header>
+        
+        <div class="countdown-container">
+            <div class="date-input">
+                <label for="event-date">이벤트 날짜 선택:</label>
+                <input type="date" id="event-date">
+                <button id="calculate-btn">계산하기</button>
+            </div>
+            
+            <div class="event-name-container">
+                <label for="event-name">이벤트 이름 (선택사항):</label>
+                <input type="text" id="event-name" placeholder="예: 생일, 여행, 시험일 등">
+            </div>
+            
+            <div class="result-container">
+                <div id="countdown-result" class="hidden">
+                    <h2 id="event-title">D-DAY</h2>
+                    <div class="countdown">
+                        <div id="days-display">0</div>
+                        <div id="message-display"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="tech-icons">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" title="HTML5">
+            </div>
+            <p>Made with ❤️ by Gwon Bubjin</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
