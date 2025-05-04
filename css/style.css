@@ -1,4 +1,4 @@
-:root {
+:root, [data-theme="dark"] {
     --primary-color: #00d9ff;
     --primary-hover: #00b8d9;
     --background-color: #0a192f;
@@ -19,7 +19,8 @@
     --button-hover-color: #5262c7;
 }
 
-.light-mode {
+/* 라이트 모드 변수 */
+[data-theme="light"], .light-mode {
     --background-color: #f8f9fa;
     --text-color: #1e1e1e;
     --secondary-color: #e9ecef;
@@ -1793,7 +1794,8 @@ section#projects h2,
 }
 
 /* 추가 비주얼 요소 */
-.light-mode .section::after {
+.light-mode .section::after,
+[data-theme="light"] .section::after {
     content: '';
     position: absolute;
     top: 0;
@@ -1874,18 +1876,24 @@ section#projects h2,
 
 /* 라이트모드일 때 게임 카드 버튼 스타일 조정 */
 body.light-mode .project-card .buttons .btn,
-.light-mode .project-card .buttons .btn {
+.light-mode .project-card .buttons .btn,
+body[data-theme="light"] .project-card .buttons .btn,
+[data-theme="light"] .project-card .buttons .btn {
     background-color: #4d7cff;
 }
 
 body.light-mode .project-card .buttons .btn:hover,
-.light-mode .project-card .buttons .btn:hover {
+.light-mode .project-card .buttons .btn:hover,
+body[data-theme="light"] .project-card .buttons .btn:hover,
+[data-theme="light"] .project-card .buttons .btn:hover {
     background-color: #3a5bbf;
 }
 
 /* 숨겨진 행 스타일 조정 */
 body.light-mode .hidden-rows,
-.light-mode .hidden-rows {
+.light-mode .hidden-rows,
+body[data-theme="light"] .hidden-rows,
+[data-theme="light"] .hidden-rows {
     background-color: transparent;
 }
 
@@ -1895,13 +1903,19 @@ body.light-mode .hidden-rows,
     .light-mode #skills::before,
     .light-mode #projects::before,
     .light-mode .project-group:nth-child(even)::before,
-    .light-mode #contact::before {
+    .light-mode #contact::before,
+    [data-theme="light"] #about::before,
+    [data-theme="light"] #skills::before,
+    [data-theme="light"] #projects::before,
+    [data-theme="light"] .project-group:nth-child(even)::before,
+    [data-theme="light"] #contact::before {
         background: linear-gradient(165deg, transparent 75%, rgba(106, 130, 251, 0.1) 75%);
     }
 }
 
 /* 추가 비주얼 요소 */
-.light-mode .section::after {
+.light-mode .section::after,
+[data-theme="light"] .section::after {
     content: '';
     position: absolute;
     top: 0;
@@ -1914,12 +1928,14 @@ body.light-mode .hidden-rows,
 }
 
 /* 라이트모드에서 게임 섹션 스타일 향상 */
-.light-mode #games {
+.light-mode #games,
+[data-theme="light"] #games {
     background-color: var(--background-color);
     position: relative;
 }
 
-.light-mode #games::before {
+.light-mode #games::before,
+[data-theme="light"] #games::before {
     content: '';
     position: absolute;
     top: 0;
@@ -2013,42 +2029,51 @@ body.light-mode .hidden-rows,
 }
 
 /* 라이트모드에서 내비게이션 바 스타일 향상 */
-.light-mode .navbar {
+.light-mode .navbar,
+[data-theme="light"] .navbar {
     background: rgba(67, 97, 238, 0.95) !important;
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 20px rgba(67, 97, 238, 0.2);
 }
 
-.light-mode .nav-links a {
+.light-mode .nav-links a,
+[data-theme="light"] .nav-links a {
     color: #ffffff !important;
 }
 
-.light-mode .nav-links a:hover {
+.light-mode .nav-links a:hover,
+[data-theme="light"] .nav-links a:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: #ffffff !important;
 }
 
-.light-mode .logo {
+.light-mode .logo,
+[data-theme="light"] .logo {
     color: #ffffff !important;
 }
 
-.light-mode #theme-toggle {
+.light-mode #theme-toggle,
+[data-theme="light"] #theme-toggle {
     color: #ffffff !important;
 }
 
-.light-mode #theme-toggle:hover {
+.light-mode #theme-toggle:hover,
+[data-theme="light"] #theme-toggle:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.light-mode .dropdown-menu {
+.light-mode .dropdown-menu,
+[data-theme="light"] .dropdown-menu {
     background-color: rgba(67, 97, 238, 0.95);
 }
 
-.light-mode .dropdown-menu a {
+.light-mode .dropdown-menu a,
+[data-theme="light"] .dropdown-menu a {
     color: #ffffff !important;
 }
 
-.light-mode .dropdown-menu a:hover {
+.light-mode .dropdown-menu a:hover,
+[data-theme="light"] .dropdown-menu a:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: #ffffff !important;
 } 
