@@ -2,10 +2,37 @@
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 
-themeToggle.addEventListener('click', () => {
-    body.classList.toggle('light-mode');
+// 로컬 스토리지에서 저장된 테마 가져오기
+function getStoredTheme() {
+    return localStorage.getItem('theme') || 'dark'; // 기본값은 'dark'
+}
+
+// 테마 적용 함수
+function applyTheme(theme) {
+    if (theme === 'light') {
+        body.classList.add('light-mode');
+        body.setAttribute('data-theme', 'light');
+    } else {
+        body.classList.remove('light-mode');
+        body.setAttribute('data-theme', 'dark');
+    }
     updateThemeIcon();
-});
+}
+
+// 테마 전환 및 저장 함수
+function toggleTheme() {
+    const currentTheme = body.classList.contains('light-mode') ? 'light' : 'dark';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    // 테마 적용
+    applyTheme(newTheme);
+    
+    // 로컬 스토리지에 저장
+    localStorage.setItem('theme', newTheme);
+}
+
+// 테마 토글 버튼 이벤트 리스너
+themeToggle.addEventListener('click', toggleTheme);
 
 // 테마 아이콘 업데이트 함수
 function updateThemeIcon() {
@@ -37,48 +64,50 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
 
-contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    // 전송 버튼 비활성화
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalBtnText = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = '전송 중...';
-    
-    try {
-        const response = await fetch(contactForm.action, {
-            method: contactForm.method,
-            body: new FormData(contactForm),
-            headers: {
-                'Accept': 'application/json'
-            }
-        });
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
         
-        if (response.ok) {
-            // 성공 메시지 표시
-            formStatus.textContent = '메시지가 성공적으로 전송되었습니다. 감사합니다!';
-            formStatus.className = 'form-status success';
-            contactForm.reset();
+        // 전송 버튼 비활성화
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = '전송 중...';
+        
+        try {
+            const response = await fetch(contactForm.action, {
+                method: contactForm.method,
+                body: new FormData(contactForm),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
             
-            // 3초 후 메시지 숨기기
-            setTimeout(() => {
-                formStatus.style.display = 'none';
-            }, 3000);
-        } else {
-            const data = await response.json();
-            throw new Error(data.error || '메시지 전송에 실패했습니다.');
+            if (response.ok) {
+                // 성공 메시지 표시
+                formStatus.textContent = '메시지가 성공적으로 전송되었습니다. 감사합니다!';
+                formStatus.className = 'form-status success';
+                contactForm.reset();
+                
+                // 3초 후 메시지 숨기기
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 3000);
+            } else {
+                const data = await response.json();
+                throw new Error(data.error || '메시지 전송에 실패했습니다.');
+            }
+        } catch (error) {
+            // 오류 메시지 표시
+            formStatus.textContent = error.message || '메시지 전송에 실패했습니다. 다시 시도해 주세요.';
+            formStatus.className = 'form-status error';
+        } finally {
+            // 전송 버튼 복원
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
         }
-    } catch (error) {
-        // 오류 메시지 표시
-        formStatus.textContent = error.message || '메시지 전송에 실패했습니다. 다시 시도해 주세요.';
-        formStatus.className = 'form-status error';
-    } finally {
-        // 전송 버튼 복원
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalBtnText;
-    }
-});
+    });
+}
 
 // 스크롤 시 네비게이션 바 스타일 변경
 window.addEventListener('scroll', () => {
@@ -92,8 +121,9 @@ window.addEventListener('scroll', () => {
 
 // 문서 로드 완료 시 실행
 document.addEventListener('DOMContentLoaded', function() {
-    // 페이지 로드 시 현재 테마에 맞게 아이콘 업데이트
-    updateThemeIcon();
+    // 저장된 테마 적용
+    const savedTheme = getStoredTheme();
+    applyTheme(savedTheme);
     
     // 홈 버튼 클릭 가능하도록 설정
     const homeButtons = document.querySelectorAll('.home-buttons a');
