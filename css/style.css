@@ -317,13 +317,36 @@ h2 {
     background-color: rgba(0, 217, 255, 0.1);
 }
 
-/* 라이트 모드에서 GitHub 이동 버튼 텍스트 색상 변경 */
+/* 라이트 모드에서 모든 GitHub 버튼(btn-outline) 텍스트 색상 변경 */
+.light-mode .btn-outline {
+    color: white;
+    background-color: rgba(0, 102, 204, 0.8);
+    border: 2px solid var(--primary-color);
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 102, 204, 0.3);
+}
+
+.light-mode .btn-outline:hover {
+    color: white;
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 102, 204, 0.4);
+}
+
+/* 라이트 모드에서 GitHub 이동 버튼 텍스트 색상 변경 유지 */
 .light-mode .home-buttons .btn-outline {
     color: white;
+    background-color: rgba(0, 102, 204, 0.8);
+    border: 2px solid var(--primary-color);
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 102, 204, 0.3);
 }
 
 .light-mode .home-buttons .btn-outline:hover {
     color: white;
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 102, 204, 0.4);
 }
 
 .social-icons {
