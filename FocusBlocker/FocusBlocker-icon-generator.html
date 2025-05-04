@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FocusBlocker 아이콘 생성기</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+      font-family: sans-serif;
+    }
+    .container {
+      text-align: center;
+    }
+    canvas {
+      border: 1px solid #ddd;
+      margin: 20px;
+    }
+    .icon-preview {
+      margin: 20px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    button {
+      padding: 8px 16px;
+      background-color: #6366f1;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    button:hover {
+      background-color: #4f46e5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>FocusBlocker 아이콘 생성기</h1>
+    <div class="icon-preview">
+      <h2>아이콘 미리보기</h2>
+      <svg id="icon-svg" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24" fill="none" stroke="#6a67a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10" fill="#e8ebf8"/>
+        <path d="M12 8v8M8 12h8" fill="none"/>
+      </svg>
+      <h3>128x128 PNG</h3>
+      <canvas id="icon-canvas" width="128" height="128"></canvas>
+      <br>
+      <button id="download-btn">아이콘 다운로드</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const svg = document.getElementById('icon-svg');
+      const canvas = document.getElementById('icon-canvas');
+      const ctx = canvas.getContext('2d');
+      const downloadBtn = document.getElementById('download-btn');
+      
+      // SVG를 이미지로 변환
+      function drawIcon() {
+        // SVG를 데이터 URL로 변환
+        const svgData = new XMLSerializer().serializeToString(svg);
+        const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+        const svgUrl = URL.createObjectURL(svgBlob);
+        
+        // 이미지 생성
+        const img = new Image();
+        img.onload = function() {
+          // 캔버스 초기화
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          
+          // 배경색 채우기 (원형)
+          ctx.fillStyle = '#6366f1';
+          ctx.beginPath();
+          ctx.arc(64, 64, 60, 0, Math.PI * 2);
+          ctx.fill();
+          
+          // SVG 이미지 그리기
+          ctx.drawImage(img, 0, 0, 128, 128);
+          
+          // URL 해제
+          URL.revokeObjectURL(svgUrl);
+        };
+        img.src = svgUrl;
+      }
+      
+      // 아이콘 다운로드
+      downloadBtn.addEventListener('click', function() {
+        const dataUrl = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.download = 'FocusBlocker.png';
+        link.href = dataUrl;
+        link.click();
+      });
+      
+      // 초기 아이콘 그리기
+      drawIcon();
+    });
+  </script>
+</body>
+</html> 

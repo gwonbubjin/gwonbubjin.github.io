@@ -1,0 +1,93 @@
+/* FocusBlocker 차단 화면 스타일 */
+/* 이 파일은 전체 화면 차단 메시지를 표시할 때 필요한 스타일을 정의합니다 */
+/* 대부분의 스타일은 content.js에서 동적으로 생성되지만, 필요한 경우 이 파일에 추가 스타일을 정의할 수 있습니다 */
+
+.focus-blocker-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.focus-blocker-container {
+  max-width: 600px;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.focus-blocker-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.focus-blocker-message {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.focus-blocker-highlight {
+  color: #ffd166;
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin: 1.5rem 0;
+}
+
+.focus-blocker-btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  margin: 0.5rem;
+  border-radius: 50px;
+  background-color: white;
+  color: #6246ea;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.focus-blocker-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.focus-blocker-btn-outline {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.focus-blocker-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.focus-blocker-slide-up {
+  animation: slideUp 0.5s 0.2s ease backwards;
+} 

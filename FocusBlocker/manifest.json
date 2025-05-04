@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "FocusBlocker",
+  "version": "1.0",
+  "description": "집중력 향상을 위해 특정 웹사이트를 차단하는 확장 프로그램",
+  "permissions": [
+    "storage",
+    "tabs",
+    "webNavigation",
+    "sidePanel",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_title": "FocusBlocker",
+    "default_icon": "FocusBlocker.png"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "48": "FocusBlocker.png",
+    "128": "FocusBlocker.png"
+  }
+} 
