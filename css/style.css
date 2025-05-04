@@ -290,9 +290,7 @@ h2 {
 .home-buttons {
     display: flex;
     gap: 1rem;
-    margin-bottom: 2.5rem;
-    position: relative;
-    z-index: 50;
+    margin-top: 2rem;
 }
 
 .home-buttons a {
@@ -313,11 +311,19 @@ h2 {
     background-color: transparent;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
-    cursor: pointer;
 }
 
 .btn-outline:hover {
-    background-color: rgba(100, 255, 218, 0.1);
+    background-color: rgba(0, 217, 255, 0.1);
+}
+
+/* 라이트 모드에서 GitHub 이동 버튼 텍스트 색상 변경 */
+.light-mode .home-buttons .btn-outline {
+    color: white;
+}
+
+.light-mode .home-buttons .btn-outline:hover {
+    color: white;
 }
 
 .social-icons {
@@ -698,8 +704,7 @@ h2 {
 }
 
 .btn-outline:hover {
-    background-color: var(--primary-color);
-    color: var(--background-color);
+    background-color: rgba(0, 217, 255, 0.1);
 }
 
 .library-preview {
