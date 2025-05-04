@@ -1,0 +1,376 @@
+/* 기본 스타일 */
+:root {
+  --primary: #7B68EE;
+  --primary-dark: #6A5ACD;
+  --secondary: #F5F5F5;
+  --accent: #FF7043;
+  --accent-hover: #FF5722;
+  --text: #333333;
+  --text-light: #666666;
+  --background: #FFFFFF;
+  --card-bg: #F9F9F9;
+  --border: #E0E0E0;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --radius: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  background-color: var(--background);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+ul, ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+code {
+  background-color: var(--card-bg);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  color: var(--accent);
+}
+
+/* 헤더 스타일 */
+header {
+  background-color: var(--primary);
+  padding: 4rem 0;
+  color: white;
+  text-align: center;
+  border-bottom: 5px solid var(--primary-dark);
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 섹션 스타일 */
+section {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+section h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: var(--primary-dark);
+  position: relative;
+}
+
+section h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary);
+  margin: 1rem auto 0;
+}
+
+/* 소개 섹션 스타일 */
+.intro p {
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.feature-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature {
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: 0 4px 6px var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--shadow);
+}
+
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature h3 {
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.feature p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+/* 설치 방법 섹션 스타일 */
+.installation-steps {
+  counter-reset: step;
+  list-style: none;
+  margin-left: 0;
+}
+
+.installation-steps li {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-left: 3rem;
+}
+
+.installation-steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.installation-steps strong {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-dark);
+}
+
+/* 이미지 컨테이너 스타일 */
+.image-container {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px var(--shadow);
+  text-align: center;
+}
+
+.demo-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  display: block;
+  margin: 0 auto;
+}
+
+.caption {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* 사용 방법 섹션 스타일 */
+.usage-step {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+.usage-step:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.usage-step h3 {
+  color: var(--primary-dark);
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+}
+
+/* 다운로드 섹션 스타일 */
+.download {
+  text-align: center;
+  background-color: var(--card-bg);
+  padding: 4rem 2rem;
+  margin: 2rem 0;
+  border-radius: var(--radius);
+}
+
+.download p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.download-button {
+  display: inline-block;
+  background-color: var(--accent);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.download-button:hover {
+  background-color: var(--accent-hover);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* 기술 정보 섹션 스타일 */
+.tech-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.tech-item {
+  flex: 1;
+  min-width: 300px;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px var(--shadow);
+}
+
+.tech-item h3 {
+  color: var(--primary-dark);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-item ul {
+  margin-bottom: 0;
+}
+
+.tech-item li {
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+}
+
+/* 푸터 스타일 */
+footer {
+  background-color: var(--primary-dark);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+footer p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  header {
+    padding: 3rem 0;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+  section {
+    padding: 3rem 0;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+  }
+
+  .feature {
+    min-width: 100%;
+  }
+
+  .tech-item {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 2rem 0;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .installation-steps li {
+    padding-left: 2.5rem;
+  }
+
+  .installation-steps strong {
+    font-size: 1.1rem;
+  }
+
+  .download-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+} 
