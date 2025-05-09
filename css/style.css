@@ -531,11 +531,11 @@ h2 {
 }
 
 .skill-item img {
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 1.5rem;
-    transition: var(--transition);
+    width: 100%;
+    height: 100%;
     object-fit: contain;
+    max-height: 50px;
+    transition: transform 0.3s ease;
 }
 
 .skill-icons {
@@ -546,10 +546,11 @@ h2 {
 }
 
 .skill-icons img {
-    width: 3rem;
-    height: 3rem;
-    margin: 0;
+    width: 30px;
+    height: 30px;
     object-fit: contain;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
 }
 
 .skill-item:hover {
@@ -621,12 +622,10 @@ h2 {
 
 .project-card img {
     width: 100%;
-    height: 200px;
-    object-fit: contain;   /* 이미지를 비율대로 전체 보이게 */
-    object-position: center; /* 중앙 정렬 */
-    display: block;
-    margin: 0 auto;
-    background-color: #fff; /* 배경 정리 */
+    height: 280px;
+    object-fit: cover;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    transition: var(--transition);
 }
 
 .project-card h3 {
@@ -759,10 +758,8 @@ h2 {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    max-height: 100%;
-    padding: 10px;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease;
 }
 
 /* 기존 iframe 스타일은 더 이상 필요없으나 참고용으로 남겨둠 */
@@ -936,9 +933,8 @@ body.light-mode .hidden-rows .project-card,
 
 .games-row .project-card img, .hidden-rows .project-card img {
     width: 100%;
-    height: 180px;
-    object-fit: contain;
-    background-color: #fff;
+    height: 200px;
+    object-fit: cover;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -1220,8 +1216,8 @@ body.light-mode .show-all .btn:hover,
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
-    transition: var(--transition);
+    border-radius: 20px;
+    transition: transform 0.3s ease;
 }
 
 .profile-image:hover img {
@@ -1482,8 +1478,9 @@ section#projects h2,
 
 .game-card img {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
 .game-card-content {
@@ -1564,10 +1561,11 @@ section#projects h2,
 }
 
 .tech-icons img {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     object-fit: contain;
-    transition: transform 0.3s ease;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
 }
 
 .tech-icons img:hover {
@@ -1788,7 +1786,12 @@ section#projects h2,
     .light-mode #skills::before,
     .light-mode #projects::before,
     .light-mode .project-group:nth-child(even)::before,
-    .light-mode #contact::before {
+    .light-mode #contact::before,
+    [data-theme="light"] #about::before,
+    [data-theme="light"] #skills::before,
+    [data-theme="light"] #projects::before,
+    [data-theme="light"] .project-group:nth-child(even)::before,
+    [data-theme="light"] #contact::before {
         background: linear-gradient(165deg, transparent 75%, rgba(106, 130, 251, 0.1) 75%);
     }
 }
@@ -1805,11 +1808,6 @@ section#projects h2,
     background: linear-gradient(90deg, rgba(106, 130, 251, 0.7), rgba(148, 130, 238, 0.7));
     opacity: 0.3;
     z-index: 1;
-}
-
-.light-mode .container {
-    position: relative;
-    z-index: 2;
 }
 
 /* 라이트 모드에서 섹션 배경 강화 */
@@ -2076,4 +2074,64 @@ body[data-theme="light"] .hidden-rows,
 [data-theme="light"] .dropdown-menu a:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: #ffffff !important;
+}
+
+/* 모든 이미지 태그 포함 컨테이너에 대한 일반 스타일 */
+.img-container {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 프로젝트 이미지 박스에 대한 스타일 */
+.project-img-box {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 포트폴리오 이미지 박스에 대한 스타일 */
+.portfolio-img-box {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+
+.portfolio-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 스킬 아이템 이미지 스타일 업데이트 */
+.skill-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-height: 50px;
+    transition: transform 0.3s ease;
+}
+
+/* 기술 아이콘 이미지 스타일 업데이트 */
+.tech-icons img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
 } 
